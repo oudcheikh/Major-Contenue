@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>دفتر ماجور 6AF — Templates</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+<style>
+
+/* ══════════════════════════════════════════════
+   BASE
+══════════════════════════════════════════════ */
+:root {
+  --paper:  #fffdf8;
+  --ink:    #111827;
+  --muted:  #6b7280;
+  --line:   #e5e0d5;
+
+  /* Arabe / Nahw */
+  --c:      #6d28d9;
+  --c-mid:  #7c3aed;
+  --c-l:    #ede9fe;
+  --c-d:    #3b0764;
+
+  font-family: 'Cairo', Tahoma, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #cbd5e1;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* ══════════════════════════════════════════════
+   PAGE A4
+══════════════════════════════════════════════ */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  background: var(--paper);
+  display: flex;
+  flex-direction: row;          /* spine à droite RTL */
+  box-shadow: 0 16px 56px rgba(0,0,0,.28);
+  border-radius: 24px 0 0 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Spine */
+.spine {
+  width: 13mm;
+  background: linear-gradient(180deg, var(--c-d), var(--c));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  flex-shrink: 0;
+  border-radius: 0 0 0 0;
+}
+.holes { display: flex; flex-direction: column; gap: 10px; }
+.hole {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.1);
+}
+.spine-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 7px; font-weight: 900; letter-spacing: 2px;
+  color: rgba(255,255,255,.35);
+}
+
+/* Onglets matières */
+.tabs {
+  width: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.tab {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
+  writing-mode: vertical-rl;
+  font-size: 6.5px; font-weight: 900; letter-spacing: .5px;
+  color: rgba(255,255,255,.4);
+  transition: color .2s;
+}
+.tab.on { color: #fff; }
+
+/* Main */
+.page-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 297mm;
+}
+
+/* ── Top strip (header) ── */
+.top-strip {
+  background: var(--c);
+  padding: 7px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.brand {
+  display: flex; align-items: center; gap: 7px;
+}
+.brand-logo {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+.brand-name { font-size: 10px; font-weight: 900; color: #fff; }
+.brand-sub  { font-size: 7.5px; color: rgba(255,255,255,.65); }
+.strip-right { display: flex; align-items: center; gap: 8px; }
+.mat-tag {
+  background: rgba(255,255,255,.18);
+  border: 1.5px solid rgba(255,255,255,.3);
+  color: #fff; font-size: 9px; font-weight: 900;
+  padding: 3px 12px; border-radius: 999px;
+}
+.pg-circle {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: #fff; color: var(--c);
+  font-size: 10px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,.18);
+}
+
+/* ── Body ── */
+.body {
+  flex: 1;
+  padding: 11px 14px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Bottom strip (footer QR) ── */
+.bot-strip {
+  background: var(--c-l);
+  border-top: 2.5px solid var(--c);
+  padding: 6px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.bot-text { font-size: 7px; color: var(--muted); font-weight: 700; }
+.qr-wrap  { display: flex; align-items: center; gap: 7px; }
+.qr-img {
+  width: 44px; height: 44px;
+  border: 2px solid var(--c);
+  border-radius: 9px;
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; color: var(--c);
+}
+.qr-info .qr-id   { font-size: 8px; font-weight: 900; color: var(--c); }
+.qr-info .qr-hint { font-size: 7px; color: var(--muted); }
+
+
+/* ══════════════════════════════════════════════
+   CARTES MINI-COURS
+══════════════════════════════════════════════ */
+
+/* Carte leçon — grande bannière */
+.lesson-card {
+  background: linear-gradient(135deg, var(--c-d) 0%, var(--c) 60%, #a855f7 100%);
+  border-radius: 16px;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(109,40,217,.35);
+}
+.lc-left {}
+.lc-num  { font-size: 8px; font-weight: 900; opacity: .7; letter-spacing: 1px; margin-bottom: 4px; }
+.lc-title{ font-size: 24px; font-weight: 900; line-height: 1.1; }
+.lc-sub  { font-size: 9px; opacity: .8; margin-top: 3px; }
+.lc-icon {
+  width: 58px; height: 58px;
+  background: rgba(255,255,255,.15);
+  border-radius: 14px;
+  border: 2px solid rgba(255,255,255,.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px;
+  flex-shrink: 0;
+}
+
+/* Carte règle — style "flashcard" */
+.rule-card {
+  border-radius: 14px;
+  border: 2.5px solid var(--c);
+  overflow: hidden;
+}
+.rule-head {
+  background: var(--c);
+  padding: 5px 13px;
+  font-size: 9px; font-weight: 900; color: #fff; letter-spacing: .5px;
+}
+.rule-body {
+  background: var(--c-l);
+  padding: 9px 13px;
+  font-size: 11.5px; font-weight: 700; color: var(--ink);
+  line-height: 1.75;
+}
+.rule-body strong { color: var(--c); }
+
+/* Grille de cartes définition */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+.def-card {
+  border-radius: 13px;
+  overflow: hidden;
+  border: 2px solid;
+  box-shadow: 0 3px 10px rgba(0,0,0,.07);
+}
+.dc-head {
+  padding: 5px 10px;
+  font-size: 10px; font-weight: 900;
+  color: #fff;
+}
+.dc-body {
+  padding: 7px 10px;
+  font-size: 10px; font-weight: 700;
+  color: var(--ink); line-height: 1.6;
+  background: #fff;
+}
+.dc-ex {
+  padding: 5px 10px;
+  font-size: 9.5px; font-weight: 700;
+  border-top: 1.5px dashed;
+}
+
+/* Couleurs des cartes */
+.dc-raf  { border-color: #d97706; }
+.dc-raf  .dc-head { background: #d97706; }
+.dc-raf  .dc-ex   { background: #fef3c7; color: #92400e; border-color: #fbbf24; }
+
+.dc-nasb { border-color: #db2777; }
+.dc-nasb .dc-head { background: #db2777; }
+.dc-nasb .dc-ex   { background: #fce7f3; color: #9d174d; border-color: #f9a8d4; }
+
+.dc-jar  { border-color: #059669; }
+.dc-jar  .dc-head { background: #059669; }
+.dc-jar  .dc-ex   { background: #ecfdf5; color: #065f46; border-color: #6ee7b7; }
+
+.dc-jazm { border-color: #2563eb; }
+.dc-jazm .dc-head { background: #2563eb; }
+.dc-jazm .dc-ex   { background: #eff6ff; color: #1e40af; border-color: #93c5fd; }
+
+/* Carte astuce */
+.tip-card {
+  border-radius: 13px;
+  border: 2.5px solid #f59e0b;
+  overflow: hidden;
+}
+.tip-head {
+  background: #f59e0b;
+  padding: 5px 13px;
+  font-size: 9px; font-weight: 900; color: #fff;
+}
+.tip-body {
+  background: #fffbeb;
+  padding: 8px 13px;
+  font-size: 10.5px; font-weight: 700; color: #78350f; line-height: 1.6;
+}
+.tip-body strong { color: #d97706; }
+
+/* Cartes points-clés numérotées */
+.keys-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.key-card {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border-radius: 11px;
+  border: 2px solid var(--c-l);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+}
+.key-num {
+  width: 36px;
+  background: var(--c);
+  color: #fff;
+  font-size: 14px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+.key-text {
+  padding: 7px 11px;
+  font-size: 10.5px; font-weight: 700; color: var(--ink); line-height: 1.5;
+}
+.key-text strong { color: var(--c); }
+
+
+/* ══════════════════════════════════════════════
+   CARTES EXERCICES
+══════════════════════════════════════════════ */
+
+/* Bandeau niveau */
+.lvl-band {
+  border-radius: 10px;
+  padding: 5px 13px;
+  font-size: 9px; font-weight: 900;
+  display: flex; align-items: center; gap: 8px;
+}
+.lvl-1 { background: #dcfce7; color: #166534; border: 2px solid #86efac; }
+.lvl-2 { background: #fef9c3; color: #854d0e; border: 2px solid #fde047; }
+.lvl-3 { background: #fee2e2; color: #991b1b; border: 2px solid #fca5a5; }
+.lvl-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+/* Carte exercice */
+.exo-card {
+  border-radius: 13px;
+  border: 2px solid var(--line);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.exo-head {
+  background: var(--c);
+  padding: 5px 12px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.exo-num  { font-size: 9px; font-weight: 900; color: #fff; }
+.exo-diff { font-size: 9px; color: rgba(255,255,255,.7); }
+.exo-body {
+  padding: 9px 12px;
+}
+.exo-text {
+  font-size: 11px; font-weight: 700; color: var(--ink);
+  line-height: 1.75; margin-bottom: 7px;
+}
+.exo-text strong { color: var(--c); }
+.exo-text em {
+  background: var(--c-l);
+  padding: 1px 6px; border-radius: 5px;
+  font-style: normal; font-weight: 800;
+}
+
+.lines { display: flex; flex-direction: column; gap: 5px; }
+.line  { height: 20px; border-bottom: 1.5px dashed #d1d5db; }
+
+.tbl {
+  width: 100%; border-collapse: collapse; border-radius: 10px; overflow: hidden;
+  margin-top: 5px;
+}
+.tbl th {
+  background: var(--c); color: #fff;
+  font-size: 9px; font-weight: 900;
+  padding: 5px 8px; text-align: center;
+}
+.tbl td {
+  border: 1.5px solid #e5e7eb;
+  padding: 5px 9px; font-size: 10px; font-weight: 600;
+  min-height: 22px;
+}
+.tbl tr:nth-child(even) td { background: var(--c-l); }
+
+/* Carte score à remplir */
+.score-strip {
+  background: linear-gradient(90deg, var(--c-d), var(--c));
+  border-radius: 11px;
+  padding: 6px 13px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.sc-label { font-size: 9px; font-weight: 900; color: rgba(255,255,255,.8); }
+.sc-boxes { display: flex; gap: 4px; }
+.sc-box {
+  width: 24px; height: 24px; border-radius: 7px;
+  background: rgba(255,255,255,.15);
+  border: 2px solid rgba(255,255,255,.3);
+}
+
+/* ══ PRINT ══ */
+@media print {
+  body { background: none; padding: 0; gap: 0; }
+  .page {
+    margin: 0; box-shadow: none;
+    border-radius: 0;
+    width: 210mm; min-height: 297mm;
+    page-break-after: always;
+  }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+
+<!-- ════════════════════════════════════════
+   PAGE 1 — MINI-COURS
+   علامات الإعراب
+════════════════════════════════════════ -->
+<div class="page">
+  <div class="spine">
+    <div class="holes"><div class="hole"></div><div class="hole"></div><div class="hole"></div></div>
+    <div class="spine-text">MAJOR · 6AF · نحو</div>
+    <div class="holes"><div class="hole"></div><div class="hole"></div><div class="hole"></div></div>
+  </div>
+  <div class="tabs">
+    <div class="tab on" style="background:#6d28d9">نحو</div>
+    <div class="tab"    style="background:#b45309">تاريخ</div>
+    <div class="tab"    style="background:#059669">إسلام</div>
+  </div>
+  <div class="page-main">
+
+    <div class="top-strip">
+      <div class="brand">
+        <div class="brand-logo">🐪</div>
+        <div>
+          <div class="brand-name">دفتر ماجور · 6AF</div>
+          <div class="brand-sub">السنة السادسة الأساسية · موريتانيا</div>
+        </div>
+      </div>
+      <div class="strip-right">
+        <div class="mat-tag">النحو والصرف</div>
+        <div class="pg-circle">2</div>
+      </div>
+    </div>
+
+    <div class="body">
+
+      <!-- Carte leçon -->
+      <div class="lesson-card">
+        <div class="lc-left">
+          <div class="lc-num">الدرس الثاني · 02</div>
+          <div class="lc-title">علامات الإعراب</div>
+          <div class="lc-sub">حالات الكلمة في الجملة العربية</div>
+        </div>
+        <div class="lc-icon">🔤</div>
+      </div>
+
+      <!-- Carte règle -->
+      <div class="rule-card">
+        <div class="rule-head">القاعدة الأساسية</div>
+        <div class="rule-body">
+          الإعراب هو تغيير آخر الكلمة بسبب موقعها في الجملة.
+          للأسماء ثلاث حالات : <strong>الرفع · النصب · الجر</strong>.
+          وللفعل المضارع حالة رابعة : <strong>الجزم</strong>.
+        </div>
+      </div>
+
+      <!-- Cartes 4 cas -->
+      <div class="cards-grid">
+        <div class="def-card dc-raf">
+          <div class="dc-head">الرفع — الضمة ( ُ )</div>
+          <div class="dc-body">الفاعل · المبتدأ · الخبر<br/>المثنى : ان &nbsp;|&nbsp; الجمع : ون</div>
+          <div class="dc-ex">جاءَ <strong>الولدُ</strong> · <strong>المعلمُ</strong> كريمٌ</div>
+        </div>
+        <div class="def-card dc-nasb">
+          <div class="dc-head">النصب — الفتحة ( َ )</div>
+          <div class="dc-body">المفعول به · الحال · خبر إنّ<br/>المثنى وجمع المذكر : ين</div>
+          <div class="dc-ex">رأيتُ <strong>الولدَ</strong> · إنّ <strong>العلمَ</strong> نور</div>
+        </div>
+        <div class="def-card dc-jar">
+          <div class="dc-head">الجر — الكسرة ( ِ )</div>
+          <div class="dc-body">بعد حروف الجر : في، على، من…<br/>المضاف إليه</div>
+          <div class="dc-ex">ذهبتُ إلى <strong>المدرسةِ</strong></div>
+        </div>
+        <div class="def-card dc-jazm">
+          <div class="dc-head">الجزم — السكون ( ْ )</div>
+          <div class="dc-body">للفعل المضارع فقط<br/>بعد : لم · لمّا · لا الناهية</div>
+          <div class="dc-ex">لم <strong>يكتبْ</strong> · لا <strong>تكذبْ</strong></div>
+        </div>
+      </div>
+
+      <!-- Astuce -->
+      <div class="tip-card">
+        <div class="tip-head">حيلة الحفظ</div>
+        <div class="tip-body">
+          تذكّر كلمة <strong>« رَنَجَزْ »</strong> :
+          الراء للرفع — النون للنصب — الجيم للجر — الزاي للجزم.
+          كلمة واحدة تحفظ لك كل الحالات !
+        </div>
+      </div>
+
+      <!-- Points clés -->
+      <div class="keys-grid">
+        <div class="key-card">
+          <div class="key-num">1</div>
+          <div class="key-text">الاسم المفرد : <strong>ضمة</strong> رفع — <strong>فتحة</strong> نصب — <strong>كسرة</strong> جر</div>
+        </div>
+        <div class="key-card">
+          <div class="key-num">2</div>
+          <div class="key-text">المثنى : <strong>الألف</strong> رفع — <strong>الياء</strong> نصب وجر : طالبان / طالبين</div>
+        </div>
+        <div class="key-card">
+          <div class="key-num">3</div>
+          <div class="key-text">جمع المذكر : <strong>الواو</strong> رفع — <strong>الياء</strong> نصب وجر : معلمون / معلمين</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bot-strip">
+      <div class="bot-text">دفتر ماجور 6AF · النحو والصرف · الدرس الثاني</div>
+      <div class="qr-wrap">
+        <div class="qr-info">
+          <div class="qr-id">AR-02</div>
+          <div class="qr-hint">صوِّر إجابتك واحصل على تصحيح فوري</div>
+        </div>
+        <div class="qr-img">▦</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+   PAGE 2 — EXERCICES PROGRESSIFS
+   علامات الإعراب
+════════════════════════════════════════ -->
+<div class="page">
+  <div class="spine">
+    <div class="holes"><div class="hole"></div><div class="hole"></div><div class="hole"></div></div>
+    <div class="spine-text">MAJOR · 6AF · نحو</div>
+    <div class="holes"><div class="hole"></div><div class="hole"></div><div class="hole"></div></div>
+  </div>
+  <div class="tabs">
+    <div class="tab on" style="background:#6d28d9">نحو</div>
+    <div class="tab"    style="background:#b45309">تاريخ</div>
+    <div class="tab"    style="background:#059669">إسلام</div>
+  </div>
+  <div class="page-main">
+
+    <div class="top-strip">
+      <div class="brand">
+        <div class="brand-logo">🐪</div>
+        <div>
+          <div class="brand-name">دفتر ماجور · 6AF</div>
+          <div class="brand-sub">السنة السادسة الأساسية · موريتانيا</div>
+        </div>
+      </div>
+      <div class="strip-right">
+        <div class="mat-tag">تمارين — علامات الإعراب</div>
+        <div class="pg-circle">3</div>
+      </div>
+    </div>
+
+    <div class="body">
+
+      <!-- Niveau 1 -->
+      <div class="lvl-band lvl-1">
+        <div class="lvl-dot"></div>
+        المستوى الأول — سهل
+      </div>
+
+      <div class="exo-card">
+        <div class="exo-head">
+          <div class="exo-num">تمرين 1</div>
+          <div class="exo-diff">سهل · ⬤⬤○○</div>
+        </div>
+        <div class="exo-body">
+          <div class="exo-text">
+            ضع دائرة حول الإجابة الصحيحة — ما حالة الإعراب للكلمة الملوّنة ؟<br/>
+            ١. جاءَ <em>المعلمُ</em> إلى الفصل &nbsp;→&nbsp; رفع / نصب / جر<br/>
+            ٢. رأيتُ <em>الطالبَ</em> أمس &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp; رفع / نصب / جر<br/>
+            ٣. ذهبتُ إلى <em>المدرسةِ</em> &nbsp;&nbsp;&nbsp;&nbsp;→&nbsp; رفع / نصب / جر
+          </div>
+        </div>
+      </div>
+
+      <div class="exo-card">
+        <div class="exo-head">
+          <div class="exo-num">تمرين 2</div>
+          <div class="exo-diff">سهل · ⬤⬤○○</div>
+        </div>
+        <div class="exo-body">
+          <div class="exo-text">أكمل الجدول بحالات الإعراب الصحيحة :</div>
+          <table class="tbl">
+            <thead><tr><th>الكلمة</th><th>مرفوع</th><th>منصوب</th><th>مجرور</th></tr></thead>
+            <tbody>
+              <tr><td>كتاب</td><td></td><td></td><td></td></tr>
+              <tr><td>معلم</td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Niveau 2 -->
+      <div class="lvl-band lvl-2">
+        <div class="lvl-dot"></div>
+        المستوى الثاني — متوسط
+      </div>
+
+      <div class="exo-card">
+        <div class="exo-head">
+          <div class="exo-num">تمرين 3</div>
+          <div class="exo-diff">متوسط · ⬤⬤⬤○</div>
+        </div>
+        <div class="exo-body">
+          <div class="exo-text">
+            أعرب الكلمات الملوّنة (الحالة + العلامة + السبب) :<br/>
+            ١. كتبَ <strong>الطالبُ</strong> الدرسَ بعناية.<br/>
+            ٢. شرحَ المعلمُ <strong>القاعدةَ</strong> بوضوح.<br/>
+            ٣. ذهبَ الولدُ إلى <strong>المكتبةِ</strong>.
+          </div>
+          <div class="lines"><div class="line"></div><div class="line"></div><div class="line"></div></div>
+        </div>
+      </div>
+
+      <!-- Niveau 3 -->
+      <div class="lvl-band lvl-3">
+        <div class="lvl-dot"></div>
+        المستوى الثالث — صعب
+      </div>
+
+      <div class="exo-card">
+        <div class="exo-head">
+          <div class="exo-num">تمرين 4</div>
+          <div class="exo-diff">صعب · ⬤⬤⬤⬤</div>
+        </div>
+        <div class="exo-body">
+          <div class="exo-text">
+            اقرأ ثم أجب :
+            <em>« سافرَ الطلابُ إلى نواكشوطَ وزاروا المتحفَ الوطنيَّ وتعرّفوا على تاريخِ موريتانيا. »</em><br/>
+            أ) استخرج : اسماً مرفوعاً — اسماً منصوباً — اسماً مجروراً<br/>
+            ب) علام دلّت الضمة في كلمة « الطلابُ » ؟
+          </div>
+          <div class="lines"><div class="line"></div><div class="line"></div><div class="line"></div></div>
+        </div>
+      </div>
+
+      <!-- Score -->
+      <div class="score-strip">
+        <div class="sc-label">نتيجتي في هذه الصفحة</div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:8px;color:rgba(255,255,255,.6);font-weight:700">/ 4</span>
+          <div class="sc-boxes">
+            <div class="sc-box"></div><div class="sc-box"></div>
+            <div class="sc-box"></div><div class="sc-box"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bot-strip">
+      <div class="bot-text">دفتر ماجور 6AF · تمارين علامات الإعراب · الصفحة 3</div>
+      <div class="qr-wrap">
+        <div class="qr-info">
+          <div class="qr-id">AR-02</div>
+          <div class="qr-hint">صوِّر إجابتك واحصل على تصحيح فوري</div>
+        </div>
+        <div class="qr-img">▦</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

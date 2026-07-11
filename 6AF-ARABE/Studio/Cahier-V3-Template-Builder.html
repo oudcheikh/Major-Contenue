@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cahier Major - A5 Template Builder</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;font-family:Arial,sans-serif;background:#d9dee7;color:#102033}
+button,input,textarea,select{font:inherit}
+.app{display:grid;grid-template-columns:280px 1fr 320px;height:100vh}
+.panel{background:#f7f9fc;border-right:1px solid #cbd5e1;overflow:auto;padding:14px}
+.panel.right{border-right:0;border-left:1px solid #cbd5e1}
+.panel h2{font-size:15px;margin:0 0 10px;color:#0f172a}
+.panel h3{font-size:12px;margin:18px 0 8px;color:#475569;text-transform:uppercase;letter-spacing:.04em}
+.tool-row{display:flex;gap:8px;margin-bottom:10px}
+.btn{border:1px solid #9fb4d0;background:#fff;color:#0f172a;border-radius:7px;padding:7px 10px;cursor:pointer}
+.btn.primary{background:#2563eb;color:#fff;border-color:#1d4ed8}
+.btn.danger{background:#fee2e2;color:#991b1b;border-color:#fecaca}
+.block-choice{display:block;width:100%;border:1px solid #cbd5e1;background:#fff;border-radius:8px;padding:10px;margin-bottom:8px;text-align:left;cursor:grab}
+.block-choice strong{display:block;font-size:13px;margin-bottom:3px}
+.block-choice span{font-size:11px;color:#64748b}
+.stage-wrap{display:flex;align-items:center;justify-content:center;overflow:hidden;padding:18px}
+.stage{width:148mm;height:210mm;background:#faf6ee;box-shadow:0 10px 45px rgba(15,23,42,.28);position:relative;overflow:hidden;transform-origin:center}
+.page-bg{position:absolute;inset:0;background:linear-gradient(180deg,#faf6ee 0%,#fffaf0 100%)}
+.header{position:absolute;top:0;left:0;right:0;height:22mm;background:linear-gradient(135deg,#1e3a5f,#2563eb 65%,#38bdf8);border-bottom:2px solid #111;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 9mm;direction:rtl}
+.brand{font-size:15px;font-weight:900}.sub{font-size:8.5px;opacity:.86;margin-top:2px}
+.footer{position:absolute;left:0;right:0;bottom:0;height:18mm;background:linear-gradient(135deg,#1e3a5f,#2563eb 65%,#38bdf8);display:flex;align-items:center;gap:7px;padding:0 7mm;color:#fff;direction:rtl;z-index:10}
+.qr{width:13mm;height:13mm;background:#fff;border-radius:4px;display:grid;place-items:center;color:#2563eb;font-weight:900;font-size:9px}
+.footer-text{flex:1;text-align:right;font-size:8.5px;line-height:1.35}.pg{font-size:9px;border:1px solid rgba(255,255,255,.4);border-radius:6px;padding:2px 7px}
+.safe-area{position:absolute;top:26mm;left:7mm;right:12mm;bottom:23mm;border:1px dashed rgba(37,99,235,.25);pointer-events:none}
+.block{position:absolute;direction:rtl;background:#fff;border:2px solid #111;border-radius:8px;box-shadow:2px 2px 0 #111;padding:5px 7px;min-width:42mm;min-height:20mm;cursor:move;user-select:none}
+.block.selected{outline:3px solid #f59e0b;outline-offset:2px}
+.block .handle{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px}
+.badge{background:#2563eb;color:#fff;border-radius:999px;padding:2px 8px;font-weight:900;font-size:8px}
+.pts{font-size:7.5px;color:#94a3b8;font-weight:900}
+.instr{font-size:9px;font-weight:900;line-height:1.35;margin-bottom:4px}
+.example{background:#eef5ff;border:1px solid #93c5fd;border-radius:6px;padding:3px 6px;font-size:7.8px;color:#1e40af;margin-bottom:4px}
+.fill-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.fill{border:1px solid #93c5fd;border-right:3px solid #2563eb;border-radius:6px;padding:3px 5px;min-width:0}
+.fill-top{display:flex;align-items:center;gap:4px;border-bottom:1px solid #dbeafe;padding-bottom:2px;margin-bottom:2px}
+.num{width:15px;height:15px;border-radius:50%;background:#2563eb;color:#fff;font-size:8px;font-weight:900;display:grid;place-items:center;flex:none}
+.word{font-size:8.2px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.line{height:10px;border-bottom:1.5px dashed #93c5fd}
+.rule{background:#eaf2ff;border:2px solid #93c5fd;border-right:5px solid #2563eb;box-shadow:none}
+.rule .title{font-size:10px;color:#2563eb;font-weight:900;margin-bottom:3px}
+.rule .txt{font-size:8.4px;line-height:1.55;color:#1e3a5f;font-weight:800}
+.props label{display:block;font-size:11px;color:#475569;margin:8px 0 4px}
+.props input,.props textarea{width:100%;border:1px solid #cbd5e1;border-radius:7px;padding:7px;background:#fff}
+.props textarea{min-height:74px;resize:vertical}
+.json-box{height:190px;font-family:Consolas,monospace;font-size:11px;direction:ltr}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="panel">
+    <h2>Blocs</h2>
+    <div class="tool-row">
+      <button class="btn primary" id="addRule">Regle</button>
+      <button class="btn primary" id="addExercise">Exercice</button>
+    </div>
+    <h3>Templates</h3>
+    <button class="block-choice" data-type="rule"><strong>Regle courte</strong><span>Encadre bleu de lecon.</span></button>
+    <button class="block-choice" data-type="exercise"><strong>Exercice 2 colonnes</strong><span>Carte compacte avec items.</span></button>
+    <button class="block-choice" data-type="wide"><strong>Exercice large</strong><span>Carte pleine largeur.</span></button>
+    <h3>Page</h3>
+    <div class="tool-row">
+      <button class="btn" id="fit">Ajuster</button>
+      <button class="btn danger" id="clear">Vider</button>
+    </div>
+  </aside>
+
+  <main class="stage-wrap">
+    <section class="stage" id="stage">
+      <div class="page-bg"></div>
+      <header class="header">
+        <div><div class="brand">Major 6AF</div><div class="sub" id="lessonSub">اللغة العربية — نموذج الصفحة</div></div>
+        <div style="font-size:22px">📘</div>
+      </header>
+      <div class="safe-area"></div>
+      <footer class="footer">
+        <div class="qr">QR</div>
+        <div class="footer-text"><strong>امسح الرمز بهاتفك</strong><br><span id="footerSub">نموذج مستقل للقوالب</span></div>
+        <div class="pg" id="pageNum">1 / 24</div>
+      </footer>
+    </section>
+  </main>
+
+  <aside class="panel right">
+    <h2>Proprietes</h2>
+    <div class="props">
+      <label>Titre / consigne</label>
+      <input id="propTitle" placeholder="Selectionne un bloc">
+      <label>Texte</label>
+      <textarea id="propText"></textarea>
+      <div class="tool-row" style="margin-top:10px">
+        <button class="btn" id="dup">Dupliquer</button>
+        <button class="btn danger" id="del">Supprimer</button>
+      </div>
+    </div>
+    <h3>Export JSON</h3>
+    <textarea class="json-box" id="json"></textarea>
+    <div class="tool-row" style="margin-top:8px">
+      <button class="btn primary" id="exportBtn">Exporter</button>
+      <button class="btn" id="importBtn">Importer</button>
+    </div>
+  </aside>
+</div>
+
+<script>
+(() => {
+  const stage = document.getElementById('stage');
+  const json = document.getElementById('json');
+  const propTitle = document.getElementById('propTitle');
+  const propText = document.getElementById('propText');
+  let selected = null;
+  let z = 20;
+
+  const mm = () => stage.offsetWidth / 148;
+  const pxToMm = (px) => +(px / mm()).toFixed(2);
+  const mmToPx = (value) => value * mm();
+
+  const templates = {
+    rule: {
+      w: 126, h: 18, x: 7, y: 28,
+      title: 'القاعدة',
+      text: 'اكتب هنا قاعدة الدرس بخط مختصر وواضح.'
+    },
+    exercise: {
+      w: 86, h: 52, x: 50, y: 52,
+      title: 'أعرب الكلمات التي تحتها خط :',
+      text: 'مثال: الجهل ظلام — الجهل: مبتدأ مرفوع.'
+    },
+    wide: {
+      w: 126, h: 45, x: 7, y: 52,
+      title: 'أكمل الجدول بما يناسب :',
+      text: 'استعمل الكلمات المناسبة في الفراغات.'
+    }
+  };
+
+  const renderBlockContent = (el) => {
+    const type = el.dataset.type;
+    const title = el.dataset.title || '';
+    const text = el.dataset.text || '';
+    if (type === 'rule') {
+      el.className = 'block rule' + (el === selected ? ' selected' : '');
+      el.innerHTML = `<div class="title">${title}</div><div class="txt">${text}</div>`;
+      return;
+    }
+    el.className = 'block' + (el === selected ? ' selected' : '');
+    el.innerHTML = `
+      <div class="handle"><span class="badge">تمرين</span><span class="pts">4 نقاط</span></div>
+      <div class="instr">${title}</div>
+      <div class="example">${text}</div>
+      <div class="fill-grid">
+        ${[1,2,3,4].map((n) => `<div class="fill"><div class="fill-top"><span class="num">${n}</span><span class="word">عنصر ${n}</span></div><div class="line"></div><div class="line"></div></div>`).join('')}
+      </div>`;
+  };
+
+  const select = (el) => {
+    document.querySelectorAll('.block.selected').forEach((b) => b.classList.remove('selected'));
+    selected = el;
+    if (selected) {
+      selected.classList.add('selected');
+      propTitle.value = selected.dataset.title || '';
+      propText.value = selected.dataset.text || '';
+    } else {
+      propTitle.value = '';
+      propText.value = '';
+    }
+  };
+
+  const addBlock = (type, offset = 0) => {
+    const t = templates[type] || templates.exercise;
+    const el = document.createElement('div');
+    el.className = 'block';
+    el.dataset.type = type;
+    el.dataset.title = t.title;
+    el.dataset.text = t.text;
+    Object.assign(el.style, {
+      left: mmToPx(t.x + offset) + 'px',
+      top: mmToPx(t.y + offset) + 'px',
+      width: mmToPx(t.w) + 'px',
+      minHeight: mmToPx(t.h) + 'px',
+      zIndex: ++z
+    });
+    renderBlockContent(el);
+    stage.appendChild(el);
+    wireDrag(el);
+    select(el);
+  };
+
+  const wireDrag = (el) => {
+    el.addEventListener('pointerdown', (event) => {
+      if (event.button !== 0) return;
+      select(el);
+      el.setPointerCapture(event.pointerId);
+      el.style.zIndex = ++z;
+      const start = stage.getBoundingClientRect();
+      const box = el.getBoundingClientRect();
+      const scale = start.width / stage.offsetWidth;
+      const dx = (event.clientX - box.left) / scale;
+      const dy = (event.clientY - box.top) / scale;
+      const move = (e) => {
+        const left = Math.max(0, Math.min(stage.offsetWidth - el.offsetWidth, (e.clientX - start.left) / scale - dx));
+        const top = Math.max(0, Math.min(stage.offsetHeight - el.offsetHeight, (e.clientY - start.top) / scale - dy));
+        el.style.left = left + 'px';
+        el.style.top = top + 'px';
+      };
+      const up = () => {
+        el.removeEventListener('pointermove', move);
+        el.removeEventListener('pointerup', up);
+        updateJson();
+      };
+      el.addEventListener('pointermove', move);
+      el.addEventListener('pointerup', up);
+    });
+  };
+
+  const data = () => Array.from(stage.querySelectorAll('.block')).map((el) => ({
+    type: el.dataset.type,
+    title: el.dataset.title,
+    text: el.dataset.text,
+    x: pxToMm(el.offsetLeft),
+    y: pxToMm(el.offsetTop),
+    w: pxToMm(el.offsetWidth),
+    h: pxToMm(el.offsetHeight)
+  }));
+
+  const updateJson = () => {
+    json.value = JSON.stringify({ page: { size: 'A5', footer: true }, blocks: data() }, null, 2);
+  };
+
+  const load = (payload) => {
+    stage.querySelectorAll('.block').forEach((el) => el.remove());
+    (payload.blocks || []).forEach((b) => {
+      addBlock(b.type || 'exercise');
+      selected.dataset.title = b.title || '';
+      selected.dataset.text = b.text || '';
+      Object.assign(selected.style, {
+        left: mmToPx(b.x || 0) + 'px',
+        top: mmToPx(b.y || 0) + 'px',
+        width: mmToPx(b.w || 80) + 'px',
+        minHeight: mmToPx(b.h || 30) + 'px'
+      });
+      renderBlockContent(selected);
+    });
+    select(null);
+    updateJson();
+  };
+
+  propTitle.addEventListener('input', () => {
+    if (!selected) return;
+    selected.dataset.title = propTitle.value;
+    renderBlockContent(selected);
+    updateJson();
+  });
+  propText.addEventListener('input', () => {
+    if (!selected) return;
+    selected.dataset.text = propText.value;
+    renderBlockContent(selected);
+    updateJson();
+  });
+  document.querySelectorAll('.block-choice').forEach((btn) => btn.addEventListener('click', () => addBlock(btn.dataset.type)));
+  document.getElementById('addRule').onclick = () => addBlock('rule');
+  document.getElementById('addExercise').onclick = () => addBlock('exercise');
+  document.getElementById('del').onclick = () => { if (selected) selected.remove(); select(null); updateJson(); };
+  document.getElementById('dup').onclick = () => {
+    if (!selected) return;
+    const b = data().find((item) => item.title === selected.dataset.title && item.text === selected.dataset.text);
+    addBlock(selected.dataset.type, 5);
+    selected.dataset.title = b.title;
+    selected.dataset.text = b.text;
+    renderBlockContent(selected);
+    updateJson();
+  };
+  document.getElementById('clear').onclick = () => { stage.querySelectorAll('.block').forEach((el) => el.remove()); select(null); updateJson(); };
+  document.getElementById('exportBtn').onclick = updateJson;
+  document.getElementById('importBtn').onclick = () => load(JSON.parse(json.value || '{}'));
+  document.getElementById('fit').onclick = () => {
+    const scale = Math.min(1, (window.innerWidth - 640) / stage.offsetWidth, (window.innerHeight - 36) / stage.offsetHeight);
+    stage.style.transform = `scale(${Math.max(.55, scale).toFixed(3)})`;
+  };
+  window.addEventListener('resize', document.getElementById('fit').onclick);
+
+  addBlock('rule');
+  addBlock('exercise', 8);
+  updateJson();
+  document.getElementById('fit').onclick();
+})();
+</script>
+</body>
+</html>

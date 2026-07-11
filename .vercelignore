@@ -1,0 +1,10 @@
+*
+!major-web
+!major-web/**
+!vercel.json
+!.vercel
+!.vercel/**
+major-web/node_modules/
+major-web/dist/
+major-web/.env*
+major-web/*.log

@@ -1,0 +1,30 @@
+# Secrets — ne JAMAIS committer
+.env
+.env.*
+!.env.example
+
+# Dépendances
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Expo / React Native
+.expo/
+.expo-shared/
+dist/
+web-build/
+*.apk
+*.aab
+
+# Vercel
+.vercel/
+
+# OS / éditeurs
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+major-web/
+.chrome-headless/

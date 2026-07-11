@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "Major",
+    "slug": "major-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./Logo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./Logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#182b66"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.major.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#2563eb"
+      },
+      "package": "com.major.app"
+    },
+    "plugins": [
+      "expo-asset",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Major utilise le micro pour te laisser parler directement avec Major.",
+          "recordAudioAndroid": true
+        }
+      ]
+    ]
+  }
+}

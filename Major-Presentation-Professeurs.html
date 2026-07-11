@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Major 6AF — Présentation Professeurs</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:  #182b66;
+  --blue:  #2563eb;
+  --sky:   #38bdf8;
+  --gold:  #F0B429;
+  --goldf: #fde68a;
+  --green: #06803C;
+  --red:   #CC1A1A;
+  --fr:    #38bdf8;
+  --math:  #fb923c;
+  --sci:   #34d399;
+  --ink:   #0f172a;
+  --muted: #64748b;
+  --bg:    #f0f4ff;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #0a0a1a;
+  overflow: hidden;
+}
+
+/* ── SLIDES ── */
+.deck { width: 100vw; height: 100vh; position: relative; }
+
+.slide {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  opacity: 0; pointer-events: none;
+  transition: opacity .5s ease, transform .5s ease;
+  transform: translateX(60px);
+}
+.slide.active {
+  opacity: 1; pointer-events: all; transform: translateX(0);
+}
+.slide.out {
+  opacity: 0; transform: translateX(-60px);
+}
+
+/* ── NAV ── */
+.nav {
+  position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 20px; z-index: 100;
+  background: rgba(255,255,255,0.10); backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 12px 24px; border-radius: 999px;
+}
+.nav button {
+  background: rgba(255,255,255,0.15); border: none; color: #fff;
+  width: 40px; height: 40px; border-radius: 50%; font-size: 18px;
+  cursor: pointer; transition: background .2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav button:hover { background: rgba(255,255,255,0.3); }
+.dots { display: flex; gap: 8px; }
+.dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.3); transition: all .3s;
+  cursor: pointer;
+}
+.dot.active { background: #fde68a; width: 24px; border-radius: 4px; }
+.slide-counter { color: rgba(255,255,255,0.6); font-size: 13px; font-weight: 700; min-width: 40px; text-align: center; }
+
+/* Keyboard hint */
+.hint {
+  position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%);
+  color: rgba(255,255,255,0.35); font-size: 12px; font-weight: 600;
+  animation: fadeout 3s forwards 3s;
+}
+@keyframes fadeout { to { opacity: 0; } }
+
+/* ═══════════════════════════════════════════
+   SLIDE 1 — COVER
+═══════════════════════════════════════════ */
+#s1 {
+  background: linear-gradient(135deg, #182b66 0%, #2563eb 55%, #38bdf8 100%);
+  align-items: center; justify-content: center; gap: 28px; overflow: hidden;
+}
+.s1-circle1 { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: rgba(255,255,255,0.05); top: -150px; right: -100px; }
+.s1-circle2 { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: rgba(56,189,248,0.12); bottom: -80px; left: -60px; }
+.s1-flag-band { position: absolute; top: 0; left: 0; right: 0; height: 6px; background: #CC1A1A; opacity: .85; }
+.s1-logo {
+  width: 120px; height: 120px; border-radius: 34px; background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 80px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  position: relative; z-index: 1;
+}
+.s1-title { font-size: 72px; font-weight: 900; color: #fff; letter-spacing: 10px; text-align: center; line-height: 1; position: relative; z-index: 1; }
+.s1-title span { color: #fde68a; }
+.s1-ar { font-size: 32px; font-weight: 800; color: #fde68a; letter-spacing: 4px; }
+.s1-flag { font-size: 28px; }
+.s1-sub { font-size: 18px; color: rgba(255,255,255,0.85); font-weight: 700; text-align: center; line-height: 1.6; }
+.s1-chips { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.s1-chip {
+  background: rgba(255,255,255,0.14); border: 1.5px solid rgba(255,255,255,0.22);
+  padding: 8px 18px; border-radius: 999px; color: #fff; font-size: 14px; font-weight: 800;
+}
+
+/* ═══════════════════════════════════════════
+   SLIDE 2 — PROBLÈME
+═══════════════════════════════════════════ */
+#s2 { background: #0f172a; padding: 60px; }
+.slide-layout { display: flex; flex-direction: column; height: 100%; gap: 32px; }
+.slide-header { display: flex; align-items: center; gap: 16px; }
+.slide-tag {
+  background: rgba(239,68,68,0.2); border: 1.5px solid rgba(239,68,68,0.4);
+  color: #f87171; padding: 6px 16px; border-radius: 999px;
+  font-size: 11px; font-weight: 900; letter-spacing: 2px;
+}
+.slide-h1 { font-size: 52px; font-weight: 900; color: #fff; line-height: 1.05; }
+.slide-h1 span { color: #fde68a; }
+.slide-h1-ar { font-size: 24px; font-weight: 800; color: rgba(255,255,255,0.5); margin-top: 4px; }
+.problem-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; flex: 1; }
+.problem-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px; padding: 28px 24px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.problem-card .big-num { font-size: 64px; font-weight: 900; line-height: 1; }
+.problem-card .label { font-size: 16px; color: rgba(255,255,255,0.7); font-weight: 700; line-height: 1.5; }
+.problem-card .sub { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 600; }
+.quote-block {
+  background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(56,189,248,0.1));
+  border: 1px solid rgba(37,99,235,0.3); border-radius: 20px;
+  padding: 20px 28px; color: rgba(255,255,255,0.85); font-size: 15px;
+  font-weight: 600; line-height: 1.7; font-style: italic;
+}
+.quote-block strong { color: #38bdf8; }
+
+/* ═══════════════════════════════════════════
+   SLIDE 3 — SOLUTION
+═══════════════════════════════════════════ */
+#s3 { background: linear-gradient(135deg, #182b66, #1e40af); padding: 60px; overflow: hidden; position: relative; }
+.s3-circle { position: absolute; width: 400px; height: 400px; border-radius: 50%; background: rgba(56,189,248,0.08); top: -100px; right: -100px; }
+.solution-body { display: flex; gap: 48px; flex: 1; align-items: center; }
+.solution-left { flex: 1; display: flex; flex-direction: column; gap: 24px; }
+.solution-desc { font-size: 20px; color: rgba(255,255,255,0.85); font-weight: 600; line-height: 1.7; }
+.solution-points { display: flex; flex-direction: column; gap: 14px; }
+.solution-point {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: rgba(255,255,255,0.08); border-radius: 16px; padding: 14px 18px;
+}
+.solution-point .icon { font-size: 28px; flex-shrink: 0; }
+.solution-point .text strong { display: block; font-size: 15px; color: #fff; font-weight: 800; }
+.solution-point .text span { font-size: 13px; color: rgba(255,255,255,0.65); }
+.solution-right { width: 300px; flex-shrink: 0; display: flex; flex-direction: column; gap: 16px; align-items: center; }
+.phone-mock {
+  width: 220px; height: 420px; background: #0f172a; border-radius: 40px;
+  border: 3px solid rgba(255,255,255,0.15);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+  overflow: hidden; display: flex; flex-direction: column;
+}
+.phone-notch { height: 30px; background: #0f172a; display: flex; align-items: center; justify-content: center; }
+.phone-notch-inner { width: 80px; height: 14px; background: #1e293b; border-radius: 999px; }
+.phone-screen {
+  flex: 1;
+  background: linear-gradient(160deg, #182b66, #2563eb, #38bdf8);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 12px; padding: 16px;
+}
+.phone-logo { font-size: 48px; }
+.phone-app-name { font-size: 18px; font-weight: 900; color: #fff; letter-spacing: 4px; }
+.phone-camel { font-size: 36px; }
+.phone-chips { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.phone-chip { background: rgba(255,255,255,0.18); padding: 4px 10px; border-radius: 999px; font-size: 10px; color: #fff; font-weight: 800; }
+
+/* ═══════════════════════════════════════════
+   SLIDE 4 — FONCTIONNALITÉS
+═══════════════════════════════════════════ */
+#s4 { background: #f0f4ff; padding: 60px; }
+#s4 .slide-h1 { color: #0f172a; }
+#s4 .slide-h1-ar { color: #94a3b8; }
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; flex: 1; }
+.feature-card {
+  background: #fff; border-radius: 24px; padding: 28px 22px;
+  box-shadow: 0 8px 24px rgba(24,43,102,0.08);
+  display: flex; flex-direction: column; gap: 12px;
+  border-top: 5px solid transparent;
+  transition: transform .2s;
+}
+.feature-card:hover { transform: translateY(-4px); }
+.feature-emoji { font-size: 40px; }
+.feature-title { font-size: 18px; font-weight: 900; color: #0f172a; }
+.feature-desc { font-size: 14px; color: #64748b; font-weight: 600; line-height: 1.6; }
+.feature-tag {
+  display: inline-block; padding: 4px 12px; border-radius: 999px;
+  font-size: 11px; font-weight: 900; letter-spacing: .5px;
+  width: fit-content;
+}
+
+/* ═══════════════════════════════════════════
+   SLIDE 5 — COMMENT ÇA MARCHE
+═══════════════════════════════════════════ */
+#s5 { background: #0f172a; padding: 60px; }
+.flow { display: flex; align-items: center; gap: 0; flex: 1; }
+.flow-step {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+  gap: 16px; text-align: center; padding: 32px 20px;
+  background: rgba(255,255,255,0.04); border-radius: 24px;
+}
+.flow-num {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 900; color: #fff;
+}
+.flow-icon { font-size: 52px; }
+.flow-title { font-size: 18px; font-weight: 900; color: #fff; }
+.flow-desc { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; font-weight: 600; }
+.flow-arrow {
+  font-size: 28px; color: rgba(255,255,255,0.2); padding: 0 8px; flex-shrink: 0;
+}
+.result-box {
+  background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(56,189,248,0.1));
+  border: 1px solid rgba(37,99,235,0.3); border-radius: 20px;
+  padding: 20px 28px; margin-top: 24px;
+  display: flex; align-items: center; gap: 16px;
+}
+.result-box .emoji { font-size: 36px; }
+.result-box .text { font-size: 16px; color: rgba(255,255,255,0.85); font-weight: 700; line-height: 1.6; }
+.result-box .text strong { color: #38bdf8; }
+
+/* ═══════════════════════════════════════════
+   SLIDE 6 — ENGAGEMENT
+═══════════════════════════════════════════ */
+#s6 { background: linear-gradient(135deg, #1e1b4b, #4338ca); padding: 60px; overflow: hidden; }
+.eng-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; flex: 1; }
+.eng-card {
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 24px; padding: 28px 24px; display: flex; flex-direction: column; gap: 12px;
+}
+.eng-icon { font-size: 40px; }
+.eng-title { font-size: 20px; font-weight: 900; color: #fff; }
+.eng-desc { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; font-weight: 600; }
+.eng-proof {
+  background: rgba(255,255,255,0.08); border-radius: 12px;
+  padding: 10px 14px; font-size: 13px; color: #fde68a; font-weight: 800;
+}
+.eng-right-panel {
+  flex-shrink: 0; width: 280px; background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12); border-radius: 24px; padding: 28px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.eng-stat { text-align: center; }
+.eng-stat-num { font-size: 56px; font-weight: 900; color: #fde68a; line-height: 1; }
+.eng-stat-label { font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 700; }
+.eng-divider { height: 1px; background: rgba(255,255,255,0.1); }
+.duolingo-ref {
+  font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 600; text-align: center; line-height: 1.6;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════
+   SLIDE 7 — MATIÈRES & NIVEAU
+═══════════════════════════════════════════ */
+#s7 { background: #f0f4ff; padding: 60px; }
+#s7 .slide-h1 { color: #0f172a; }
+#s7 .slide-h1-ar { color: #94a3b8; }
+.subjects-body { display: flex; gap: 24px; flex: 1; }
+.subject-col { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+.subject-header {
+  border-radius: 20px; padding: 20px;
+  display: flex; align-items: center; gap: 14px; color: #fff;
+}
+.subject-header .sub-icon { font-size: 36px; }
+.subject-header .sub-name { font-size: 20px; font-weight: 900; }
+.subject-header .sub-ar { font-size: 14px; opacity: .8; font-weight: 700; }
+.subject-topics { display: flex; flex-direction: column; gap: 8px; }
+.topic {
+  background: #fff; border-radius: 12px; padding: 12px 16px;
+  font-size: 14px; font-weight: 700; color: #0f172a;
+  box-shadow: 0 2px 8px rgba(24,43,102,0.06);
+  display: flex; align-items: center; gap: 10px;
+}
+.topic-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.levels-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+.level-badge {
+  display: flex; align-items: center; gap: 8px;
+  background: #fff; border-radius: 12px; padding: 10px 16px;
+  box-shadow: 0 2px 8px rgba(24,43,102,0.06); flex: 1;
+}
+.level-badge .licon { font-size: 22px; }
+.level-badge .lname { font-size: 13px; font-weight: 900; color: #0f172a; }
+.level-badge .lar { font-size: 11px; color: #94a3b8; font-weight: 700; }
+.level-badge .lpct { font-size: 12px; font-weight: 900; margin-left: auto; }
+
+/* ═══════════════════════════════════════════
+   SLIDE 8 — IMPACT
+═══════════════════════════════════════════ */
+#s8 { background: #0f172a; padding: 60px; }
+.impact-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; flex: 1; }
+.impact-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px; padding: 28px 22px; display: flex; flex-direction: column; gap: 14px;
+}
+.impact-icon { font-size: 44px; }
+.impact-title { font-size: 20px; font-weight: 900; color: #fff; }
+.impact-desc { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; font-weight: 600; }
+.impact-metric {
+  background: rgba(37,99,235,0.2); border: 1px solid rgba(37,99,235,0.3);
+  border-radius: 12px; padding: 10px 14px;
+  font-size: 14px; font-weight: 800; color: #38bdf8;
+}
+.testimony-box {
+  background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(56,189,248,0.08));
+  border: 1px solid rgba(37,99,235,0.25); border-radius: 20px;
+  padding: 20px 28px; display: flex; align-items: center; gap: 20px;
+}
+.testimony-camel { font-size: 48px; }
+.testimony-text { font-size: 15px; color: rgba(255,255,255,0.85); font-weight: 600; line-height: 1.7; font-style: italic; }
+.testimony-text strong { color: #fde68a; }
+
+/* ═══════════════════════════════════════════
+   SLIDE 9 — CTA
+═══════════════════════════════════════════ */
+#s9 {
+  background: linear-gradient(135deg, #182b66 0%, #2563eb 60%, #38bdf8 100%);
+  align-items: center; justify-content: center; gap: 36px; overflow: hidden;
+}
+.s9-circle1 { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: rgba(255,255,255,0.05); top: -200px; right: -150px; }
+.s9-circle2 { position: absolute; width: 350px; height: 350px; border-radius: 50%; background: rgba(56,189,248,0.10); bottom: -100px; left: -80px; }
+.s9-flag-band { position: absolute; bottom: 0; left: 0; right: 0; height: 6px; background: #CC1A1A; opacity: .85; }
+.s9-title { font-size: 54px; font-weight: 900; color: #fff; text-align: center; line-height: 1.1; z-index: 1; }
+.s9-title span { color: #fde68a; }
+.s9-ar { font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.7); z-index: 1; }
+.s9-sub { font-size: 18px; color: rgba(255,255,255,0.85); text-align: center; font-weight: 600; max-width: 600px; line-height: 1.7; z-index: 1; }
+.s9-actions { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; z-index: 1; }
+.cta-btn {
+  padding: 18px 36px; border-radius: 18px; font-size: 16px; font-weight: 900;
+  cursor: pointer; border: none; transition: transform .2s;
+}
+.cta-btn:hover { transform: translateY(-3px); }
+.cta-primary { background: #fde68a; color: #182b66; }
+.cta-secondary { background: rgba(255,255,255,0.15); color: #fff; border: 2px solid rgba(255,255,255,0.3); }
+.s9-stats { display: flex; gap: 32px; z-index: 1; }
+.s9-stat { text-align: center; }
+.s9-stat-num { font-size: 42px; font-weight: 900; color: #fde68a; }
+.s9-stat-label { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 700; }
+.s9-camel { font-size: 64px; z-index: 1; animation: bounce 1.4s ease-in-out infinite; }
+@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+
+/* ── LOGO WATERMARK ── */
+.watermark {
+  position: fixed; top: 24px; left: 32px; z-index: 200;
+  display: flex; align-items: center; gap: 10px;
+}
+.watermark-logo {
+  width: 36px; height: 36px; background: #fff; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+.watermark-text { font-size: 15px; font-weight: 900; color: rgba(255,255,255,0.7); letter-spacing: 2px; }
+
+/* ── PROGRESS BAR ── */
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: linear-gradient(90deg, #fde68a, #38bdf8);
+  transition: width .4s ease; z-index: 300;
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<div class="watermark">
+  <div class="watermark-logo">📚</div>
+  <div class="watermark-text">MAJOR · ماجور</div>
+</div>
+
+<div class="deck" id="deck">
+
+  <!-- ── SLIDE 1 : COVER ── -->
+  <div class="slide active" id="s1">
+    <div class="s1-flag-band"></div>
+    <div class="s1-circle1"></div>
+    <div class="s1-circle2"></div>
+    <div class="s1-logo">📚</div>
+    <div class="s1-title">MAJOR <span>·</span> ماجور</div>
+    <div class="s1-ar">السادسة ابتدائي</div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span class="s1-flag">🇲🇷</span>
+      <span style="color:rgba(255,255,255,0.75);font-size:16px;font-weight:700;">Mauritanie · موريتانيا</span>
+    </div>
+    <div class="s1-sub">
+      L'application mobile qui transforme la révision<br>
+      en aventure pour les élèves de CM2 🏆
+    </div>
+    <div class="s1-chips">
+      <div class="s1-chip">📖 Français</div>
+      <div class="s1-chip">📐 Mathématiques</div>
+      <div class="s1-chip">🔬 Sciences</div>
+      <div class="s1-chip">📷 QR Codes</div>
+      <div class="s1-chip">🐪 Mauritanie</div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 2 : PROBLÈME ── -->
+  <div class="slide" id="s2">
+    <div class="slide-layout">
+      <div class="slide-header">
+        <div class="slide-tag">LE DÉFI · التحدي</div>
+      </div>
+      <div class="slide-h1">Le concours 6AF :<br><span>un enjeu majeur</span></div>
+      <div class="slide-h1-ar">امتحان السادسة ابتدائي : رهان كبير</div>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="big-num" style="color:#ef4444;">1 chance</div>
+          <div class="label">Les élèves n'ont qu'une seule opportunité de réussir le concours 6AF</div>
+          <div class="sub">La pression est immense pour les familles</div>
+        </div>
+        <div class="problem-card">
+          <div class="big-num" style="color:#fb923c;">3 matières</div>
+          <div class="label">Français, Maths, Sciences — des programmes denses à maîtriser en parallèle</div>
+          <div class="sub">Sans outils adaptés au niveau des élèves</div>
+        </div>
+        <div class="problem-card">
+          <div class="big-num" style="color:#fde68a;">0 app</div>
+          <div class="label">Aucune application dédiée au programme 6AF mauritanien n'existe aujourd'hui</div>
+          <div class="sub">Les élèves n'ont que le cahier physique</div>
+        </div>
+      </div>
+      <div class="quote-block">
+        💡 <strong>L'enjeu :</strong> transformer le cahier de révision en expérience interactive et motivante,
+        pour que chaque élève révise chaque jour — même sans professeur à côté.
+        <br>رهان تحويل كراس المراجعة إلى تجربة تفاعلية محفزة لكل طالب.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 3 : SOLUTION ── -->
+  <div class="slide" id="s3">
+    <div class="s3-circle"></div>
+    <div class="slide-layout">
+      <div class="slide-header">
+        <div class="slide-tag" style="background:rgba(56,189,248,0.2);border-color:rgba(56,189,248,0.4);color:#38bdf8;">LA SOLUTION · الحل</div>
+      </div>
+      <div class="slide-h1" style="color:#fff;">Major — le <span>cahier intelligent</span></div>
+      <div class="solution-body">
+        <div class="solution-left">
+          <div class="solution-desc">
+            Major est un <strong style="color:#fde68a;">écosystème complet</strong> : un cahier physique d'exercices
+            couplé à une application mobile qui rend la révision interactive, ludique et quotidienne.
+          </div>
+          <div class="solution-points">
+            <div class="solution-point">
+              <div class="icon">📷</div>
+              <div class="text">
+                <strong>Cahier + QR codes</strong>
+                <span>Chaque leçon du cahier contient un QR code → accès immédiat au mini-cours interactif</span>
+              </div>
+            </div>
+            <div class="solution-point">
+              <div class="icon">🎯</div>
+              <div class="text">
+                <strong>Défi quotidien automatique</strong>
+                <span>6 questions mixtes chaque jour, renouvelées automatiquement à minuit</span>
+              </div>
+            </div>
+            <div class="solution-point">
+              <div class="icon">🏆</div>
+              <div class="text">
+                <strong>Progression visible</strong>
+                <span>Niveau par matière, streak de jours consécutifs, étoiles et confettis</span>
+              </div>
+            </div>
+            <div class="solution-point">
+              <div class="icon">🐪</div>
+              <div class="text">
+                <strong>100% mauritanien · موريتاني</strong>
+                <span>Bilingue français/arabe, chameau mascotte, programme 6AF aligné</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="solution-right">
+          <div class="phone-mock">
+            <div class="phone-notch"><div class="phone-notch-inner"></div></div>
+            <div class="phone-screen">
+              <div class="phone-logo">📚</div>
+              <div class="phone-app-name">MAJOR</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.7);font-weight:700;">ماجور 🇲🇷</div>
+              <div class="phone-camel">🐪</div>
+              <div class="phone-chips">
+                <div class="phone-chip">📖 Français</div>
+                <div class="phone-chip">📐 Maths</div>
+                <div class="phone-chip">🔬 Sciences</div>
+              </div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.8);font-weight:700;text-align:center;">Prépare ton concours 6AF 🏆</div>
+            </div>
+          </div>
+          <div style="text-align:center;color:rgba(255,255,255,0.6);font-size:13px;font-weight:700;">
+            📱 iOS · Android<br>Expo Go — accès immédiat
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 4 : FONCTIONNALITÉS ── -->
+  <div class="slide" id="s4">
+    <div class="slide-layout">
+      <div class="slide-header">
+        <div class="slide-tag" style="background:rgba(37,99,235,0.15);border-color:rgba(37,99,235,0.3);color:#2563eb;">FONCTIONNALITÉS · المميزات</div>
+      </div>
+      <div class="slide-h1">Ce que l'élève<br><span style="color:#2563eb;">trouve dans l'app</span></div>
+      <div class="features-grid">
+        <div class="feature-card" style="border-top-color:#fb923c;">
+          <div class="feature-emoji">🎯</div>
+          <div class="feature-title">Défi du jour</div>
+          <div class="feature-desc">6 questions mixtes automatiques chaque matin — 2 par matière, mélangées. L'élève revient chaque jour.</div>
+          <div class="feature-tag" style="background:#fff7ed;color:#ea580c;">تحدي اليوم · Quotidien</div>
+        </div>
+        <div class="feature-card" style="border-top-color:#38bdf8;">
+          <div class="feature-emoji">📷</div>
+          <div class="feature-title">Scanner QR</div>
+          <div class="feature-desc">L'élève scanne le QR code du cahier → le mini-cours s'ouvre instantanément avec résumé et exercices.</div>
+          <div class="feature-tag" style="background:#e0f2fe;color:#0284c7;">مسح QR · Instantané</div>
+        </div>
+        <div class="feature-card" style="border-top-color:#34d399;">
+          <div class="feature-emoji">📚</div>
+          <div class="feature-title">28 Mini-cours</div>
+          <div class="feature-desc">Un cours par leçon : résumé, points clés, règle illustrée, astuce mémo, bouton "S'entraîner".</div>
+          <div class="feature-tag" style="background:#ecfdf5;color:#059669;">دروس · Interactif</div>
+        </div>
+        <div class="feature-card" style="border-top-color:#2563eb;">
+          <div class="feature-emoji">✅</div>
+          <div class="feature-title">Quiz adaptatif</div>
+          <div class="feature-desc">Feedback immédiat sur chaque réponse. Animation sur la bonne réponse. Explication en cas d'erreur.</div>
+          <div class="feature-tag" style="background:#eff6ff;color:#2563eb;">اختبار · Adaptatif</div>
+        </div>
+        <div class="feature-card" style="border-top-color:#F0B429;">
+          <div class="feature-emoji">🔥</div>
+          <div class="feature-title">Streak & Niveaux</div>
+          <div class="feature-desc">Compteur de jours consécutifs. 4 niveaux : Débutant → Intermédiaire → Avancé → Expert.</div>
+          <div class="feature-tag" style="background:#fffbeb;color:#d97706;">مستوى · Gamification</div>
+        </div>
+        <div class="feature-card" style="border-top-color:#ec4899;">
+          <div class="feature-emoji">⭐</div>
+          <div class="feature-title">Résultats & Confettis</div>
+          <div class="feature-desc">Score en étoiles (1-3), confettis si score ≥ 60%. Encouragements bilingues de la mascotte 🐪.</div>
+          <div class="feature-tag" style="background:#fdf2f8;color:#db2777;">نتائج · Motivation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 5 : COMMENT ÇA MARCHE ── -->
+  <div class="slide" id="s5">
+    <div class="slide-layout">
+      <div class="slide-header">
+        <div class="slide-tag" style="background:rgba(56,189,248,0.2);border-color:rgba(56,189,248,0.4);color:#38bdf8;">PARCOURS ÉLÈVE · مسار الطالب</div>
+      </div>
+      <div class="slide-h1" style="color:#fff;">Comment ça marche<br><span style="color:#38bdf8;">en 4 étapes</span></div>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-icon">📱</div>
+          <div class="flow-title">Télécharge Major</div>
+          <div class="flow-desc">L'élève entre son prénom. L'app crée son profil avec son niveau de départ.</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-icon">📷</div>
+          <div class="flow-title">Scanne le cahier</div>
+          <div class="flow-desc">Il ouvre le cahier Major, pointe la caméra vers un QR code de leçon.</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-icon">📖</div>
+          <div class="flow-title">Lit le mini-cours</div>
+          <div class="flow-desc">Résumé, règle, astuce — tout en français et arabe. Puis il clique "S'entraîner".</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-icon">🏆</div>
+          <div class="flow-title">Progresse chaque jour</div>
+          <div class="flow-desc">Défi quotidien, streak, niveau qui monte. L'habitude se crée naturellement.</div>
+        </div>
+      </div>
+      <div class="result-box">
+        <div class="emoji">🐪</div>
+        <div class="text">
+          Résultat : <strong>une révision autonome et régulière</strong>, même sans professeur présent.
+          L'app guide l'élève comme un coach personnel — en <strong>français et en arabe</strong>.
+          <br>النتيجة : مراجعة يومية مستقلة يقودها التطبيق كمدرب شخصي.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 6 : ENGAGEMENT ── -->
+  <div class="slide" id="s6">
+    <div class="slide-layout">
+      <div class="slide-header">
+        <div class="slide-tag" style="background:rgba(253,230,138,0.2);border-color:rgba(253,230,138,0.4);color:#fde68a;">POURQUOI ÇA MARCHE · لماذا ينجح</div>
+      </div>
+      <div class="slide-h1" style="color:#fff;">La science de<br><span style="color:#fde68a;">l'engagement</span></div>
+      <div style="display:flex;gap:24px;flex:1;">
+        <div class="eng-grid" style="flex:1;">
+          <div class="eng-card">
+            <div class="eng-icon">🔥</div>
+            <div class="eng-title">Streak quotidien</div>
+            <div class="eng-desc">L'élève ne veut pas briser sa série. Duolingo a prouvé que le streak est le mécanisme de rétention n°1.</div>
+            <div class="eng-proof">🏆 Duolingo : 300M utilisateurs grâce au streak</div>
+          </div>
+          <div class="eng-card">
+            <div class="eng-icon">🎯</div>
+            <div class="eng-title">Défi du jour</div>
+            <div class="eng-desc">Une seule action principale par jour. Pas de choix paralysants. L'élève sait exactement quoi faire.</div>
+            <div class="eng-proof">📊 6 questions = ~3 minutes. Faisable tous les jours</div>
+          </div>
+          <div class="eng-card">
+            <div class="eng-icon">⭐</div>
+            <div class="eng-title">Récompenses immédiates</div>
+            <div class="eng-desc">Confettis, étoiles, niveau qui monte — le cerveau associe la révision à une expérience positive.</div>
+            <div class="eng-proof">🧠 Dopamine = motivation à revenir demain</div>
+          </div>
+          <div class="eng-card">
+            <div class="eng-icon">🐪</div>
+            <div class="eng-title">Mascotte culturelle</div>
+            <div class="eng-desc">Le chameau mauritanien parle à l'élève en français ET en arabe. Il se sent compris et appartenu.</div>
+            <div class="eng-proof">🇲🇷 Ancrage culturel = attachement émotionnel</div>
+          </div>
+        </div>
+        <div class="eng-right-panel">
+          <div class="eng-stat">
+            <div class="eng-stat-num">3 min</div>
+            <div class="eng-stat-label">par jour suffisent<br>pour progresser</div>
+          </div>
+          <div class="eng-divider"></div>
+          <div class="eng-stat">
+            <div class="eng-stat-num">28</div>
+            <div class="eng-stat-label">mini-cours disponibles<br>dès le lancement</div>
+          </div>
+          <div class="eng-divider"></div>
+          <div class="eng-stat">
+            <div class="eng-stat-num">🔥×7</div>
+            <div class="eng-stat-label">streak = une semaine<br>de révision assurée</div>
+          </div>
+          <div class="eng-divider"></div>
+          <div class="duolingo-ref">
+            "Les applications les plus adoptées<br>misent sur la <strong style="color:#fde68a;">simplicité</strong>,<br>la <strong style="color:#fde68a;">régularité</strong> et la <strong style="color:#fde68a;">récompense</strong>."
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 7 : MATIÈRES ── -->
+  <div class="slide" id="s7">
+    <div class="slide-layout">
+      <div class="slide-header">
+        <div class="slide-tag" style="background:rgba(37,99,235,0.12);border-color:rgba(37,99,235,0.3);color:#2563eb;">PROGRAMME 6AF · المنهج الدراسي</div>
+      </div>
+      <div class="slide-h1">Trois matières,<br><span style="color:#2563eb;">un seul objectif</span></div>
+      <div class="subjects-body">
+        <div class="subject-col">
+          <div class="subject-header" style="background:linear-gradient(135deg,#0284c7,#38bdf8);">
+            <div class="sub-icon">📖</div>
+            <div>
+              <div class="sub-name">Français</div>
+              <div class="sub-ar">الفرنسية</div>
+            </div>
+          </div>
+          <div class="subject-topics">
+            <div class="topic"><div class="topic-dot" style="background:#38bdf8;"></div>Grammaire & conjugaison</div>
+            <div class="topic"><div class="topic-dot" style="background:#38bdf8;"></div>Orthographe & dictée</div>
+            <div class="topic"><div class="topic-dot" style="background:#38bdf8;"></div>Lecture & compréhension</div>
+            <div class="topic"><div class="topic-dot" style="background:#38bdf8;"></div>Expression écrite</div>
+            <div class="topic"><div class="topic-dot" style="background:#38bdf8;"></div>Vocabulaire thématique</div>
+          </div>
+        </div>
+        <div class="subject-col">
+          <div class="subject-header" style="background:linear-gradient(135deg,#ea580c,#fb923c);">
+            <div class="sub-icon">📐</div>
+            <div>
+              <div class="sub-name">Mathématiques</div>
+              <div class="sub-ar">الرياضيات</div>
+            </div>
+          </div>
+          <div class="subject-topics">
+            <div class="topic"><div class="topic-dot" style="background:#fb923c;"></div>Numération & grands nombres</div>
+            <div class="topic"><div class="topic-dot" style="background:#fb923c;"></div>4 opérations posées</div>
+            <div class="topic"><div class="topic-dot" style="background:#fb923c;"></div>Fractions & décimaux</div>
+            <div class="topic"><div class="topic-dot" style="background:#fb923c;"></div>Géométrie & mesures</div>
+            <div class="topic"><div class="topic-dot" style="background:#fb923c;"></div>Problèmes résolus</div>
+          </div>
+        </div>
+        <div class="subject-col">
+          <div class="subject-header" style="background:linear-gradient(135deg,#059669,#34d399);">
+            <div class="sub-icon">🔬</div>
+            <div>
+              <div class="sub-name">Sciences</div>
+              <div class="sub-ar">العلوم</div>
+            </div>
+          </div>
+          <div class="subject-topics">
+            <div class="topic"><div class="topic-dot" style="background:#34d399;"></div>Biologie & corps humain</div>
+            <div class="topic"><div class="topic-dot" style="background:#34d399;"></div>Environnement & écologie</div>
+            <div class="topic"><div class="topic-dot" style="background:#34d399;"></div>Physique de base</div>
+            <div class="topic"><div class="topic-dot" style="background:#34d399;"></div>Hygiène & santé</div>
+            <div class="topic"><div class="topic-dot" style="background:#34d399;"></div>Animaux & plantes</div>
+          </div>
+        </div>
+      </div>
+      <div class="levels-row">
+        <div class="level-badge"><div class="licon">🌱</div><div><div class="lname">Débutant</div><div class="lar">مبتدئ</div></div><div class="lpct" style="color:#94a3b8;">0–39%</div></div>
+        <div class="level-badge"><div class="licon">⭐</div><div><div class="lname">Intermédiaire</div><div class="lar">متوسط</div></div><div class="lpct" style="color:#fb923c;">40–69%</div></div>
+        <div class="level-badge"><div class="licon">🚀</div><div><div class="lname">Avancé</div><div class="lar">متقدم</div></div><div class="lpct" style="color:#2563eb;">70–84%</div></div>
+        <div class="level-badge"><div class="licon">🏆</div><div><div class="lname">Expert</div><div class="lar">خبير</div></div><div class="lpct" style="color:#F0B429;">85–100%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 8 : IMPACT ── -->
+  <div class="slide" id="s8">
+    <div class="slide-layout">
+      <div class="slide-header">
+        <div class="slide-tag" style="background:rgba(52,211,153,0.2);border-color:rgba(52,211,153,0.4);color:#34d399;">IMPACT · الأثر</div>
+      </div>
+      <div class="slide-h1" style="color:#fff;">Ce que Major change<br><span style="color:#34d399;">pour vos élèves</span></div>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-icon">📅</div>
+          <div class="impact-title">Révision quotidienne</div>
+          <div class="impact-desc">L'élève révise chaque jour grâce au défi et au streak — sans que le professeur ait besoin de le rappeler.</div>
+          <div class="impact-metric">3 minutes par jour = 21 minutes par semaine garanties</div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon">🧭</div>
+          <div class="impact-title">Autonomie renforcée</div>
+          <div class="impact-desc">L'élève peut réviser seul à la maison, en famille, n'importe où. Le QR code du cahier est son guide.</div>
+          <div class="impact-metric">28 leçons accessibles 24h/24 — même hors connexion</div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon">📊</div>
+          <div class="impact-title">Progression visible</div>
+          <div class="impact-desc">L'élève voit son niveau monter (Débutant → Expert). La progression visible crée de la confiance en soi.</div>
+          <div class="impact-metric">Niveau par matière mis à jour après chaque quiz</div>
+        </div>
+      </div>
+      <div class="testimony-box">
+        <div class="testimony-camel">🐪</div>
+        <div class="testimony-text">
+          <strong>Pour les professeurs</strong> : Major n'est pas un outil qui remplace la classe.
+          C'est un <strong>compagnon de révision</strong> qui prolonge votre enseignement à la maison.
+          Chaque leçon du cahier que vous enseignez a son QR code — l'élève peut la revoir seul le soir.
+          <br><br>
+          <em style="color:rgba(255,255,255,0.6);">Major ليس بديلاً عن الفصل، بل مرافق للمراجعة المنزلية يمتد بتعليمكم.</em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 9 : CTA ── -->
+  <div class="slide" id="s9">
+    <div class="s9-circle1"></div>
+    <div class="s9-circle2"></div>
+    <div class="s9-flag-band"></div>
+    <div class="s9-camel">🐪</div>
+    <div class="s9-title">Rejoignez l'aventure<br><span>Major</span> avec vos élèves !</div>
+    <div class="s9-ar">انضموا إلى مغامرة ماجور مع طلابكم !</div>
+    <div class="s9-sub">
+      Major est gratuit, open source, et conçu pour la réalité des élèves mauritaniens.
+      Chaque professeur qui recommande Major à ses élèves leur offre un avantage
+      réel pour le concours 6AF.
+    </div>
+    <div class="s9-stats">
+      <div class="s9-stat">
+        <div class="s9-stat-num">3</div>
+        <div class="s9-stat-label">matières couvertes</div>
+      </div>
+      <div class="s9-stat">
+        <div class="s9-stat-num">28</div>
+        <div class="s9-stat-label">leçons disponibles</div>
+      </div>
+      <div class="s9-stat">
+        <div class="s9-stat-num">∞</div>
+        <div class="s9-stat-label">défis quotidiens</div>
+      </div>
+    </div>
+    <div class="s9-actions">
+      <button class="cta-btn cta-primary">📱 Tester l'application</button>
+      <button class="cta-btn cta-secondary">📚 Voir le cahier Major</button>
+    </div>
+    <div style="color:rgba(255,255,255,0.5);font-size:13px;font-weight:700;z-index:1;">
+      🇲🇷 Mauritanie · موريتانيا — Concours 6AF 2025/2026
+    </div>
+  </div>
+
+</div><!-- /deck -->
+
+<div class="hint">← → ou clic pour naviguer entre les slides</div>
+
+<div class="nav">
+  <button onclick="prev()">←</button>
+  <div class="dots" id="dots"></div>
+  <button onclick="next()">→</button>
+  <div class="slide-counter" id="counter">1 / 9</div>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dotsCtn = document.getElementById('dots');
+const counter = document.getElementById('counter');
+const progress = document.getElementById('progress');
+let current = 0;
+
+// Build dots
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => goTo(i);
+  dotsCtn.appendChild(d);
+});
+
+function updateUI() {
+  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  counter.textContent = (current + 1) + ' / ' + slides.length;
+  progress.style.width = ((current + 1) / slides.length * 100) + '%';
+}
+
+function goTo(n) {
+  slides[current].classList.remove('active');
+  slides[current].classList.add('out');
+  setTimeout(() => slides[current].classList.remove('out'), 500);
+  current = (n + slides.length) % slides.length;
+  slides[current].classList.add('active');
+  updateUI();
+}
+
+function next() { goTo(current + 1); }
+function prev() { goTo(current - 1); }
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') next();
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp') prev();
+});
+
+// Swipe
+let touchX = 0;
+document.addEventListener('touchstart', e => touchX = e.touches[0].clientX);
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (dx < -50) next();
+  if (dx > 50) prev();
+});
+
+updateUI();
+</script>
+</body>
+</html>
