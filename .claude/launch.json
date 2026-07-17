@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "major-web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "apps/major-web"],
+      "port": 5173
+    },
+    {
+      "name": "scratchpad-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "/tmp/claude-1000/-home-pcmahmoud-Documents-Perso-Cahier-Math/e05a81fa-2a29-493a-820f-5e13044d12fc/scratchpad"],
+      "port": 8765
+    },
+    {
+      "name": "livrables",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8741", "--directory", "livrables"],
+      "port": 8741
+    }
+  ]
+}
