@@ -1,0 +1,4 @@
+url : https://github.com/oudcheikh/major-web.git
+uername : mm.ouldcheikh@gmail.com
+pwd:Med__!!!10061989
+token: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

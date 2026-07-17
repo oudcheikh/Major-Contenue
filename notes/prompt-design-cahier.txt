@@ -1,0 +1,69 @@
+Tu es un designer éditorial spécialisé en manuels scolaires et en documents
+optimisés pour la numérisation (scan par application mobile).
+
+CONTEXTE
+Je crée un cahier d'exercices de mathématiques papier, connecté à une
+application mobile via QR codes, pour la marque "Major – Cours particuliers"
+(Mauritanie). L'élève travaille dans le cahier, le parent ou le professeur
+scanne les pages avec l'app, qui reconnaît la page grâce au QR code et
+enregistre le travail. Le cahier doit être imprimable localement à bas coût
+(noir + 1 couleur d'accent maximum).
+
+CIBLE
+- Niveau : [ex. 6ème année fondamentale / classe de 5ème]
+- Langues : français et arabe (le cahier doit gérer l'écriture de droite à
+  gauche pour les pages en arabe)
+- Programme : programme officiel mauritanien, chapitres : [lister les
+  chapitres, ex. fractions, géométrie, proportionnalité...]
+
+CE QUE JE VEUX QUE TU PRODUISES
+1. La structure complète du cahier (chemin de fer) : nombre de pages,
+   ordre des sections, gabarits de pages types.
+2. Le gabarit détaillé de chaque type de page (description précise des
+   zones, dimensions, marges) :
+   - Page de garde + page d'identification élève (nom, classe, code élève
+     unique lié à l'app)
+   - Page "rappel de cours" (résumé court + 1 exemple corrigé)
+   - Page "exercices" (le cœur du cahier)
+   - Page "évaluation / bilan de chapitre"
+   - Page "notes du professeur"
+3. Les règles de mise en page pour que le scan fonctionne bien.
+
+CONTRAINTES TECHNIQUES POUR LE SCAN (obligatoires)
+- Un QR code UNIQUE PAR PAGE (pas par cahier), encodant :
+  [ID_cahier]-[ID_page], placé toujours au même endroit (coin supérieur
+  extérieur), taille minimum 2 x 2 cm, avec zone de silence blanche de
+  4 mm autour, jamais à cheval sur la reliure.
+- 4 repères de calibration (carrés noirs pleins de 5 mm) dans les coins
+  de chaque page pour que l'app redresse l'image automatiquement.
+- Zones de réponse de l'élève clairement délimitées par des cadres fins :
+  l'app doit savoir OÙ chercher l'écriture. Prévoir des cadres de réponse
+  numérotés et alignés sur une grille régulière.
+- Interligne minimum 8 mm dans les zones d'écriture (écriture d'enfant).
+- Pas de fond grisé ni de trame derrière les zones d'écriture (contraste
+  maximal pour l'OCR). Les éléments décoratifs uniquement dans les marges.
+- Encre d'accent (couleur Major : [préciser]) réservée aux titres, cadres
+  et pictos — jamais dans les zones que l'app doit lire.
+- Papier : format 17 x 22 cm ou A4 [choisir], impression recto-verso,
+  marge intérieure (reliure) de 15 mm minimum.
+
+CONTRAINTES PÉDAGOGIQUES
+- Chaque double page = une notion : rappel à gauche, exercices à droite,
+  difficulté progressive (3 niveaux signalés par pictos : ★ ★★ ★★★).
+- En bas de chaque page d'exercices : une ligne "auto-évaluation" simple
+  (3 cases : j'ai compris / à revoir / besoin d'aide) que l'app lit aussi
+  (cases à cocher de 8 mm minimum).
+- Prévoir la version miroir des gabarits pour les pages en arabe
+  (sens droite → gauche, QR code et repères repositionnés en conséquence).
+
+LIVRABLES ATTENDUS
+1. Le chemin de fer complet du cahier.
+2. La description précise de chaque gabarit (zone par zone, avec
+   dimensions en mm).
+3. Une maquette d'exemple d'une double page "fractions" entièrement
+   rédigée (rappel + 6 exercices sur 3 niveaux) pour visualiser le résultat.
+4. La liste des spécifications à transmettre à l'imprimeur (grammage
+   papier conseillé, type de reliure adapté au scan à plat, résolution
+   d'impression des QR codes).
+
+Pose-moi tes questions si des informations manquent avant de commencer.

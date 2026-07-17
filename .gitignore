@@ -1,0 +1,9 @@
+# apps ont leurs propres dépôts (major-web) ou sont regénérables
+apps/
+# environnements et caches Python
+generateurs/.venv/
+__pycache__/
+*.pyc
+# fichiers temporaires
+*.tmp
+.DS_Store
