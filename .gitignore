@@ -7,3 +7,7 @@ __pycache__/
 # fichiers temporaires
 *.tmp
 .DS_Store
+# rendus intermédiaires Manim et venv du pipeline vidéo (régénérables)
+generateurs/video-a5/media/
+generateurs/video-a5/venv/
+generateurs/video-a5/VideoU1-final.mp4
