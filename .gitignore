@@ -11,3 +11,6 @@ __pycache__/
 generateurs/video-a5/media/
 generateurs/video-a5/venv/
 generateurs/video-a5/VideoU1-final.mp4
+# builds mobiles (régénérables via EAS)
+*.apk
+*.aab
