@@ -62,7 +62,8 @@ Les applications vivent dans `apps/` mais ont chacune **leur propre dépôt GitH
 
 - `math-api/` — ⚠️ le `.venv` a été déplacé → le recréer :
   `cd apps/math-api && python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`
-- `major-contenue/` — workspace contenu Major (cahiers 4AF/6AF, QR codes, tutor-api, outils). Possède son propre `CLAUDE.md`. Fusionné dans ce dépôt le 13/08/2026.
+- `major-contenue/` — contenu app (MajorApp, content-packs, tutor-api, QR Vercel, 4AF). Possède son propre `CLAUDE.md`. Fusionné dans ce dépôt le 13/08/2026.
+  Les cahiers 6AF imprimables ne vivent plus ici : voir `livrables/` + `generateurs/`.
 
 ## Positionnement produit
 
