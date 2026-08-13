@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cahier Major 6AF — Template Cartoon</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   CAHIER MAJOR 6AF — Style Cartoon Enfant
+   Format B5 (176mm × 250mm)
+   Inspiré de MAJOR by YASSIR
+═══════════════════════════════════════════ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #D4C8B0;
+  font-family: 'Cairo', 'Tahoma', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 30px 20px;
+}
+
+/* ─── PAGE B5 ─── */
+.page {
+  width: 176mm;
+  min-height: 250mm;
+  background: #F8F3E8;
+  border-radius: 14px 4px 4px 14px;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  box-shadow:
+    0 4px 6px rgba(0,0,0,.12),
+    0 10px 30px rgba(0,0,0,.18),
+    4px 0 8px rgba(0,0,0,.08);
+}
+
+/* ─── SPIRAL BINDING (RIGHT = start in RTL) ─── */
+.spiral-col {
+  width: 32px;
+  min-height: 100%;
+  background: linear-gradient(to right, #C8C0B0, #E0D8CC);
+  border-left: 2px solid #A09888;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+.spiral-col::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 8px;
+  background: linear-gradient(to right, #B0A898, #C8C0B0);
+}
+.ring {
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle at 35% 35%, #6B6560, #3A3530);
+  border-radius: 50%;
+  border: 2px solid #2A2520;
+  box-shadow:
+    inset 0 2px 4px rgba(255,255,255,.15),
+    0 2px 4px rgba(0,0,0,.5);
+  position: relative;
+}
+.ring::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: -10px;
+  width: 10px; height: 5px;
+  background: #4A4540;
+  border-radius: 0 3px 3px 0;
+  transform: translateY(-50%);
+  border: 1px solid #3A3530;
+}
+
+/* ─── CONTENT AREA ─── */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 250mm;
+}
+
+/* ─── TOP HEADER ─── */
+.top-header {
+  background: #F8F3E8;
+  padding: 14px 16px 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  border-bottom: 2px dashed #C8B898;
+  min-height: 110px;
+}
+
+/* Level badge */
+.level-badge {
+  background: #fff;
+  border: 3px solid #1B3A7A;
+  border-radius: 14px;
+  padding: 8px 14px 10px;
+  text-align: center;
+  box-shadow: 4px 4px 0 #1B3A7A;
+  position: relative;
+  min-width: 100px;
+}
+.pin-icon {
+  position: absolute;
+  top: -16px;
+  right: 10px;
+  font-size: 22px;
+  filter: drop-shadow(1px 2px 2px rgba(0,0,0,.3));
+}
+.level-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: #666;
+  letter-spacing: .06em;
+  margin-bottom: 2px;
+}
+.level-num {
+  font-size: 32px;
+  font-weight: 900;
+  color: #1B3A7A;
+  line-height: 1;
+  letter-spacing: .02em;
+  direction: ltr;
+}
+.major-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #1B3A7A;
+  border-radius: 8px;
+  padding: 5px 10px;
+  margin-top: 8px;
+}
+.m-circle {
+  width: 20px; height: 20px;
+  background: #F5A623;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 900; color: #fff;
+  font-family: 'Arial', sans-serif;
+}
+.major-name {
+  font-size: 12px; font-weight: 900; color: #fff;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: .04em;
+}
+.by-line {
+  font-size: 8px; color: #93C5FD;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Header center — decorative area */
+.header-deco {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Subject pill (top left in RTL page) */
+.subject-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+.subject-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1B3A7A;
+  color: #fff;
+  padding: 9px 20px;
+  border-radius: 999px;
+  font-size: 17px;
+  font-weight: 900;
+  box-shadow: 0 4px 12px rgba(27,58,122,.4);
+  letter-spacing: .02em;
+}
+
+/* Floating decorations */
+.deco-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ─── LESSON TITLE ─── */
+.lesson-section {
+  padding: 16px 18px 14px;
+  text-align: center;
+  background: #F8F3E8;
+  border-bottom: 2px dashed #C8B898;
+  position: relative;
+}
+.lesson-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #F5A623;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  box-shadow: 0 3px 8px rgba(245,166,35,.4);
+}
+.lesson-title-ar {
+  font-size: 34px;
+  font-weight: 900;
+  color: #1B3A7A;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  text-shadow: 1px 1px 0 rgba(27,58,122,.1);
+}
+.lesson-subtitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* ─── RULE BOX ─── */
+.rule-section {
+  padding: 14px 16px 10px;
+  background-image: radial-gradient(circle, #C8B890 1px, transparent 1px);
+  background-size: 16px 16px;
+  background-color: #F8F3E8;
+}
+.rule-box {
+  background: #EEF2FF;
+  border: 2px solid #93C5FD;
+  border-radius: 16px;
+  padding: 14px 16px 18px;
+  position: relative;
+}
+/* Tape corners */
+.tape {
+  position: absolute;
+  width: 42px; height: 14px;
+  background: rgba(147, 197, 253, 0.55);
+  border-radius: 3px;
+}
+.tape-tr { top: -7px; left: 20px; transform: rotate(8deg); }
+.tape-tl { top: -7px; right: 20px; transform: rotate(-6deg); }
+.rule-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.rule-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #F5A623;
+  color: #fff;
+  padding: 5px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 900;
+}
+.rule-body-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1B3A7A;
+  line-height: 1.8;
+  text-align: center;
+}
+.rule-float-star {
+  position: absolute;
+  bottom: -14px;
+  right: 14px;
+  font-size: 24px;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,.2));
+}
+
+/* ─── EXERCISES ─── */
+.exercises-section {
+  padding: 16px 16px 10px;
+}
+.exo-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.tamarin-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #F5A623;
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 900;
+  box-shadow: 0 3px 8px rgba(245,166,35,.35);
+}
+.exo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.exo-card {
+  border-radius: 14px;
+  padding: 12px 10px 10px;
+  position: relative;
+  border: 2px solid;
+}
+.exo-card.blue-card {
+  background: #EEF6FF;
+  border-color: #93C5FD;
+}
+.exo-card.yellow-card {
+  background: #FFFBEE;
+  border-color: #F5A623;
+}
+.exo-num {
+  position: absolute;
+  top: -12px;
+  right: 12px;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 900; color: #fff;
+  border: 2.5px solid #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+}
+.exo-deco-icon {
+  position: absolute;
+  top: -12px;
+  left: 10px;
+  font-size: 22px;
+}
+.exo-question {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1B3A7A;
+  line-height: 1.6;
+  margin-top: 6px;
+  text-align: right;
+}
+.dotline-area {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.dotline {
+  height: 1px;
+  border-bottom: 2px dashed #B8C8E8;
+}
+.dotline-yellow {
+  height: 1px;
+  border-bottom: 2px dashed #E8C888;
+}
+.math-box {
+  background: #fff;
+  border: 1.5px solid #93C5FD;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1B3A7A;
+  direction: ltr;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* ─── CHALLENGE ─── */
+.challenge-section {
+  padding: 4px 16px 12px;
+}
+.challenge-card {
+  background: #fff;
+  border: 2px solid #FCA5A5;
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+.challenge-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 80px; height: 80px;
+  background: radial-gradient(circle at top right, #FEE2E2, transparent);
+  pointer-events: none;
+}
+.trophy-col {
+  font-size: 42px;
+  flex-shrink: 0;
+  position: relative;
+}
+.challenge-content {
+  flex: 1;
+  text-align: right;
+}
+.ch-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #EF4444;
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+.ch-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1B3A7A;
+  line-height: 1.6;
+}
+.ch-answer-lines {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ─── QR / DIGITAL RESOURCES ─── */
+.qr-section {
+  padding: 4px 16px 14px;
+}
+.qr-card {
+  background: #E8F8F2;
+  border: 2px solid #34D399;
+  border-radius: 16px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.phone-col {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.scan-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #059669;
+  color: #fff;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: 0 4px 10px rgba(5,150,105,.4);
+  cursor: pointer;
+  border: none;
+}
+.arrow-deco {
+  font-size: 20px;
+  color: #059669;
+  opacity: .7;
+}
+.qr-text-col {
+  flex: 1;
+  text-align: right;
+}
+.qr-title {
+  font-size: 14px;
+  font-weight: 900;
+  color: #065F46;
+  margin-bottom: 4px;
+}
+.qr-desc {
+  font-size: 12px;
+  font-weight: 700;
+  color: #047857;
+  line-height: 1.6;
+}
+/* QR code visual */
+.qr-visual {
+  width: 64px; height: 64px;
+  border: 3px solid #1B3A7A;
+  border-radius: 8px;
+  background: #fff;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2px;
+  padding: 5px;
+  flex-shrink: 0;
+}
+.qc { border-radius: 1px; }
+
+/* ─── FOOTER ─── */
+.footer {
+  background: #1B3A7A;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+.footer-slogan {
+  font-size: 13px;
+  font-weight: 900;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.footer-center {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.footer-stars {
+  display: flex;
+  gap: 4px;
+  color: #F5A623;
+  font-size: 12px;
+}
+.pg-circle {
+  width: 34px; height: 34px;
+  background: #F5A623;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 900; color: #fff;
+  box-shadow: 0 3px 8px rgba(0,0,0,.3);
+}
+
+/* ─── PRINT ─── */
+@media print {
+  body { background: none; padding: 0; }
+  .page {
+    width: 176mm; min-height: 250mm;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .spiral-col { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ══ SPIRAL RINGS (RIGHT side = RTL start) ══ -->
+  <div class="spiral-col">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+  </div>
+
+  <!-- ══ CONTENT ══ -->
+  <div class="content">
+
+    <!-- ── TOP HEADER ── -->
+    <div class="top-header">
+
+      <!-- Level badge (right = start) -->
+      <div class="level-badge">
+        <div class="pin-icon">📌</div>
+        <div class="level-label">المستوى</div>
+        <div class="level-num">6AF</div>
+        <div class="major-badge">
+          <div class="m-circle">M</div>
+          <div>
+            <div class="major-name">MAJOR</div>
+            <div class="by-line">Mauritanie</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative floating elements -->
+      <div class="deco-stars">
+        <!-- Stars scattered -->
+        <svg style="position:absolute;top:8px;left:55%;width:100%;height:100%;pointer-events:none" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stars -->
+          <text x="40" y="30" font-size="18" fill="#F5A623" opacity=".8">⭐</text>
+          <text x="120" y="20" font-size="12" fill="#1B3A7A" opacity=".5">✦</text>
+          <text x="160" y="55" font-size="10" fill="#1B3A7A" opacity=".4">✦</text>
+          <text x="80" y="65" font-size="14" fill="#F5A623" opacity=".6">✦</text>
+          <!-- Paper airplane doodle -->
+          <g transform="translate(30,50) rotate(-20)" opacity=".5">
+            <polygon points="0,0 28,10 0,20" fill="none" stroke="#1B3A7A" stroke-width="1.5"/>
+            <line x1="0" y1="10" x2="14" y2="10" stroke="#1B3A7A" stroke-width="1" stroke-dasharray="2,1"/>
+          </g>
+          <!-- Dashed curve -->
+          <path d="M10,80 Q60,40 120,70 Q170,95 220,60" fill="none" stroke="#C8B898" stroke-width="1.5" stroke-dasharray="4,3"/>
+        </svg>
+      </div>
+
+      <!-- Subject area (left = end in RTL) -->
+      <div class="subject-area">
+        <div class="subject-pill">
+          📐 الرياضيات
+        </div>
+        <!-- Laptop SVG illustration -->
+        <svg width="100" height="72" viewBox="0 0 100 72" xmlns="http://www.w3.org/2000/svg">
+          <!-- screen -->
+          <rect x="5" y="2" width="82" height="54" rx="8" fill="#1B3A7A" stroke="#111" stroke-width="2"/>
+          <rect x="9" y="6" width="74" height="46" rx="5" fill="#EEF6FF"/>
+          <!-- Major logo on screen -->
+          <rect x="20" y="12" width="52" height="34" rx="6" fill="#3B82F6"/>
+          <!-- 4 squares -->
+          <rect x="23" y="15" width="21" height="13" rx="4" fill="#2563EB"/>
+          <rect x="29" y="18" width="3" height="7" rx="1" fill="white"/>
+          <rect x="26" y="20" width="9" height="3" rx="1" fill="white"/>
+          <rect x="47" y="15" width="21" height="13" rx="4" fill="#2563EB"/>
+          <text x="50" y="26" font-family="Georgia" font-size="10" fill="white" font-weight="700">e</text>
+          <text x="61" y="20" font-family="Georgia" font-size="6" fill="white" font-weight="700">x</text>
+          <rect x="23" y="30" width="21" height="13" rx="4" fill="#2563EB"/>
+          <path d="M37 33 L37 39 L42 43 Q37 45 30 43 Q23 41 27 39 L33 33 Z" fill="none" stroke="white" stroke-width="1.5"/>
+          <line x1="31" y1="33" x2="38" y2="33" stroke="white" stroke-width="1.5"/>
+          <circle cx="29" cy="41" r="1" fill="white"/>
+          <circle cx="33" cy="43" r="1" fill="white"/>
+          <rect x="47" y="30" width="21" height="13" rx="4" fill="#2563EB"/>
+          <path d="M53 31 C56 33 60 35 57 38 C54 41 57 43 60 45" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M60 31 C57 33 53 35 56 38 C59 41 56 43 53 45" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="53" y1="34" x2="60" y2="34" stroke="white" stroke-width="1.2"/>
+          <line x1="53" y1="38" x2="60" y2="38" stroke="white" stroke-width="1.2"/>
+          <line x1="53" y1="42" x2="60" y2="42" stroke="white" stroke-width="1.2"/>
+          <!-- base -->
+          <rect x="0" y="56" width="100" height="8" rx="4" fill="#2A2A2A"/>
+          <rect x="30" y="57" width="40" height="4" rx="2" fill="#444"/>
+        </svg>
+      </div>
+
+    </div><!-- /top-header -->
+
+    <!-- ── LESSON TITLE ── -->
+    <div class="lesson-section">
+      <div class="lesson-chip">✏️ الدرس 1</div>
+      <div class="lesson-title-ar">الأعداد والعمليات</div>
+      <div class="lesson-subtitle">
+        <span>✍️</span>
+        <span>ترتيب العمليات الحسابية</span>
+      </div>
+    </div>
+
+    <!-- ── RULE BOX ── -->
+    <div class="rule-section">
+      <div class="rule-box">
+        <div class="tape tape-tl"></div>
+        <div class="tape tape-tr"></div>
+        <div class="rule-header-row">
+          <div class="rule-chip">💡 قاعدة يجب تذكرها</div>
+          <span style="font-size:20px;color:#F5A623">⭐</span>
+        </div>
+        <div class="rule-body-text">
+          ترتيب العمليات الحسابية :
+          <br>
+          <span style="font-size:18px;color:#EF4444;direction:ltr;display:inline-block;letter-spacing:.1em">
+            ( ) &nbsp;→&nbsp; × ÷ &nbsp;→&nbsp; + −
+          </span>
+          <br>
+          <span style="font-size:13px;color:#555">أولاً الأقواس، ثم الضرب والقسمة، ثم الجمع والطرح</span>
+        </div>
+        <div class="rule-float-star">⭐</div>
+      </div>
+    </div>
+
+    <!-- ── EXERCISES ── -->
+    <div class="exercises-section">
+      <div class="exo-title-row">
+        <div class="tamarin-chip">📋 تمارين</div>
+        <svg width="60" height="20" viewBox="0 0 60 20">
+          <text x="0" y="16" font-size="14" fill="#F5A623" opacity=".7">✦ ✦ ✦</text>
+        </svg>
+      </div>
+      <div class="exo-grid">
+
+        <!-- Exercise 1 — BLUE -->
+        <div class="exo-card blue-card">
+          <div class="exo-num" style="background:#3B82F6">1</div>
+          <div class="exo-deco-icon">📝</div>
+          <div class="exo-question">احسب مع احترام ترتيب العمليات</div>
+          <div class="math-box">
+            24 ÷ (2+4) × 3 = ___<br>
+            5 + 3 × 4 − 2 = ___
+          </div>
+          <div class="dotline-area">
+            <div class="dotline"></div>
+            <div class="dotline"></div>
+          </div>
+        </div>
+
+        <!-- Exercise 2 — YELLOW -->
+        <div class="exo-card yellow-card">
+          <div class="exo-num" style="background:#F5A623">2</div>
+          <div class="exo-deco-icon">📎</div>
+          <div class="exo-question">صنّف من الأصغر إلى الأكبر</div>
+          <div class="math-box" style="border-color:#F5A623;direction:ltr">
+            7 ; −3 ; 0 ; −9 ; 4
+          </div>
+          <div class="dotline-area">
+            <div class="dotline-yellow"></div>
+            <div class="dotline-yellow"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── CHALLENGE ── -->
+    <div class="challenge-section">
+      <div class="challenge-card">
+        <div class="trophy-col">
+          <!-- Trophy SVG -->
+          <svg width="44" height="50" viewBox="0 0 44 50" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="22" cy="47" rx="12" ry="3" fill="#C8A020" opacity=".4"/>
+            <rect x="16" y="36" width="12" height="8" rx="2" fill="#F5A623" stroke="#C8820A" stroke-width="1.5"/>
+            <rect x="12" y="44" width="20" height="4" rx="2" fill="#C8820A"/>
+            <path d="M8 6 Q8 28 22 30 Q36 28 36 6 Z" fill="#F5D020" stroke="#C8A020" stroke-width="2"/>
+            <rect x="8" y="4" width="28" height="5" rx="2.5" fill="#F5A623" stroke="#C8820A" stroke-width="1.5"/>
+            <path d="M8 12 Q3 10 3 16 Q3 22 10 22" fill="none" stroke="#C8A020" stroke-width="2" stroke-linecap="round"/>
+            <path d="M36 12 Q41 10 41 16 Q41 22 34 22" fill="none" stroke="#C8A020" stroke-width="2" stroke-linecap="round"/>
+            <text x="14" y="22" font-size="14">⭐</text>
+          </svg>
+        </div>
+        <div class="challenge-content">
+          <div class="ch-badge">⭐ تمرين إضافي</div>
+          <div class="ch-text">
+            أوجد نتيجة العملية التالية :<br>
+            <span style="color:#1B3A7A;font-weight:900;font-size:14px;direction:ltr;display:inline-block">
+              ( 12 + 8 ) ÷ 4 × 3 − 5 = ?
+            </span>
+          </div>
+          <div class="ch-answer-lines">
+            <div class="dotline"></div>
+            <div class="dotline"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── QR / DIGITAL RESOURCES ── -->
+    <div class="qr-section">
+      <div class="qr-card">
+
+        <!-- Phone + scan button (right = start in RTL) -->
+        <div class="phone-col">
+          <svg width="36" height="56" viewBox="0 0 36 56" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="32" height="52" rx="6" fill="#1B3A7A" stroke="#111" stroke-width="2"/>
+            <rect x="5" y="8" width="26" height="36" rx="3" fill="#EEF6FF"/>
+            <rect x="14" y="46" width="8" height="4" rx="2" fill="#93C5FD"/>
+            <rect x="12" y="5" width="12" height="2" rx="1" fill="#93C5FD"/>
+            <!-- screen content -->
+            <rect x="7" y="10" width="22" height="6" rx="2" fill="#3B82F6" opacity=".8"/>
+            <rect x="7" y="18" width="16" height="3" rx="1" fill="#C8D8F0"/>
+            <rect x="7" y="23" width="22" height="3" rx="1" fill="#C8D8F0"/>
+            <rect x="7" y="28" width="14" height="3" rx="1" fill="#C8D8F0"/>
+          </svg>
+          <div class="scan-btn">امسحني ✨</div>
+        </div>
+
+        <!-- Arrow -->
+        <div class="arrow-deco">
+          <svg width="28" height="28" viewBox="0 0 28 28">
+            <path d="M24 14 C24 14 16 8 8 14 C16 14 16 20 8 20" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round"/>
+            <polygon points="8,16 4,20 10,22" fill="#059669"/>
+          </svg>
+        </div>
+
+        <!-- Text -->
+        <div class="qr-text-col">
+          <div class="qr-title">📱 موارد رقمية</div>
+          <div class="qr-desc">
+            امسح رمز QR للوصول إلى<br>
+            الشرح المصوّر والتمارين التفاعلية
+          </div>
+        </div>
+
+        <!-- QR Code -->
+        <div class="qr-visual">
+          <div class="qc" style="background:#111"></div><div class="qc" style="background:#111"></div><div class="qc" style="background:#fff"></div><div class="qc" style="background:#111"></div><div class="qc" style="background:#111"></div><div class="qc" style="background:#fff"></div>
+          <div class="qc" style="background:#111"></div><div class="qc" style="background:#fff"></div><div class="qc" style="background:#111"></div><div class="qc" style="background:#fff"></div><div class="qc" style="background:#111"></div><div class="qc" style="background:#111"></div>
+          <div class="qc" style="background:#fff"></div><div class="qc" style="background:#111"></div><div class="qc" style="background:#fff"></div><div class="qc" style="background:#111"></div><div class="qc" style="background:#fff"></div><div class="qc" style="background:#111"></div>
+          <div class="qc" style="background:#111"></div><div class="qc" style="background:#111"></div><div class="qc" style="background:#111"></div><div class="qc" style="background:#fff"></div><div class="qc" style="background:#111"></div><div class="qc" style="background:#fff"></div>
+          <div class="qc" style="background:#fff"></div><div class="qc" style="background:#111"></div><div class="qc" style="background:#fff"></div><div class="qc" style="background:#111"></div><div class="qc" style="background:#fff"></div><div class="qc" style="background:#111"></div>
+          <div class="qc" style="background:#111"></div><div class="qc" style="background:#fff"></div><div class="qc" style="background:#111"></div><div class="qc" style="background:#fff"></div><div class="qc" style="background:#111"></div><div class="qc" style="background:#111"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <div class="footer">
+      <div class="footer-slogan">❤️ تعلّم، افهم، ونجح!</div>
+      <div class="footer-center">
+        <div class="m-circle" style="width:22px;height:22px;font-size:12px;background:#F5A623;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-family:Arial">M</div>
+        <span style="color:#fff;font-size:12px;font-weight:900;font-family:Arial">MAJOR</span>
+        <div class="footer-stars">⭐ ✦ ⭐</div>
+      </div>
+      <div class="pg-circle">8</div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /page -->
+
+</body>
+</html>

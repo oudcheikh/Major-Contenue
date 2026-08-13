@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+pydantic-settings
+httpx
+edge-tts
+faster-whisper
+python-multipart

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>QR Codes — Cahier Major Arabe 6AF</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #f0f4ff;
+      padding: 32px 16px;
+      direction: rtl;
+    }
+    .hero {
+      background: linear-gradient(135deg, #182b66, #2563eb, #38bdf8);
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 32px;
+    }
+    .hero h1 { font-size: 28px; font-weight: 900; margin-bottom: 8px; }
+    .hero p  { font-size: 14px; opacity: 0.85; }
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border-radius: 999px;
+      padding: 6px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 12px;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 24px 0 14px;
+      padding-right: 12px;
+      border-right: 4px solid #2563eb;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .qr-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 18px;
+      border: 2px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 16px rgba(24,43,102,0.08);
+      transition: transform 0.2s;
+    }
+    .qr-card:hover { transform: translateY(-4px); }
+    .qr-subject {
+      border-radius: 999px;
+      padding: 4px 14px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+    .qr-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 12px;
+      border: 2px solid #f1f5f9;
+    }
+    .qr-code  { font-size: 11px; font-weight: 900; letter-spacing: 1px; }
+    .qr-label { font-size: 14px; font-weight: 700; color: #0f172a; text-align: center; }
+    .qr-url   { font-size: 9px; color: #94a3b8; word-break: break-all; text-align: center; direction: ltr; }
+    .qr-dl {
+      display: block;
+      border-radius: 10px;
+      padding: 8px 16px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      text-align: center;
+      width: 100%;
+    }
+    .stats {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .stat { flex: 1; min-width: 120px; text-align: center; }
+    .stat-num  { font-size: 32px; font-weight: 900; color: #2563eb; }
+    .stat-label { font-size: 12px; color: #64748b; font-weight: 700; }
+    @media print {
+      .qr-dl { display: none; }
+      body { background: #fff; padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>🐪 QR Codes — الكتيب الكبير العربي</h1>
+    <p>Cahier Major 6AF — Mauritanie 🇲🇷</p>
+    <div class="badge">✅ 13 QR codes générés</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">اللغة العربية</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">التاريخ والجغرافيا</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">التربية الإسلامية</div></div>
+    <div class="stat"><div class="stat-num">13</div><div class="stat-label">المجموع</div></div>
+  </div>
+
+  <div class="section-title">🕌 اللغة العربية (AR-01 → AR-05)</div>
+  <div class="grid">
+    
+        <div class="qr-card" style="border-color:#06803C33">
+          <div class="qr-subject" style="background:#d1fae5;color:#06803C">عربي</div>
+          <img src="data:image/png;base64,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" class="qr-img" alt="QR AR-01"/>
+          <div class="qr-code" style="color:#06803C">AR-01</div>
+          <div class="qr-label">الفاعل والمفعول به</div>
+          <div class="qr-url">major://lesson/ar-grammaire-base</div>
+          <a href="C:\Users\PC\Documents\Major-Contenue\qrcodes_arabe\AR-01.png" class="qr-dl" style="background:#06803C">
+            ⬇ Télécharger PNG
+          </a>
+        </div>
+        <div class="qr-card" style="border-color:#06803C33">
+          <div class="qr-subject" style="background:#d1fae5;color:#06803C">عربي</div>
+          <img src="data:image/png;base64,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" class="qr-img" alt="QR AR-02"/>
+          <div class="qr-code" style="color:#06803C">AR-02</div>
+          <div class="qr-label">الأفعال — الماضي والمضارع</div>
+          <div class="qr-url">major://lesson/ar-conjugaison</div>
+          <a href="C:\Users\PC\Documents\Major-Contenue\qrcodes_arabe\AR-02.png" class="qr-dl" style="background:#06803C">
+            ⬇ Télécharger PNG
+          </a>
+        </div>
+        <div class="qr-card" style="border-color:#06803C33">
+          <div class="qr-subject" style="background:#d1fae5;color:#06803C">عربي</div>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQgAAAEICAIAAAAslP2oAAAE5klEQVR4nO3dwbEjNRRA0T8UEXhHBuQfDRmwcwpmDVxTNCXx1N/n7GDh9p+ZW5rqN5J+vF6vL+DPfvrLfwPCgGbFgCAMCMKAIAwIwoAgDAjCgCAMCMKAIAwIwoAgDAjCgPDz10WPX379uoPn778t+bmufs6qz1/1faZ+rtNc/XmtGBCEAUEYEIQBQRgQhAFBGLBijvHOqvfiU+/RT5sPnPY5n/bnwYoBQRgQhAFBGBCEAUEYEIQBO+cYp80Zrro6l7i6j2LK1e8z9et81e7vacWAIAwIwoAgDAjCgCAMCMKAiTnG3e1+777qvKmrz53aZ3IXVgwIwoAgDAjCgCAMCMKAIAwIHzfH2D032G3VXGLV539XVgwIwoAgDAjCgCAMCMKAIAyYmGOc9l786vfZPd+Y2qdx93s/drNiQBAGBGFAEAYEYUAQBgRhwM45xmn7Ft5ZNR9YNU+Y+j5T85C7sGJAEAYEYUAQBgRhQBAGBGFA+PF6vb4+yapzlna/p181l+C/sWJAEAYEYUAQBgRhQBAGBGHAxBxj6l7q3abu4b7L3OZ58zmMFQOCMCAIA4IwIAgDgjAgCANWzDHuvg/htDnDp91TPuXq76MVA4IwIAgDgjAgCAOCMCAIA3bej7H7vojvOpe4+33bj6H9Fbufa8WAIAwIwoAgDAjCgCAMCMKAnfsxVu2LuMt5RHc/Z2n3cx+L9oFMnd9lxYAgDAjCgCAMCMKAIAwIwoCd92Ocdn7R7nOWTtvXMTWXeA6dA7b7uVYMCMKAIAwIwoAgDAjCgCAMWHGu1NT76d2mzsWaeq9/9fs8P+z+DSsGBGFAEAYEYUAQBgRhQBAGnHSu1NXPX2XqnKKp9/3f9Tyrh3Ol4P/nr1IQhAFBGBCEAUEYEIQBE3OM77p/Y5Xd+yveucvnP4f+nFgxIAgDgjAgCAOCMCAIA4IwYMW5Uu/c5d/3nzaHOe3nuvu8YhUrBgRhQBAGBGFAEAYEYUAQBqyYY5x2T8Jd9mOc9p5+99zmOXS/+CpWDAjCgCAMCMKAIAwIwoAgDDjpnu+73PMwtZ9hal/HVY+h/Sq7WTEgCAOCMCAIA4QB/44VA4IwYMX9GKt81/OgrrrLPSGPw86hWvXcd6wYEIQBQRgQhAFBGBCEAUEYsHOOseo+hNPOp5q6d+Kdu89tpphjwAL+KgVBGBCEAUEYEIQBQRhw0n6MKZ/2nn5qH8s7p91H/o4VA4IwIAgDgjAgCAOCMCAIA3bej3Ga3fdS797/MHVvxlWPw+4nWfVcKwYEYUAQBgRhQBAGBGFAEAasmGO8s/t+ht3nWU29X98999i9/+E59Pu+mxUDgjAgCAOCMCAIA4IwIAgDds4x3pk6F+iqVe/vd88lpu7leAztw5l6rhUDgjAgCAOCMCAIA4IwIAgDJuYYp9l9HtHV507x6/DPrBgQhAFBGBCEAUEYEIQBQRgQPm6OcZd9I1PnO51278dz6LlWDAjCgCAMCMKAIAwIwoAgDJiYY5x2f8LueyR277s47R7x59D8xD3fMMBfpSAIA4IwIAgDgjAgCAN2zjFOOzfpqql9Ars/f+o+jefQc1exYkAQBgRhQBAGBGFAEAYEYUD48Xq96v/DR7NiQBAGBGFAEAYEYUAQBgRhQBAGBGFAEAYEYUAQBgRhQBAGBGHA19/9ATK7LoZzHjAJAAAAAElFTkSuQmCC" class="qr-img" alt="QR AR-03"/>
+          <div class="qr-code" style="color:#06803C">AR-03</div>
+          <div class="qr-label">الجمع — سالم وتكسير</div>
+          <div class="qr-url">major://lesson/ar-jamaa</div>
+          <a href="C:\Users\PC\Documents\Major-Contenue\qrcodes_arabe\AR-03.png" class="qr-dl" style="background:#06803C">
+            ⬇ Télécharger PNG
+          </a>
+        </div>
+        <div class="qr-card" style="border-color:#06803C33">
+          <div class="qr-subject" style="background:#d1fae5;color:#06803C">عربي</div>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQgAAAEICAIAAAAslP2oAAAFD0lEQVR4nO3dwW0ktxZAUY3hCHr3M3D+0TgD7zqF9vrbtwAXwAeypHN2HgzUrbYuKNQbkr8+n88X8P9++8d/A8KAZsWAIAwIwoAgDAjCgCAMCMKAIAwIwoAgDAjCgCAMCMKA8PvXTa///fH1BO+//rz1/u/+/VWv+5Tv973p+1rl6v1fsWJAEAYEYUAQBgRhQBAGBGHAijnGqufEq6x6jr5qXjHt7utO//3v+vNgxYAgDAjCgCAMCMKAIAwIwoDJOcb0c+Xp5+vT+xbuvv+rrz+9P2R6/vA67OfhihUDgjAgCAOCMCAIA4IwIAgDdswxTnP3Ofqq5/2nnSt1Zdd84zRWDAjCgCAMCMKAIAwIwoAgDAg/bo6xy/S+CPOHtawYEIQBQRgQhAFBGBCEAUEYsGOO8V3/Hf+q852m93Wcdu/H+yE/D1YMCMKAIAwIwoAgDAjCgCAMmJxjTJ+bNG363ozpfRS77v34rj8PVgwIwoAgDAjCgCAMCMKAIAwIvz6fT/35jzM9r1hl1z3c74fso1jFigFBGBCEAUEYEIQBQRgQhAEnzTGefi/EU/Y57Jo/vBbNeVbNke5+DlYMCMKAIAwIwoAgDAjCgCAM2HGu1Krn6KeddzT9fd193VXf19M/n1WsGBCEAUEYEIQBQRgQhAFBGLDjnu/T9jmcdj7SafslVs2FXpv2Y6z6PK0YEIQBQRgQhAFBGBCEAUEYsOJcqV37Lq6cdn/FldPOyzrt8zlt/mPFgCAMCMKAIAwIwoAgDAjCgMn7MabvKzjtvKOn3C8+PT95bbqvw34M2MCvUhCEAUEYEIQBQRgQhAErzpWafs79lPnDlel7KnbNf16b/r/vYsWAIAwIwoAgDAjCgCAMCMKAyf0Yu0w/73/Kc/rT5jyv4XtOpveBWDEgCAOCMCAIA4IwIAgDgjBgxz3fu55PT587NG16frLrPKhVX3/687FiQBAGBGFAEAYEYUAQBgRhwI77Maaff592L8dp9z+cts/hKe/TigFBGBCEAUEYEIQBQRgQhAGT+zGecm/39HlQu86nOu3zfC/aX7GLFQOCMCAIA4IwIAgDgjAgCAO+4z3fu/aB3H0/p92ncddr+HM+7RwwKwYEYUAQBgRhgDDgv7FiQBAG7Ljne/r5/a5zok6bS/y0e76nWTEgCAOCMCAIA4IwIAgDgjBgxRzjtH+Xf9rfv+u0r79rPvPetJ/nihUDgjAgCAOCMCAIA4IwIAgDduzHOM1p90is8vT7y6eZY8ACfpWCIAwIwoAgDAjCgCAMmLwf4zRXz62nn/fvmg/s2o/xGt5PsmufjBUDgjAgCAOCMCAIA4IwIAgDVswxruy6x2DVXGXXfOa0ucdd78PmFavmG1YMCMKAIAwIwoAgDAjCgCAMmJxjnHaO0yp3X3fXfo9V+0/uvu4093zDQfwqBUEYEIQBQRgQhAFBGLBjjnGap++7uPo6p93n/T7sHvG7rBgQhAFBGBCEAUEYEIQBQRgQftwcY9V84O7XX/Vcf/r9333dVabvu7jLigFBGBCEAUEYEIQBQRgQhAE75hin3edw1/S+iCvT84en3Od9xT3fsIFfpSAIA4IwIAgDgjAgCAMm5xhPOS9o+h6MXec1XZm+J/v18HvKr1gxIAgDgjAgCAOCMCAIA4IwIPz6fD715/CjWTEgCAOCMCAIA4IwIAgDgjAgCAOCMCAIA4IwIAgDgjAgCAOCMODr3/4G6wkahZKTPcMAAAAASUVORK5CYII=" class="qr-img" alt="QR AR-04"/>
+          <div class="qr-code" style="color:#06803C">AR-04</div>
+          <div class="qr-label">الإعراب — الحالات الثلاث</div>
+          <div class="qr-url">major://lesson/ar-iraab</div>
+          <a href="C:\Users\PC\Documents\Major-Contenue\qrcodes_arabe\AR-04.png" class="qr-dl" style="background:#06803C">
+            ⬇ Télécharger PNG
+          </a>
+        </div>
+        <div class="qr-card" style="border-color:#06803C33">
+          <div class="qr-subject" style="background:#d1fae5;color:#06803C">عربي</div>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQgAAAEICAIAAAAslP2oAAAE2klEQVR4nO3dwW0rNxRAUTlIBdqlg/Rfze8gO7UwWSe5AjIACZLSObv/YWgE2Rc05nnIn+u6HsA//favfwPCgGbFgCAMCMKAIAwIwoAgDAjCgCAMCMKAIAwIwoAgDAjCgPD746bnH38+TvD669fU13/3Oby77t2vX3XdUV+/m7ufsxUDgjAgCAOCMCAIA4IwIAgDRswxVs0N3ll1H/2U+/qr3ufr8J8HKwYEYUAQBgRhQBAGBGFAEAbMnGPMvq/s+Yqxn/+q+cbzkJ8HKwYEYUAQBgRhQBAGBGFAEAasmGOcbva+TKPmCbvNK05nxYAgDAjCgCAMCMKAIAwIwoDwdXOMUff7R5138c7s+cbd634bKwYEYUAQBgRhQBAGBGFAEAasmGPsdl/87vvZ7XmGUZ/nbvOZ3VgxIAgDgjAgCAOCMCAIA4IwYOYc45R9imbvE/WpX/+pPw/vWDEgCAOCMCAIA4IwIAgDgjAg/FzX9fgmq/ZZ2u38ilOei1jFigFBGBCEAUEYEIQBQRgQhAEr9pWaPTcYdb9/9nVHzStOmau8Bj0fsooVA4IwIAgDgjAgCAOCMCAIA2Y+jzF7njDq/vfs++irXv+dVdfdzd3PwYoBQRgQhAFBGBCEAUEYEIQBM5/HWPUcxd25warnBE6ZA8w+f2OU2de1YkAQBgRhQBAGBGFAEAYEYcCI5zF2u9+/ar+mU/ZlOmXfrd2+v1YMCMKAIAwIwoAgDAjCgCAMGPE8xqpzqd+Zvd/UbLvNf+6+/uvm6+w2L3rHigFBGBCEAUEYEIQBQRgQhAErzvk+ZT+iu0bdv9/tcxi1H9fprBgQhAFBGBCEAUEYEIQBQRgwYo4x++/yV80Z7jrlvPBV55CcPj+xYkAQBgRhQBAGBGFAEAYEYcDM5zFm72t0+nMOp+wrdfd1nh8637BiQBAGBGFAEAYEYUAQBgRhwMnnY8y+7z7quqvmA6vOnXhtds76KFYMCMKAIAwIwoAgDAjCgCAMCD/XdT1GWPX8w252229q9tfPtur9WDEgCAOCMCAIA4IwIAgDgjBgp/Mxdjv/YZTdzsc45ZyQ52bfRysGBGFAEAYEYYAw4P+xYkAQBsx8HmO38yLuWrVv0qo5wOn7g70mf55WDAjCgCAMCMKAIAwIwoAgDFixr9Q7q/5ef7dztU95/dOZY8AAfpWCIAwIwoAgDAjCgCAMWPE8xm52+7v/u2bPc0453+MucwwYwK9SEIQBQRgQhAFBGBCEATPPx9jNqHMkdrvvPuq6o97nc/LcY9W8xYoBQRgQhAFBGBCEAUEYEIQBI+YYp5xrcfq84u77OWW/rFNYMSAIA4IwIAgDgjAgCAOCMGDmHOOUcy1OmW+8c/p+Vqdc14oBQRgQhAFBGBCEAUEYEIQBK+YYu9ltX6zZz5Pc9anzkLusGBCEAUEYEIQBQRgQhAFBGBC+bo5x1+xzHkZZdQ737NdZdV0rBgRhQBAGBGFAEAYEYUAQBqyYY+x2fsKnnpM9e7+p52av75xvWMCvUhCEAUEYEIQBQRgQhAEz5xin7Bc0227PG6z6vrw2ez93WTEgCAOCMCAIA4IwIAgDgjAg/FzXVf8PX82KAUEYEIQBQRgQhAFBGBCEAUEYEIQBQRgQhAFBGBCEAUEYEIQBj//6GwkKMuTUZ+NIAAAAAElFTkSuQmCC" class="qr-img" alt="QR AR-05"/>
+          <div class="qr-code" style="color:#06803C">AR-05</div>
+          <div class="qr-label">النعت والضمائر</div>
+          <div class="qr-url">major://lesson/ar-naat</div>
+          <a href="C:\Users\PC\Documents\Major-Contenue\qrcodes_arabe\AR-05.png" class="qr-dl" style="background:#06803C">
+            ⬇ Télécharger PNG
+          </a>
+        </div>
+  </div>
+
+  <div class="section-title">🌍 التاريخ والجغرافيا (HG-01 → HG-04)</div>
+  <div class="grid">
+    
+        <div class="qr-card" style="border-color:#8b5cf633">
+          <div class="qr-subject" style="background:#ede9fe;color:#8b5cf6">تاريخ وجغرافيا</div>
+          <img src="data:image/png;base64,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" class="qr-img" alt="QR HG-01"/>
+          <div class="qr-code" style="color:#8b5cf6">HG-01</div>
+          <div class="qr-label">موريتانيا — الجغرافيا والتاريخ</div>
+          <div class="qr-url">major://lesson/hg-mauritanie</div>
+          <a href="C:\Users\PC\Documents\Major-Contenue\qrcodes_arabe\HG-01.png" class="qr-dl" style="background:#8b5cf6">
+            ⬇ Télécharger PNG
+          </a>
+        </div>
+        <div class="qr-card" style="border-color:#8b5cf633">
+          <div class="qr-subject" style="background:#ede9fe;color:#8b5cf6">تاريخ وجغرافيا</div>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASgAAAEoCAIAAABkZftOAAAGAklEQVR4nO3dwY0jNxBA0R1jI9DNGTj/aJyBb0pBjqAPDbD2k633zrtSj2Y+KKBA8ufz+fwC/qy//vD7AcKDhhUPAsKDgPAgIDwICA8CwoOA8CAgPAgIDwLCg4DwICA8CAgPAr/v/ofX3//8OsH7v3+P/rmunn/6OVd9bnef/x39vNXnZsWDgPAgIDwICA8CwoOA8CAgPDhhjrdqjrFKNdeanl/dfZ5pu83T3od/DlY8CAgPAsKDgPAgIDwICA8CwoOT53jTc49Vc5vp/WDTr7/bvrXdnue12d/bFSseBIQHAeFBQHgQEB4EhAcB4cET53inWLVfbnout+o5T9l391RWPAgIDwLCg4DwICA8CAgPAsKDwNfN8ey72/Pz/zZWPAgIDwLCg4DwICA8CAgPAsKDJ87xTpnbTN9rN23VPsBVP1f1eb43+71cseJBQHgQEB4EhAcB4UFAeBAQHpw8xzvlPMbqXMrpe+R222c4PU97HfL3dsWKBwHhQUB4EBAeBIQHAeFBQHgQ+Pl8PsX7HmO3e/Puvv5u87RT9stNs+JBQHgQEB4EhAcB4UFAeBAQHnzT/Xir5j/Tc6Td9qHdNb3fb3qf4VPnjVY8CAgPAsKDgPAgIDwICA8CwoMT5njVuZFX7r5vNc9Z9Zyr5pBXVp3Defp8cpoVDwLCg4DwICA8CAgPAsKDgPDg5HM1dzvXsbrvbpVq/rnbvXmvze4PvPv6V6x4EBAeBIQHAeFBQHgQEB4EhAcn78ebtts+wN3O85w2PRe9a3qO6lxNeCBfNSEgPAgIDwLCg4DwICA8OPl+vGr/2/R8b9XrnH6+6LR39Dk7VxO+iK+aEBAeBIQHAeFBQHgQEB6ccK7m9Bxst3M4q7nfKtU5lqu8Nzu/dNXzWPEgIDwICA8CwoOA8CAgPAgID06+H+/Kbvek7bYva7d547Tp53wdcm6nFQ8CwoOA8CAgPAgIDwLCg4Dw4In78abtNtea3md4yn7Ip+63vHL357LiQUB4EBAeBIQHAeFBQHgQEB6cPMfb7fzDVXabO616/bt2+/2+h+9LtB8PHshXTQgIDwLCg4DwICA8CAgPAr9XvVA1P9ntPrppdz+3VedS7jZnex0yn7xixYOA8CAgPAgIDwLCg4DwICA8OGGOt2rusds5k6ucMj+cfs7pOdtr+N5F+/HggXzVhIDwICA8CAgPAsKDgPDg5P14u+3TuztHmr5XrdpvVu1bm/7879rteax4EBAeBIQHAeFBQHgQEB4EhAcn3I837ZT7ze6q5oSne232+131PFY8CAgPAsKDgPAgIDwICA8CwoMT5ni77ZuqzlGc3o83bfr3NX0/3jTnasID+aoJAeFBQHgQEB4EhAcB4cETz9XcbQ42Pa9b9Tq7zcGqc0rfw3Pa6rxNKx4EhAcB4UFAeBAQHgSEBwHhwTfN8ar5zPR+wt3uc1v171f9vna7p+7K9D5AKx4EhAcB4UFAeBAQHgSEBwHhwcnnau62r6ya81TnQ1b7DE/xjs4RvWLFg4DwICA8CAgPAsKDgPAgIDw4YY53utPnb6vsdq/de7P7+qaf04oHAeFBQHgQEB4ID76DFQ8CwoMTztU8ZR/X9Hxset612/mcp8wbr+y2n9OKBwHhQUB4EBAeBIQHAeFBQHhw8v14u815Vj1nNU9bpdpf99S/q7f9eHAuXzUhIDwICA8CwoOA8CAgPDh5jndl1fznlHnabvvuTrk377XZnHD6eax4EBAeBIQHAeFBQHgQEB4EhAdPnOM91W7zulPOBd3tfMuKFQ8CwoOA8CAgPAgIDwLCg4DwIPB1c7zp+dtur3/3fXfbH3jX9Jxw1c9lxYOA8CAgPAgIDwLCg4DwICA8eOIc75T9VLvN36bPe6zOF13ldcj9fleseBAQHgSEBwHhQUB4EBAeBIQHJ8/xdpuTfNu9f7u976p9ca+brzN9LugqVjwICA8CwoOA8CAgPAgIDwLCg8DP5/Mp3he+mhUPAsKDgPAgIDwICA8CwoOA8CAgPAgIDwLCg4DwICA8CAgPAsID4cGvr/A/ahGv91qSs5wAAAAASUVORK5CYII=" class="qr-img" alt="QR HG-02"/>
+          <div class="qr-code" style="color:#8b5cf6">HG-02</div>
+          <div class="qr-label">القارة الأفريقية</div>
+          <div class="qr-url">major://lesson/hg-afrique</div>
+          <a href="C:\Users\PC\Documents\Major-Contenue\qrcodes_arabe\HG-02.png" class="qr-dl" style="background:#8b5cf6">
+            ⬇ Télécharger PNG
+          </a>
+        </div>
+        <div class="qr-card" style="border-color:#8b5cf633">
+          <div class="qr-subject" style="background:#ede9fe;color:#8b5cf6">تاريخ وجغرافيا</div>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQgAAAEICAIAAAAslP2oAAAE9ElEQVR4nO3dQW7jNhiA0aToCbTrDXr/0/QG3fkK7rrtJ6ACyJKM39vNINB4En+gIeYXv9/v9xfwd7/848+AMKBZMSAIA4IwIAgDgjAgCAOCMCAIA4IwIAgDgjAgCAOCMCD8+vXQ9dvvXyd4/fnHo9d/9/WjzP6+jfr/jvr63Tz9+VoxIAgDgjAgCAOCMCAIA4IwYMQ+xp3Z+wB3Rt1Hf3qdU+7rr/q5vA5/P1gxIAgDgjAgCAOCMCAIA4IwYOY+xuz7yqPui6+aQ1g177FqP+GU98MdKwYEYUAQBgRhQBAGBGFAEAas2MfYzdP76KP2B2bPe5wyH3IKKwYEYUAQBgRhQBAGBGFAEAaEj9vHuHPKPsBu5378VFYMCMKAIAwIwoAgDAjCgCAMWLGPccp99FPmHEbNk6z6eb0OeT9YMSAIA4IwIAgDgjAgCAOCMGDmPsZucwtPzX6O0+z9kFWv/6e+H6wYEIQBQRgQhAFBGBCEAUEYEL7f73f9/cc5ZR7DeeH/DysGBGFAEAYEYUAQBgRhQBAG7LSPMfv3/kfd7191Pvfs1zPbtWjO5Ol17lgxIAgDgjAgCAOCMCAIA4IwYMVzpWbvJ+x2/VH371fNh8zef3hq1dyLFQOCMCAIA4IwIAgDgjAgCANWnPM96lzq2b+XP3sOZLfzImbPmVybnfvxlBUDgjAgCAOCMCAIA4IwIAgDRuxjrJpbmL1vsNvzo54adf3d9mGuRd9PKwYEYUAQBgRhQBAGBGFAEAbMPB/jlHMqRtntOVR3dpszeW32HLA7VgwIwoAgDAjCgCAMCMKAIAxYMY8x6n7zqvOqd5vHWPV8p+vw52g9ZcWAIAwIwoAgDAjCgCAMCMKAk8/5PuXfHfX1o65zynnb1+T5lqfXsWJAEAYEYUAQBgRhQBAGBGHAzH2M2fMJs+dAVs1RnLJ/8trsfI/ZcyBWDAjCgCAMCMKAIAwIwoAgDBhxPsYp8w+rrNpXmX1O+W7nXcx+nVYMCMKAIAwIwoAgDAjCgCAMOOGc75+6T7Lq/O9PO2f9jn0MGMBHKQjCgCAMCMKAIAwIwoCTz/l++nrurHpO1Kp5kt3mOl6L3idPWTEgCAOCMCAIA4QB/40VA4IwYOY8xlOz5w1On2e4c/r+zx37GHAAH6UgCAOCMCAIA4IwIAgDTjgfY7fzvGff79/t+qu8NtuPsmJAEAYEYUAQBgRhQBAGBGHATvMYq5w+F/HUKed5z2YfAwbwUQqCMCAIA4IwIAgDgjBg5vkYu7m7b33K85FWzXU8vc41eT5n1XkaVgwIwoAgDAjCgCAMCMKAIAwYsY9xZ9V5zKP2VX7qeRGr9hme2u28cCsGBGFAEAYEYUAQBgRhQBAGzNzHOOU5Tk+vP3t/Y/a5EKNchzwPahQrBgRhQBAGBGFAEAYEYUAQBqzYx9jNbudqn/L8qKdOeW7VHSsGBGFAEAYEYUAQBgRhQBAGhI/bx3h6f332PMns/YRT5mHumMeAjfgoBUEYEIQBQRgQhAFBGLBiH2PVfehRTp9nmP36r0XzEs75hgV8lIIgDAjCgCAMCMKAIAyYuY+x23kOT+12rsWqc75HzaVci87nHsWKAUEYEIQBQRgQhAFBGBCEAeH7/X7X38NHs2JAEAYEYUAQBgRhQBAGBGFAEAYEYUAQBgRhQBAGBGFAEAYEYcDXv/0FNo8f0EkA/oEAAAAASUVORK5CYII=" class="qr-img" alt="QR HG-03"/>
+          <div class="qr-code" style="color:#8b5cf6">HG-03</div>
+          <div class="qr-label">قارات العالم</div>
+          <div class="qr-url">major://lesson/hg-monde</div>
+          <a href="C:\Users\PC\Documents\Major-Contenue\qrcodes_arabe\HG-03.png" class="qr-dl" style="background:#8b5cf6">
+            ⬇ Télécharger PNG
+          </a>
+        </div>
+        <div class="qr-card" style="border-color:#8b5cf633">
+          <div class="qr-subject" style="background:#ede9fe;color:#8b5cf6">تاريخ وجغرافيا</div>
+          <img src="data:image/png;base64,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" class="qr-img" alt="QR HG-04"/>
+          <div class="qr-code" style="color:#8b5cf6">HG-04</div>
+          <div class="qr-label">الإمبراطوريات الأفريقية</div>
+          <div class="qr-url">major://lesson/hg-histoire-ao</div>
+          <a href="C:\Users\PC\Documents\Major-Contenue\qrcodes_arabe\HG-04.png" class="qr-dl" style="background:#8b5cf6">
+            ⬇ Télécharger PNG
+          </a>
+        </div>
+  </div>
+
+  <div class="section-title">☪️ التربية الإسلامية (IS-01 → IS-04)</div>
+  <div class="grid">
+    
+        <div class="qr-card" style="border-color:#05966933">
+          <div class="qr-subject" style="background:#ecfdf5;color:#059669">إسلامية</div>
+          <img src="data:image/png;base64,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" class="qr-img" alt="QR IS-01"/>
+          <div class="qr-code" style="color:#059669">IS-01</div>
+          <div class="qr-label">أركان الإسلام الخمسة</div>
+          <div class="qr-url">major://lesson/is-arkane-islam</div>
+          <a href="C:\Users\PC\Documents\Major-Contenue\qrcodes_arabe\IS-01.png" class="qr-dl" style="background:#059669">
+            ⬇ Télécharger PNG
+          </a>
+        </div>
+        <div class="qr-card" style="border-color:#05966933">
+          <div class="qr-subject" style="background:#ecfdf5;color:#059669">إسلامية</div>
+          <img src="data:image/png;base64,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" class="qr-img" alt="QR IS-02"/>
+          <div class="qr-code" style="color:#059669">IS-02</div>
+          <div class="qr-label">أركان الإيمان الستة</div>
+          <div class="qr-url">major://lesson/is-arkane-iman</div>
+          <a href="C:\Users\PC\Documents\Major-Contenue\qrcodes_arabe\IS-02.png" class="qr-dl" style="background:#059669">
+            ⬇ Télécharger PNG
+          </a>
+        </div>
+        <div class="qr-card" style="border-color:#05966933">
+          <div class="qr-subject" style="background:#ecfdf5;color:#059669">إسلامية</div>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQgAAAEICAIAAAAslP2oAAAE80lEQVR4nO3dQW7cNhiAUbvICbTrDXr/0/QG3ekK00VXbT8VEUCW1Mx7uwSGPRn7Aw39Ifn9er2+gL/75R9/BoQBzYoBQRgQhAFBGBCEAUEYEIQBQRgQhAFBGBCEAUEYEIQB4cfXTcevv309wfnH77de/9XHX7n7ee6+b3dfz+zXeQ76d61y9/20YkAQBgRhQBAGBGFAEAYEYcCIOcbs5+53jXqOPmrOMPv13H2fZ3/8u/48WDEgCAOCMCAIA4IwIAgDgjBg5hxj9nPl2c/XZ+9bmP2+rdpn8vSfhytWDAjCgCAMCMKAIAwIwoAgDFgxx9jNqPnA7K/7aec+7caKAUEYEIQBQRgQhAFBGBCEAeHj5hijjDqvadV8g/9mxYAgDAjCgCAMCMKAIAwIwoAVc4ynPEcfdf7SqM8/6uuuep1P/3mwYkAQBgRhQBAGBGFAEAYEYcDMOca7nl/0lHOcdrv343j4z4MVA4IwIAgDgjAgCAOCMCAIA8L36/Wqv+d/upd6t/0Szqf6ixUDgjAgCAOCMCAIA4IwIAgDdrofY/b/+1+1f2C3fQ6rznE6Hj7/sWJAEAYEYUAQBgRhQBAGBGHAijnG0+cVu50ftZtj8v3iq95nKwYEYUAQBgRhQBAGBGFAEAbMPFdq9vPm2fscdttvcNe73oNxLvq+WzEgCAOCMCAIA4IwIAgDgjBgxBxjt+ffT/m6d73rPodRZr//VgwIwoAgDAjCgCAMCMKAIAzYaT/G0+cPu81zrsw+v+tYdF+H/RiwgF+lIAgDgjAgCAOCMCAIA0bcjzH7OfdT9j+sOu9o1ZzkWPR9X8WKAUEYEIQBQRgQhAFBGBCEASPmGE+5b2G3+zFWzROu7HY+1bHZffBWDAjCgCAMCMKAIAwIwoAgDHjCuVK7Pc9+yrlPs52bnSt1xRwDJvKrFARhQBAGBGFAEAYEYcDMe76vvOu5Q+86H9jt656L3h8rBgRhQBAGBGFAEAYEYUAQBnzSfoyn7K8YZbf37dzsXC9zDBjAr1IQhAFBGBCEAUEYEIQBO93zPftehSur/n//qns/Vu1zOAZ93VVzISsGBGFAEAYEYYAw4OdYMSAIA2be8z3q4+/OPWbPE54yr5j9vP9cNE9Y9XqsGBCEAUEYEIQBQRgQhAFBGDDzfozd7kl4yj6Bp8xVZpt9j4pzpWAAv0pBEAYEYUAQBgRhQBAGrNiPMfvz77ZP4MqnnaN1ZfY5Y6NYMSAIA4IwIAgDgjAgCAOCMGDm/Ri7uXruvupcrLtWnZd19/Mck/errNonY8WAIAwIwoAgDAjCgCAMCMKAEXOM3fZFzN7nsNu/a9R8ZpRzs3nFqO+jFQOCMCAIA4IwIAgDgjAgCANmzjF2258w6vOPei6+av/DqvvRR1k1n7FiQBAGBGFAEAYEYUAQBgRhwIo5xm52O39pt30Lo5wPObfqihUDgjAgCAOCMCAIA4IwIAgDwsfNMe4+X5/9HH32/OEp+2GOzc71smJAEAYEYUAQBgRhQBAGBGHAijnGqufQo+x2P8a77os4B51z5Z5vmMivUhCEAUEYEIQBQRgQhAEz5xir7k8YZdX+it2e97/rvel3WTEgCAOCMCAIA4IwIAgDgjAgfL9er/p7+GhWDAjCgCAMCMKAIAwIwoAgDAjCgCAMCMKAIAwIwoAgDAjCgCAM+Pq3PwFSbijlgIPaewAAAABJRU5ErkJggg==" class="qr-img" alt="QR IS-03"/>
+          <div class="qr-code" style="color:#059669">IS-03</div>
+          <div class="qr-label">الصلاة — أحكام وأوقات</div>
+          <div class="qr-url">major://lesson/is-salat</div>
+          <a href="C:\Users\PC\Documents\Major-Contenue\qrcodes_arabe\IS-03.png" class="qr-dl" style="background:#059669">
+            ⬇ Télécharger PNG
+          </a>
+        </div>
+        <div class="qr-card" style="border-color:#05966933">
+          <div class="qr-subject" style="background:#ecfdf5;color:#059669">إسلامية</div>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQgAAAEICAIAAAAslP2oAAAE60lEQVR4nO3dQW4sNRRA0QSxgszYAftfDTtg1ltoBoyAWxIl2Xqu5JwZDLor/XPlr37f9uf7/f4A/umXf/03IAxoVgwIwoAgDAjCgCAMCMKAIAwIwoAgDAjCgCAMCMKAIAwIv37c9PXb7x9P8PrzjyWvs+rnvXqeq9df9fyrfq7Xzec/zd3P04oBQRgQhAFBGBCEAUEYEIQBK+YYV3Z/737ltO/R734OU5/b7vd9Pfz3wYoBQRgQhAFBGBCEAUEYEIQBO+cYU/sZTnvOu/srVu2LuPs8q17/u/4+WDEgCAOCMCAIA4IwIAgDgjBgYo7xFLvPfdo9J7my6jlfQ/srplgxIAgDgjAgCAOCMCAIA4IwIPy4OcbueyFWnSu1al/HafsxnsKKAUEYEIQBQRgQhAFBGBCEARNzjNO+F586N2lqHnLl7tzjtehzO+334YoVA4IwIAgDgjAgCAOCMCAIA3bOMU67b3tqzrD7c3jK83895PfhihUDgjAgCAOCMCAIA4IwIAgDwuf7/f74Saa+X999z7fzo9ayYkAQBgRhQBAGBGFAEAYEYcDEHGPqXuq7pvYzTJ2zNPVzfT3kHnErBgRhQBAGBGFAEAYEYUAQBqyYY0zNJXa/ztT367vf9+nnO61y9/O0YkAQBgRhQBAGBGFAEAYEYcCK+zFOm0tcOe3+ilWvs/u+bfOfv1kxIAgDgjAgCAOCMCAIA4IwYOd+jKefR3TaeUenncf1esh5X3df54oVA4IwIAgDgjAgCAOCMCAIA3bejzE1r/iu91Gsev2n79P4GnpfKwYEYUAQBgRhQBAGBGFAEAasOFdqlbvfu0+dT3Vl1VzltPnAaed0TbFiQBAGBGFAEAYEYUAQBgRhwMQc47R/rz8191hlaj/J1J/71PzEigFBGBCEAUEYEIQBQRgQhAEnnSt1Zeq+i6ecZ3Xa+VF3Td3L4VwpWMBfpSAIA4IwIAgDgjAgCAOecM/3lKnv9Z8yh7kyNedxzzcM8FcpCMKAIAwIwoAgDAjCgJ37MU67/+Ep+0mm7qk47fO/MvU8VgwIwoAgDAjCgCAMCMKAIAxYcT/G0+cMd512n8bufQhPmcPsZsWAIAwIwoAgDBAG/D9WDAjCgBVzjJ92z8Oq15n6/v67ngO2mxUDgjAgCAOCMCAIA4IwIAgDVswxrvy0fRqn3Udx5bS5xNdhz3PFigFBGBCEAUEYEIQBQRgQhAET92OcZvc+jStT+x+m9p88ff5jxYAgDAjCgCAMCMKAIAwIwoCd92OcZvc+kFWvv/v7+9POrbpr6j5yKwYEYUAQBgRhQBAGBGFAEAbsPFdq99xg6t7rqXs2TnvO0/7cd7NiQBAGBGFAEAYEYUAQBgRhwM45xpWpc4FWOW2e8JR50dPf14oBQRgQhAFBGBCEAUEYEIQBE3OM06y6n+HuPoqpezBO21/x9ZB7RawYEIQBQRgQhAFBGBCEAUEYEH7cHOM0p5379JT9JK/N92ZYMSAIA4IwIAgDgjAgCAOCMGBijnHa/Qmrvv92b8ZaU5//FSsGBGFAEAYEYUAQBgRhQBAG7JxjTN1jsMrU+UVXdr/vU865mmLFgCAMCMKAIAwIwoAgDAjCgPD5fr/r/8OPZsWAIAwIwoAgDAjCgCAMCMKAIAwIwoAgDAjCgCAMCMKAIAwIwoCP//oL7bonK+wNIbIAAAAASUVORK5CYII=" class="qr-img" alt="QR IS-04"/>
+          <div class="qr-code" style="color:#059669">IS-04</div>
+          <div class="qr-label">الأخلاق الإسلامية</div>
+          <div class="qr-url">major://lesson/is-akhlaq</div>
+          <a href="C:\Users\PC\Documents\Major-Contenue\qrcodes_arabe\IS-04.png" class="qr-dl" style="background:#059669">
+            ⬇ Télécharger PNG
+          </a>
+        </div>
+  </div>
+
+  <div style="text-align:center;margin-top:40px;color:#94a3b8;font-size:12px">
+    Généré par Major · Projet Éducatif Mauritanie 🇲🇷 · major://lesson/...
+  </div>
+</body>
+</html>

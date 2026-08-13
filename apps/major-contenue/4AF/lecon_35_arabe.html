@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الدرس 35 — الطول والعرض</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+@page{size:176mm 250mm;margin:0}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--g:#059669;--gd:#047857;--gl:#ecfdf5;--gm:#a7f3d0;--sq:rgba(5,150,105,.09);--sz:8mm}
+body{font-family:"Cairo",sans-serif;background:#c2d6cc;direction:rtl;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:176mm;height:250mm;margin:14px auto;background:#fff;background-image:linear-gradient(var(--sq) 1px,transparent 1px),linear-gradient(90deg,var(--sq) 1px,transparent 1px);background-size:var(--sz) var(--sz);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 6px 28px rgba(0,0,0,.18);page-break-after:always;position:relative}
+.page::after{content:"";position:absolute;top:0;bottom:0;right:14mm;width:1.5px;background:rgba(255,80,80,.22);pointer-events:none;z-index:0}
+.page>*{position:relative;z-index:1}
+/* HEADER */
+.hdr{background:linear-gradient(135deg,var(--g),var(--gd));display:flex;align-items:center;padding:11px 14px 17px;gap:10px;flex-shrink:0;position:relative;overflow:hidden}
+.hdr::before{content:"";position:absolute;bottom:-2px;left:0;right:0;height:13px;background:#fff;clip-path:ellipse(55% 100% at 50% 100%)}
+.hd1{position:absolute;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.07);top:-45px;left:-20px}
+.hd2{position:absolute;width:65px;height:65px;border-radius:50%;background:rgba(255,255,255,.05);bottom:-20px;right:130px}
+.htitle{flex:1;text-align:center;z-index:2}
+.htitle h1{font-size:16px;font-weight:900;color:#fff;line-height:1.2;text-shadow:0 2px 5px rgba(0,0,0,.2)}
+.hsub{display:inline-block;margin-top:3px;background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.4);border-radius:20px;padding:2px 12px;font-size:10px;font-weight:700;color:#fff}
+.pill{position:absolute;top:8px;left:10px;z-index:3;background:#fff;border-radius:18px;padding:3px 10px;font-size:9px;font-weight:700;color:var(--g);box-shadow:0 2px 7px rgba(0,0,0,.13);display:flex;align-items:center;gap:3px}
+.pill .pn{font-size:13px;font-weight:900}
+/* INFOBAR */
+.ibar{display:flex;gap:8px;padding:5px 14px;background:rgba(236,253,245,.75);border-bottom:1.5px solid var(--gm);flex-shrink:0;align-items:center}
+.if{display:flex;align-items:center;gap:4px;flex:1}
+.if label{font-size:10px;font-weight:700;color:var(--g);white-space:nowrap}
+.il{flex:1;border-bottom:1.5px dotted var(--g);height:15px}
+/* BODY */
+.body{flex:1;padding:8px 12px 6px;display:flex;flex-direction:column;gap:6px;overflow:hidden}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.sec{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:900;color:#fff;padding:4px 10px;border-radius:7px 7px 0 0}
+/* القاعدة */
+.qd{border-radius:10px;overflow:hidden;border:2px solid #fbbf24}
+.qd .sec{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+.qdb{background:rgba(255,251,235,.88);padding:7px 9px;display:flex;flex-direction:column;gap:4px}
+.ri{display:flex;align-items:flex-start;gap:4px;font-size:10.5px;font-weight:700;color:#1f2937;line-height:1.4}
+.rs{font-size:12px;flex-shrink:0;margin-top:1px}
+.rn{background:var(--g);color:#fff;font-size:11px;font-weight:900;padding:0 5px;border-radius:4px}
+/* أمثلة */
+.am{border-radius:10px;overflow:hidden;border:2px solid #34d399}
+.am .sec{background:linear-gradient(90deg,#10b981,#34d399)}
+.amb{background:rgba(240,254,246,.88);padding:6px 9px;display:flex;flex-direction:column;gap:3px}
+.ec{display:flex;align-items:center;gap:4px;font-size:10.5px;font-weight:600;color:#1f2937}
+.ec .ck{color:#10b981;font-size:12px;flex-shrink:0}
+.ec .en{background:var(--g);color:#fff;font-size:11px;font-weight:900;padding:1px 6px;border-radius:4px;flex-shrink:0}
+.ec .eq{color:#9ca3af;font-size:9px}
+.ec .et{font-size:10.5px;font-weight:700}
+/* أتذكر */
+.at{background:rgba(255,249,195,.92);border:2px solid #fde68a;border-radius:10px;padding:7px 10px;display:flex;gap:7px;align-items:flex-start}
+.at .bulb{font-size:22px;flex-shrink:0}
+.at h4{font-size:11px;font-weight:900;color:#92400e;margin-bottom:3px}
+.at li{font-size:10.5px;font-weight:600;color:#78350f;margin-right:11px;line-height:1.45;list-style:disc}
+/* تدريب */
+.td{border-radius:10px;overflow:hidden;border:2px solid var(--g)}
+.td .sec{background:linear-gradient(90deg,var(--gd),var(--g))}
+.tdb{background:rgba(236,253,245,.65);padding:6px 10px;display:flex;flex-direction:column;gap:4px;background-image:linear-gradient(rgba(5,150,105,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(5,150,105,.07) 1px,transparent 1px);background-size:8mm 8mm;background-color:rgba(236,253,245,.7)}
+.ti{display:flex;align-items:center;gap:6px}
+.tn{width:18px;height:18px;background:var(--g);color:#fff;border-radius:50%;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tq{font-size:10.5px;font-weight:700;color:#065f46;flex:1}
+.tl{flex:1;border-bottom:2px dashed var(--gm);min-width:35px}
+/* ILLUSTRATION */
+.illu{background:rgba(236,253,245,.5);border-radius:10px;border:1.5px solid var(--gm);overflow:hidden}
+/* FOOTER */
+.ft{display:flex;align-items:center;justify-content:space-between;padding:6px 14px 8px;border-top:2px solid var(--gm);background:rgba(236,253,245,.5);flex-shrink:0}
+.qrb{width:42px;height:42px;border:2px dashed var(--g);border-radius:7px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.qrg{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5px;width:26px}
+.qrg .b{width:5px;height:5px;background:var(--g);border-radius:.5px}
+.qrg .w{width:5px;height:5px}
+.qrl{font-size:6px;font-weight:700;color:var(--g)}
+.pg{display:flex;flex-direction:column;align-items:center;gap:2px}
+.pgc{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#fff;background:var(--g)}
+.pgs{font-size:8px;font-weight:600;color:#9ca3af}
+.fi{display:flex;flex-direction:column;align-items:flex-end;gap:1px;font-size:8px;font-weight:600;color:#6b7280}
+.fi strong{color:var(--g);font-size:9px}
+/* PAGE 2 */
+.hdrx{background:linear-gradient(135deg,var(--g),var(--gd));display:flex;align-items:center;padding:11px 14px 17px;gap:10px;flex-shrink:0;position:relative;overflow:hidden}
+.hdrx::before{content:"";position:absolute;bottom:-2px;left:0;right:0;height:13px;background:#fff;clip-path:ellipse(55% 100% at 50% 100%)}
+.exc{display:flex;border-radius:11px;overflow:hidden;flex-shrink:0}
+.exb{width:34px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex-shrink:0;padding:5px 0}
+.exb .en2{background:#fff;font-size:14px;font-weight:900;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.exb .el{font-size:7px;font-weight:700;color:rgba(255,255,255,.85);writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.5px}
+.exct{flex:1;padding:7px 10px}
+.exin{font-size:11px;font-weight:800;margin-bottom:6px}
+.wz{border-radius:7px;padding:5px 7px;border:1.5px solid;background-image:linear-gradient(rgba(5,150,105,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(5,150,105,.09) 1px,transparent 1px);background-size:8mm 8mm;background-color:#fff}
+.wl{height:30px;border-bottom:1.5px dashed;margin-bottom:3px}
+.ev{display:flex;align-items:center;justify-content:space-between;border:2px solid #fcd34d;border-radius:10px;padding:6px 10px;background:rgba(255,249,195,.88);flex-shrink:0}
+.ef{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer}
+.ef span{font-size:20px}
+.ef p{font-size:8px;font-weight:700;color:#374151}
+.ef input{width:12px;height:12px;accent-color:#f59e0b}
+@media print{body{background:#fff}.page{margin:0;box-shadow:none}}
+</style>
+</head>
+<body>
+
+<!-- ══ PAGE 1 ══ -->
+<div class="page">
+  <div class="hdr">
+    <div class="hd1"></div><div class="hd2"></div>
+    <svg width="38" height="38" viewBox="0 0 100 100" style="flex-shrink:0;z-index:2;">
+      <rect x="2" y="2" width="44" height="44" rx="9" fill="rgba(255,255,255,.25)"/>
+      <rect x="54" y="2" width="44" height="44" rx="9" fill="rgba(255,255,255,.25)"/>
+      <rect x="2" y="54" width="44" height="44" rx="9" fill="rgba(255,255,255,.25)"/>
+      <rect x="54" y="54" width="44" height="44" rx="9" fill="rgba(255,255,255,.25)"/>
+      <polygon points="24,14 48,49 0,49" fill="#fff" opacity=".9"/>
+      <rect x="56" y="56" width="36" height="36" fill="none" stroke="#fff" stroke-width="4" opacity=".9"/>
+      <circle cx="24" cy="24" r="10" fill="none" stroke="#fff" stroke-width="3" opacity=".8"/>
+      <line x1="56" y1="4" x2="96" y2="4" stroke="#fff" stroke-width="3" opacity=".7"/>
+      <line x1="56" y1="14" x2="96" y2="14" stroke="#fff" stroke-width="3" opacity=".7"/>
+      <line x1="56" y1="24" x2="96" y2="24" stroke="#fff" stroke-width="3" opacity=".7"/>
+      <line x1="56" y1="34" x2="96" y2="34" stroke="#fff" stroke-width="3" opacity=".7"/>
+    </svg>
+    <div class="htitle">
+      <h1>الطول والعرض</h1>
+      <div class="hsub">أتعلّم قياس الطول والعرض</div>
+    </div>
+    <div style="font-size:36px;z-index:2;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2));">📏</div>
+    <div class="pill">درس <span class="pn">35</span></div>
+  </div>
+
+  <div class="ibar">
+    <div class="if"><label>الاسم :</label><div class="il"></div></div>
+    <div class="if"><label>الفصل :</label><div class="il"></div></div>
+    <div class="if"><label>التاريخ :</label><div class="il"></div></div>
+  </div>
+
+  <div class="body">
+    <div class="two">
+      <div class="qd">
+        <div class="sec">⭐ القاعدة</div>
+        <div class="qdb"><div class="rule-item"><span class="rstar">⭐</span><span>الطول : هو البعد الأكبر للشكل — نمثّله بالسهم الأفقي الأحمر</span></div><div class="rule-item"><span class="rstar">⭐</span><span>العرض : هو البعد الأصغر للشكل — نمثّله بالسهم العمودي الأخضر</span></div><div class="rule-item"><span class="rstar">⭐</span><span>نقيس بالمسطرة ابتداءً من 0</span></div></div>
+      </div>
+      <div class="am">
+        <div class="sec">✅ أمثلة</div>
+        <div class="amb"><div class="ex-cours"><span class="chk">✅</span><span class="en">مستطيل <span class='rn'>8×5 سم</span></span><span class="eq">طول =</span><span class="et">8 سم</span></div><div class="ex-cours"><span class="chk">✅</span><span class="en">نفس المستطيل</span><span class="eq">عرض =</span><span class="et">5 سم</span></div><div class="ex-cours"><span class="chk">✅</span><span class="en">ملعب كرة</span><span class="eq">طوله &gt; عرضه</span><span class="et">دائماً</span></div></div>
+      </div>
+    </div>
+
+    <div class="at">
+      <div class="bulb">💡</div>
+      <div>
+        <h4>أتذكر</h4>
+        <ul><li>الطول هو البعد الأكبر</li><li>العرض هو البعد الأصغر</li><li>الطول &gt; العرض دائماً</li></ul>
+      </div>
+    </div>
+
+    <div class="td">
+      <div class="sec">🖊️ تدريب صغير</div>
+      <div class="tdb"><div class="tadrib-item"><div class="tnum">1</div><span class="tq">ما طول هذا الكتاب بالمسطرة ؟</span><span style="font-size:9px;color:#6b7280;font-weight:600;">_____ سم</span></div><div class="tadrib-item"><div class="tnum">2</div><span class="tq">مستطيل 9×4 سم. ما الفرق بينهما ؟</span><div class="tline"></div></div><div class="tadrib-item"><div class="tnum">3</div><span class="tq">ارسم مستطيلاً طوله 6 سم وعرضه 3 سم</span><div class="tline"></div></div><div class="tadrib-item"><div class="tnum">4</div><span class="tq">أيهما أكبر : الطول أم العرض ؟</span><div class="tline"></div></div></div>
+    </div>
+
+    <div class="illu">
+<div style="padding:4px 8px;">
+  <div style="font-size:11px;font-weight:900;color:#047857;margin-bottom:6px;text-align:center;">
+    📏 الطول = البُعد الأكبر — العرض = البُعد الأصغر
+  </div>
+  <svg width="100%" height="120" viewBox="0 0 340 120" xmlns="http://www.w3.org/2000/svg">
+    <!-- Rectangle principal -->
+    <rect x="30" y="15" width="220" height="80" fill="rgba(5,150,105,0.08)" stroke="#059669" stroke-width="3" rx="5"/>
+    <!-- Flèche longueur -->
+    <line x1="30" y1="108" x2="250" y2="108" stroke="#dc2626" stroke-width="2.5"/>
+    <polygon points="30,104 22,108 30,112" fill="#dc2626"/>
+    <polygon points="250,104 258,108 250,112" fill="#dc2626"/>
+    <rect x="105" y="100" width="80" height="16" fill="#fff" rx="3"/>
+    <text x="145" y="112" text-anchor="middle" font-size="11" font-weight="900" fill="#dc2626" font-family="Cairo">الطول = 11 سم</text>
+    <!-- Flèche largeur -->
+    <line x1="264" y1="15" x2="264" y2="95" stroke="#3b82f6" stroke-width="2.5"/>
+    <polygon points="260,15 264,7 268,15" fill="#3b82f6"/>
+    <polygon points="260,95 264,103 268,95" fill="#3b82f6"/>
+    <rect x="268" y="44" width="68" height="16" fill="#fff" rx="3"/>
+    <text x="302" y="56" text-anchor="middle" font-size="11" font-weight="900" fill="#3b82f6" font-family="Cairo">العرض = 4 سم</text>
+    <!-- Coins labels -->
+    <circle cx="30" cy="15" r="5" fill="#f59e0b"/>
+    <circle cx="250" cy="15" r="5" fill="#f59e0b"/>
+    <circle cx="30" cy="95" r="5" fill="#f59e0b"/>
+    <circle cx="250" cy="95" r="5" fill="#f59e0b"/>
+    <text x="35" y="13" font-size="9" font-weight="700" fill="#b45309" font-family="Cairo">A</text>
+    <text x="253" y="13" font-size="9" font-weight="700" fill="#b45309" font-family="Cairo">B</text>
+    <text x="253" y="105" font-size="9" font-weight="700" fill="#b45309" font-family="Cairo">C</text>
+    <text x="35" y="105" font-size="9" font-weight="700" fill="#b45309" font-family="Cairo">D</text>
+    <!-- Emoji livre -->
+    <text x="120" y="63" text-anchor="middle" font-size="28" font-family="Arial">📖</text>
+    <text x="155" y="60" font-size="10" fill="#059669" font-family="Cairo" font-weight="700">مثل الكتاب :</text>
+    <text x="155" y="73" font-size="10" fill="#059669" font-family="Cairo">الطول &gt; العرض دائماً</text>
+  </svg>
+</div></div>
+  </div>
+
+  <div class="ft">
+    <div class="qrb">
+      <div class="qrg"><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="w"></div><div class="b"></div><div class="w"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="w"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="w"></div><div class="b"></div><div class="w"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div></div>
+      <div class="qrl">QR Code</div>
+    </div>
+    <div class="pg"><div class="pgc">1</div><div class="pgs">صفحة الدرس</div></div>
+    <div class="fi"><strong>الدرس 35 — الهندسة</strong><span>كراس المراجعة — الهندسة</span><span>السنة الرابعة ابتدائي</span></div>
+  </div>
+</div>
+
+<!-- ══ PAGE 2 : EXERCICES ══ -->
+<div class="page">
+  <div class="hdrx">
+    <div class="hd1"></div><div class="hd2"></div>
+    <svg width="34" height="34" viewBox="0 0 100 100" style="flex-shrink:0;z-index:2;">
+      <rect x="2" y="2" width="44" height="44" rx="9" fill="rgba(255,255,255,.22)"/>
+      <rect x="54" y="2" width="44" height="44" rx="9" fill="rgba(255,255,255,.22)"/>
+      <rect x="2" y="54" width="44" height="44" rx="9" fill="rgba(255,255,255,.22)"/>
+      <rect x="54" y="54" width="44" height="44" rx="9" fill="rgba(255,255,255,.22)"/>
+      <polygon points="24,14 48,49 0,49" fill="#fff" opacity=".85"/>
+      <rect x="56" y="56" width="36" height="36" fill="none" stroke="#fff" stroke-width="4" opacity=".85"/>
+    </svg>
+    <div style="flex:1;z-index:2;padding:0 8px;">
+      <h1 style="font-size:17px;font-weight:900;color:#fff;">تمارين الدرس 35</h1>
+      <p style="font-size:10px;font-weight:600;color:rgba(255,255,255,.8);margin-top:1px;">الطول والعرض</p>
+    </div>
+    <div style="background:#fff;border-radius:11px;padding:4px 10px;text-align:center;font-size:9px;font-weight:700;color:var(--g);box-shadow:0 3px 7px rgba(0,0,0,.13);flex-shrink:0;z-index:2;">تمارين<span style="display:block;font-size:19px;font-weight:900;line-height:1.1;">35</span></div>
+  </div>
+
+  <div class="ibar">
+    <div class="if"><label>الاسم :</label><div class="il"></div></div>
+    <div class="if"><label>الفصل :</label><div class="il"></div></div>
+    <div style="display:flex;align-items:center;gap:4px;flex-shrink:0;">
+      <span style="font-size:10px;font-weight:700;color:var(--g);">النقطة :</span>
+      <div style="width:30px;height:20px;border:2px solid var(--g);border-radius:4px;background:#fff;"></div>
+      <span style="font-size:10px;color:#aaa;font-weight:700;">/ 10</span>
+    </div>
+  </div>
+
+  <div style="flex:1;padding:8px 12px 5px;display:flex;flex-direction:column;gap:6px;overflow:hidden;">
+
+    <div class="exc" style="border:2.5px solid var(--g);">
+      <div class="exb" style="background:var(--g);">
+        <div class="el">تمرين</div>
+        <div class="en2" style="color:var(--g);">1</div>
+      </div>
+      <div class="exct" style="background:var(--gl);">
+        <div class="exin" style="color:var(--gd);">📝 ما طول هذا الكتاب بالمسطرة ؟</div>
+        <div class="wz" style="border-color:var(--gm);">
+          <div class="wl" style="border-color:var(--gm);"></div>
+          <div class="wl" style="border-color:var(--gm);border-bottom:none;height:25px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exc" style="border:2.5px solid #10b981;">
+      <div class="exb" style="background:#10b981;">
+        <div class="el">تمرين</div>
+        <div class="en2" style="color:#10b981;">2</div>
+      </div>
+      <div class="exct" style="background:#f0fef6;">
+        <div class="exin" style="color:#065f46;">📐 مستطيل 9×4 سم. ما الفرق بينهما ؟</div>
+        <div class="wz" style="border-color:#a7f3d0;">
+          <div class="wl" style="border-color:#a7f3d0;"></div>
+          <div class="wl" style="border-color:#a7f3d0;"></div>
+          <div class="wl" style="border-color:#a7f3d0;border-bottom:none;height:22px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exc" style="border:2.5px solid #f59e0b;">
+      <div class="exb" style="background:#f59e0b;">
+        <div class="el">تمرين</div>
+        <div class="en2" style="color:#f59e0b;">3</div>
+      </div>
+      <div class="exct" style="background:#fffbeb;">
+        <div class="exin" style="color:#92400e;">🔺 ارسم مستطيلاً طوله 6 سم وعرضه 3 سم</div>
+        <div class="wz" style="border-color:#fcd34d;">
+          <div class="wl" style="border-color:#fcd34d;"></div>
+          <div class="wl" style="border-color:#fcd34d;"></div>
+          <div class="wl" style="border-color:#fcd34d;border-bottom:none;height:50px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exc" style="border:2.5px solid #8b5cf6;">
+      <div class="exb" style="background:#8b5cf6;">
+        <div class="el">تمرين</div>
+        <div class="en2" style="color:#8b5cf6;">4</div>
+      </div>
+      <div class="exct" style="background:#faf5ff;">
+        <div class="exin" style="color:#5b21b6;">✏️ أيهما أكبر : الطول أم العرض ؟</div>
+        <div class="wz" style="border-color:#ddd6fe;">
+          <div class="wl" style="border-color:#ddd6fe;"></div>
+          <div class="wl" style="border-color:#ddd6fe;border-bottom:none;height:50px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ev">
+      <div style="font-size:11px;font-weight:800;color:#92400e;">كيف وجدتَ التمارين ؟</div>
+      <div style="display:flex;gap:10px;">
+        <label class="ef"><span>😊</span><p>سهلة</p><input type="checkbox"></label>
+        <label class="ef"><span>🙂</span><p>عادية</p><input type="checkbox"></label>
+        <label class="ef"><span>😓</span><p>صعبة</p><input type="checkbox"></label>
+      </div>
+      <div style="font-size:18px;letter-spacing:2px;">⭐⭐⭐⭐⭐</div>
+    </div>
+
+  </div>
+
+  <div class="ft">
+    <div class="qrb">
+      <div class="qrg"><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="w"></div><div class="b"></div><div class="w"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="w"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="w"></div><div class="b"></div><div class="w"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div></div>
+      <div class="qrl">QR Code</div>
+    </div>
+    <div class="pg"><div class="pgc">2</div><div class="pgs">صفحة التمارين</div></div>
+    <div class="fi"><strong>الدرس 35 — الهندسة</strong><span>كراس المراجعة — الهندسة</span><span>السنة الرابعة ابتدائي</span></div>
+  </div>
+</div>
+
+</body></html>
