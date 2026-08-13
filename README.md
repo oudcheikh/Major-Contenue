@@ -50,7 +50,8 @@ archives/       → anciennes versions remplacées
 - `major-web/` — front Vite/React (repo git : github.com/oudcheikh/major-web).
 - `math-api/` — API FastAPI maths. ⚠️ le `.venv` a été déplacé → le recréer :
   `cd apps/math-api && python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`
-- `major-contenue/` — workspace contenu Major (cahiers 4AF/6AF, QR codes, tutor-api, outils). Possède son propre `CLAUDE.md`.
+- `major-contenue/` — contenu app (MajorApp, content-packs, tutor-api, QR Vercel, 4AF).
+  Les cahiers 6AF imprimables ne vivent plus ici : voir `livrables/` + `generateurs/`.
 
 ## Positionnement produit
 
