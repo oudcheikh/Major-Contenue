@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الدرس 5 — الأعداد من 1301 إلى 1500</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+@page { size: 176mm 250mm; margin: 0; }
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --accent:    #ec4899;
+  --accent-dk: #9d174d;
+  --accent-lt: #fdf2f8;
+  --accent-md: #fbcfe8;
+  --sq-color: rgba(236,72,153,0.10);
+  --sq-size:  8mm;
+}
+body {
+  font-family:'Cairo',sans-serif;
+  background:#c8cfe8;
+  direction:rtl;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+.page {
+  width:176mm; height:250mm;
+  margin:14px auto;
+  background:#fff;
+  background-image:
+    linear-gradient(var(--sq-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--sq-color) 1px, transparent 1px);
+  background-size: var(--sq-size) var(--sq-size);
+  display:flex; flex-direction:column;
+  overflow:hidden;
+  box-shadow:0 6px 28px rgba(0,0,0,0.18);
+  page-break-after:always;
+  position:relative;
+}
+.page::after {
+  content:'';
+  position:absolute; top:0; bottom:0;
+  right:14mm; width:1.5px;
+  background:rgba(255,80,80,0.25);
+  pointer-events:none; z-index:0;
+}
+.page > * { position:relative; z-index:1; }
+.logo-svg { width:40px; height:40px; flex-shrink:0; }
+.hdr {
+  background:linear-gradient(135deg, var(--accent) 0%, var(--accent-dk) 100%);
+  display:flex; align-items:center;
+  padding:12px 16px 18px;
+  gap:12px; flex-shrink:0;
+  position:relative; overflow:hidden;
+}
+.hdr::before {
+  content:'';
+  position:absolute; bottom:-2px; left:0; right:0;
+  height:14px; background:#fff;
+  clip-path:ellipse(55% 100% at 50% 100%);
+}
+.hdr-deco1 { position:absolute; width:110px; height:110px; border-radius:50%; background:rgba(255,255,255,0.07); top:-50px; left:-25px; }
+.hdr-deco2 { position:absolute; width:70px;  height:70px;  border-radius:50%; background:rgba(255,255,255,0.05); bottom:-25px; right:140px; }
+.hdr-title { flex:1; text-align:center; z-index:2; }
+.hdr-title h1 { font-size:17px; font-weight:900; color:#fff; line-height:1.15; text-shadow:0 2px 6px rgba(0,0,0,0.18); }
+.hdr-title h1 span { color:#ffd93d; font-size:20px; }
+.hdr-subtitle {
+  display:inline-block; margin-top:4px;
+  background:rgba(255,255,255,0.2); border:1.5px solid rgba(255,255,255,0.45);
+  border-radius:20px; padding:2px 14px;
+  font-size:10px; font-weight:700; color:#fff;
+}
+.num-blocks { display:flex; gap:3px; align-items:flex-end; z-index:2; flex-shrink:0; }
+.nb { width:28px; height:28px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:900; color:#fff; box-shadow:0 3px 7px rgba(0,0,0,0.25); }
+.lesson-pill {
+  position:absolute; top:8px; left:12px; z-index:3;
+  background:#fff; border-radius:18px; padding:3px 10px;
+  display:flex; align-items:center; gap:3px;
+  font-size:9px; font-weight:700; color:var(--accent);
+  box-shadow:0 2px 8px rgba(0,0,0,0.14);
+}
+.lesson-pill .pn { font-size:14px; font-weight:900; }
+.info-bar {
+  display:flex; gap:10px; padding:6px 16px;
+  background:rgba(232,236,255,0.7);
+  border-bottom:1.5px solid var(--accent-md);
+  flex-shrink:0; align-items:center;
+}
+.ifield { display:flex; align-items:center; gap:5px; flex:1; }
+.ifield label { font-size:10px; font-weight:700; color:var(--accent); white-space:nowrap; }
+.iline { flex:1; border-bottom:1.5px dotted var(--accent); height:16px; }
+.body { flex:1; padding:10px 14px 8px; display:flex; flex-direction:column; gap:8px; overflow:hidden; }
+.sec-title {
+  display:flex; align-items:center; gap:6px;
+  font-size:12px; font-weight:900; color:#fff;
+  padding:5px 12px; border-radius:8px 8px 0 0;
+}
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.qaeida { border-radius:11px; overflow:hidden; border:2px solid #fbbf24; }
+.qaeida .sec-title { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+.qaeida-body { background:rgba(255,251,235,0.85); padding:8px 10px; display:flex; flex-direction:column; gap:5px; }
+.rule-item { display:flex; align-items:flex-start; gap:5px; font-size:11px; font-weight:700; color:#1f2937; line-height:1.4; }
+.rstar { font-size:13px; flex-shrink:0; margin-top:1px; }
+.rn  { background:var(--accent); color:#fff; font-size:11px; font-weight:900; padding:0 5px; border-radius:5px; }
+.rn2 { background:#ef4444; color:#fff; font-size:11px; font-weight:900; padding:0 5px; border-radius:5px; }
+.amthila { border-radius:11px; overflow:hidden; border:2px solid #34d399; }
+.amthila .sec-title { background:linear-gradient(90deg,#10b981,#34d399); }
+.amthila-body { background:rgba(240,254,246,0.85); padding:7px 10px; display:flex; flex-direction:column; gap:3px; }
+.ex-cours { display:flex; align-items:center; gap:5px; font-size:10.5px; font-weight:600; color:#1f2937; }
+.ex-cours .chk { color:#10b981; font-size:12px; flex-shrink:0; }
+.ex-cours .en { background:var(--accent); color:#fff; font-size:11px; font-weight:900; padding:1px 6px; border-radius:5px; flex-shrink:0; }
+.ex-cours .eq { color:#9ca3af; font-size:10px; }
+.ex-cours .et { font-size:10.5px; font-weight:700; }
+.atadh {
+  background:rgba(255,249,195,0.9);
+  border:2px solid #fde68a; border-radius:11px;
+  padding:8px 12px; display:flex; gap:8px; align-items:flex-start;
+}
+.atadh .bulb { font-size:22px; flex-shrink:0; }
+.atadh h4 { font-size:12px; font-weight:900; color:#92400e; margin-bottom:3px; }
+.atadh li { font-size:10.5px; font-weight:600; color:#78350f; margin-right:12px; line-height:1.5; list-style:disc; }
+.tadrib { border-radius:11px; overflow:hidden; border:2px solid var(--accent); }
+.tadrib .sec-title { background:linear-gradient(90deg,var(--accent-dk),var(--accent)); }
+.tadrib-body {
+  padding:7px 12px; display:flex; flex-direction:column; gap:5px;
+  background-image:
+    linear-gradient(rgba(236,72,153,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(236,72,153,0.08) 1px, transparent 1px);
+  background-size:8mm 8mm;
+  background-color:rgba(232,236,255,0.7);
+}
+.tadrib-item { display:flex; align-items:center; gap:7px; }
+.tnum { width:19px; height:19px; background:var(--accent); color:#fff; border-radius:50%; font-size:10px; font-weight:900; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.tq { font-size:11px; font-weight:700; color:#1e3a8a; flex:1; }
+.tline { flex:1; border-bottom:2px dashed var(--accent-md); min-width:40px; }
+.nl-section { background:rgba(232,236,255,0.5); border-radius:10px; padding:7px 10px 12px; direction:ltr; border:1.5px solid var(--accent-md); }
+.nl-title { font-size:10px; font-weight:700; color:var(--accent); text-align:right; direction:rtl; margin-bottom:6px; }
+.nl { position:relative; height:40px; }
+.nl-line { position:absolute; bottom:18px; left:8px; right:8px; height:3px; background:linear-gradient(90deg,var(--accent),#a5b4fc); border-radius:2px; }
+.nl-arr  { position:absolute; bottom:12px; right:0; border-top:7px solid transparent; border-bottom:7px solid transparent; border-left:12px solid var(--accent); }
+.nl-marks { position:absolute; bottom:0; left:8px; right:8px; display:flex; justify-content:space-between; }
+.nl-m { display:flex; flex-direction:column; align-items:center; gap:2px; }
+.nl-m .t { width:2px; height:10px; background:var(--accent); }
+.nl-m .l { font-size:7px; font-weight:800; color:var(--accent-dk); }
+.footer { display:flex; align-items:center; justify-content:space-between; padding:7px 16px 9px; border-top:2px solid var(--accent-md); background:rgba(232,236,255,0.5); flex-shrink:0; }
+.qr-box { width:44px; height:44px; border:2px dashed var(--accent); border-radius:8px; background:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; }
+.qr-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1.5px; width:28px; }
+.qr-grid .b { width:5px; height:5px; background:var(--accent); border-radius:.5px; }
+.qr-grid .w { width:5px; height:5px; }
+.qr-lbl { font-size:6px; font-weight:700; color:var(--accent); }
+.pg { display:flex; flex-direction:column; align-items:center; gap:2px; }
+.pgc { width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:900; color:#fff; background:var(--accent); box-shadow:0 2px 6px rgba(0,0,0,0.15); }
+.pgs { font-size:8px; font-weight:600; color:#9ca3af; }
+.finfo { display:flex; flex-direction:column; align-items:flex-end; gap:1px; font-size:8.5px; font-weight:600; color:#6b7280; }
+.finfo strong { color:var(--accent); font-size:9px; }
+.hdr-exo {
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dk) 100%);
+  display:flex; align-items:center; padding:12px 16px 18px; gap:12px;
+  flex-shrink:0; position:relative; overflow:hidden;
+}
+.hdr-exo::before { content:''; position:absolute; bottom:-2px; left:0; right:0; height:14px; background:#fff; clip-path:ellipse(55% 100% at 50% 100%); }
+.ex-card { display:flex; border-radius:12px; overflow:hidden; flex-shrink:0; }
+.ex-band { width:36px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; flex-shrink:0; padding:5px 0; }
+.ex-band .ebn { background:#fff; font-size:15px; font-weight:900; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+.ex-band .ebl { font-size:7.5px; font-weight:700; color:rgba(255,255,255,.85); writing-mode:vertical-rl; transform:rotate(180deg); letter-spacing:.5px; }
+.ex-content { flex:1; padding:8px 12px; }
+.ex-instr { font-size:11.5px; font-weight:800; margin-bottom:7px; }
+.write-zone {
+  border-radius:8px; padding:6px 8px; border:1.5px solid;
+  background-image:
+    linear-gradient(rgba(236,72,153,0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(236,72,153,0.10) 1px, transparent 1px);
+  background-size:8mm 8mm;
+  background-color:#fff;
+}
+.wline { height:32px; border-bottom:1.5px dashed; margin-bottom:4px; }
+.wline:last-child { margin-bottom:0; }
+.ans-box { height:44px; border:3px solid; border-radius:10px; background:#fff; }
+.seq-row { display:flex; align-items:center; gap:5px; justify-content:center; direction:ltr; }
+.sg { border-radius:8px; padding:7px 8px; font-size:13px; font-weight:900; color:#fff; min-width:48px; text-align:center; }
+.sb { height:40px; border:3px dashed; border-radius:8px; background:#fff; flex:1; min-width:46px; }
+.sa { font-size:16px; font-weight:900; }
+.cmp-row { display:flex; align-items:center; gap:8px; direction:ltr; }
+.cn { font-size:17px; font-weight:900; padding:6px 10px; border-radius:8px; text-align:center; flex:1; background:var(--accent-lt); color:var(--accent-dk); }
+.cc { width:36px; height:36px; border:3px dashed; border-radius:50%; background:#fff; font-size:17px; font-weight:900; display:flex; align-items:center; justify-content:center; cursor:pointer; user-select:none; flex-shrink:0; }
+.eval-strip { display:flex; align-items:center; justify-content:space-between; border:2px solid #fcd34d; border-radius:11px; padding:7px 12px; background:rgba(255,249,195,0.85); flex-shrink:0; }
+.eval-face { display:flex; flex-direction:column; align-items:center; gap:2px; cursor:pointer; }
+.eval-face span { font-size:21px; }
+.eval-face p { font-size:8px; font-weight:700; color:#374151; }
+.eval-face input { width:13px; height:13px; accent-color:#f59e0b; }
+@media print { body{background:#fff;} .page{margin:0;box-shadow:none;} }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 — الدرس -->
+<div class="page">
+  <div class="hdr">
+    <div class="hdr-deco1"></div><div class="hdr-deco2"></div>
+    <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="46" height="46" x="2"  y="2"  rx="10" fill="rgba(255,255,255,0.25)"/>
+      <rect width="46" height="46" x="52" y="2"  rx="10" fill="rgba(255,255,255,0.25)"/>
+      <rect width="46" height="46" x="2"  y="52" rx="10" fill="rgba(255,255,255,0.25)"/>
+      <rect width="46" height="46" x="52" y="52" rx="10" fill="rgba(255,255,255,0.25)"/>
+      <text x="25" y="34" text-anchor="middle" font-size="28" font-weight="900" fill="#fff" font-family="Arial">+</text>
+      <text x="75" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#fff" font-family="Arial">e</text>
+      <text x="87" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Arial">x</text>
+      <path d="M33 57 L33 67 L20 82 Q18 86 22 88 L46 88 Q50 86 48 82 L35 67 L35 57 Z" fill="#fff" opacity=".9"/>
+      <rect x="31" y="54" width="6" height="4" rx="1" fill="#fff"/>
+      <circle cx="27" cy="80" r="1.5" fill="var(--accent)" opacity=".6"/>
+      <circle cx="32" cy="83" r="1.5" fill="var(--accent)" opacity=".6"/>
+      <circle cx="38" cy="79" r="1.5" fill="var(--accent)" opacity=".6"/>
+      <path d="M72 54 Q80 62 72 70 Q80 78 72 86" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M86 54 Q78 62 86 70 Q80 78 86 86" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <line x1="74" y1="60" x2="84" y2="60" stroke="#fff" stroke-width="1.5"/>
+      <line x1="74" y1="64" x2="84" y2="64" stroke="#fff" stroke-width="1.5"/>
+      <line x1="72" y1="68" x2="86" y2="68" stroke="#fff" stroke-width="1.5"/>
+      <line x1="74" y1="72" x2="84" y2="72" stroke="#fff" stroke-width="1.5"/>
+      <line x1="74" y1="76" x2="84" y2="76" stroke="#fff" stroke-width="1.5"/>
+      <line x1="72" y1="80" x2="86" y2="80" stroke="#fff" stroke-width="1.5"/>
+    </svg>
+    <div class="hdr-title" style="z-index:2;">
+      <h1>الأعداد من 1301 إلى 1500</h1>
+      <div class="hdr-subtitle">أتعلّم قراءة وكتابة الأعداد</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;z-index:2;">
+      <div style="font-size:32px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2));">🌸</div>
+      <div class="num-blocks"><div class="nb" style="background:#ec4899;">1</div>
+        <div class="nb" style="background:#9d174d;">3</div>
+        <div class="nb" style="background:#f97316;">0</div>
+        <div class="nb" style="background:#22c55e;">0</div></div>
+    </div>
+    <div class="lesson-pill">درس <span class="pn">5</span></div>
+  </div>
+
+  <div class="info-bar">
+    <div class="ifield"><label>الاسم :</label><div class="iline"></div></div>
+    <div class="ifield"><label>الفصل :</label><div class="iline"></div></div>
+    <div class="ifield"><label>التاريخ :</label><div class="iline"></div></div>
+  </div>
+
+  <div class="body">
+    <div class="two-col">
+      <div class="qaeida">
+        <div class="sec-title"><span class="sico">⭐</span> 1. القاعدة</div>
+        <div class="qaeida-body">
+          <div class="rule-item"><span class="rstar">⭐</span><span><span class="rn">1300</span> = ألف وثلاثمئة</span></div>
+          <div class="rule-item"><span class="rstar">⭐</span><span>من <span class="rn">1301</span> إلى <span class="rn">1399</span> :<br><strong>ألف وثلاثمئة + العدد الذي يليه</strong></span></div>
+          <div class="rule-item"><span class="rstar">⭐</span><span><span class="rn2">1400</span> = ألف وأربعمئة | <span class="rn2">1500</span> = ألف وخمسمئة</span></div>
+        </div>
+      </div>
+      <div class="amthila">
+        <div class="sec-title"><span class="sico">✅</span> 2. أمثلة</div>
+        <div class="amthila-body">
+          <div class="ex-cours"><span class="chk">✅</span><span class="en">1301</span><span class="eq">=</span><span class="et">ألف وثلاثمئة وواحد</span></div>
+          <div class="ex-cours"><span class="chk">✅</span><span class="en">1325</span><span class="eq">=</span><span class="et">ألف وثلاثمئة وخمسة وعشرون</span></div>
+          <div class="ex-cours"><span class="chk">✅</span><span class="en">1399</span><span class="eq">=</span><span class="et">ألف وثلاثمئة وتسعة وتسعون</span></div>
+          <div class="ex-cours"><span class="chk">✅</span><span class="en">1400</span><span class="eq">=</span><span class="et">ألف وأربعمئة</span></div>
+          <div class="ex-cours"><span class="chk">✅</span><span class="en">1450</span><span class="eq">=</span><span class="et">ألف وأربعمئة وخمسون</span></div>
+          <div class="ex-cours" style="background:#e8faf3;border-radius:5px;padding:2px 4px;"><span class="chk">✅</span><span class="en" style="background:#ef4444;">1500</span><span class="eq">=</span><span class="et" style="color:#065f46;font-weight:800;">ألف وخمسمئة ⭐</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="atadh">
+      <div class="bulb">💡</div>
+      <div>
+        <h4>3. أتذكر</h4>
+        <ul><li>المئات تتغير كل <strong>100</strong> : ثلاثمئة ← أربعمئة ← خمسمئة</li><li>نقرأ الآلاف أولاً ثم المئات ثم الباقي</li><li><strong>1500</strong> = ألف وخمسمئة</li></ul>
+      </div>
+    </div>
+
+    <div class="tadrib">
+      <div class="sec-title"><span class="sico">🖊️</span> 4. تدريب صغير</div>
+      <div class="tadrib-body">
+        <div class="tadrib-item"><div class="tnum">1</div><span class="tq">كيف نقرأ العدد <strong style="color:var(--accent);">1387</strong> ؟</span><div class="tline"></div></div>
+        <div class="tadrib-item"><div class="tnum">2</div><span class="tq">اكتب بالأرقام : ألف وأربعمئة وستة عشر</span><div class="tline" style="max-width:70px;"></div></div>
+        <div class="tadrib-item"><div class="tnum">3</div><span class="tq" style="direction:ltr;font-size:12px;color:#1e3a8a;">أكمل : 1300, ____, 1400, ____, 1500</span></div>
+        <div class="tadrib-item"><div class="tnum">4</div><span class="tq">أيهما أكبر : <strong style="color:var(--accent);">1499</strong> أم <strong style="color:var(--accent);">1500</strong> ؟</span><div class="tline"></div></div>
+      </div>
+    </div>
+
+    <div class="nl-section">
+      <div class="nl-title">📏 خط الأعداد من 1300 إلى 1500</div>
+      <div class="nl">
+        <div class="nl-line"></div><div class="nl-arr"></div>
+        <div class="nl-marks">
+          <div class="nl-m"><div class="t"></div><div class="l">1300</div></div>
+          <div class="nl-m"><div class="t"></div><div class="l">1320</div></div>
+          <div class="nl-m"><div class="t"></div><div class="l">1340</div></div>
+          <div class="nl-m"><div class="t"></div><div class="l">1360</div></div>
+          <div class="nl-m"><div class="t"></div><div class="l">1380</div></div>
+          <div class="nl-m"><div class="t"></div><div class="l">1400</div></div>
+          <div class="nl-m"><div class="t"></div><div class="l">1420</div></div>
+          <div class="nl-m"><div class="t"></div><div class="l">1440</div></div>
+          <div class="nl-m"><div class="t"></div><div class="l">1460</div></div>
+          <div class="nl-m"><div class="t"></div><div class="l">1480</div></div>
+          <div class="nl-m"><div class="t"></div><div class="l">1500</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="qr-box"><div class="qr-grid">
+        <div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div>
+        <div class="b"></div><div class="w"></div><div class="b"></div><div class="w"></div><div class="b"></div>
+        <div class="b"></div><div class="b"></div><div class="w"></div><div class="b"></div><div class="b"></div>
+        <div class="b"></div><div class="w"></div><div class="b"></div><div class="w"></div><div class="b"></div>
+        <div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div>
+      </div><div class="qr-lbl">QR Code</div></div>
+    <div class="pg"><div class="pgc">9</div><div class="pgs">صفحة الدرس</div></div>
+    <div class="finfo"><strong>الدرس 5 / 10</strong><span>كراس المراجعة — الحساب</span><span>السنة الثالثة ابتدائي</span></div>
+  </div>
+</div>
+
+
+<!-- PAGE 2 — التمارين -->
+<div class="page">
+  <div class="hdr-exo">
+    <div class="hdr-deco1"></div><div class="hdr-deco2"></div>
+    <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;z-index:2;">
+      <rect width="46" height="46" x="2"  y="2"  rx="10" fill="rgba(255,255,255,0.22)"/>
+      <rect width="46" height="46" x="52" y="2"  rx="10" fill="rgba(255,255,255,0.22)"/>
+      <rect width="46" height="46" x="2"  y="52" rx="10" fill="rgba(255,255,255,0.22)"/>
+      <rect width="46" height="46" x="52" y="52" rx="10" fill="rgba(255,255,255,0.22)"/>
+      <text x="25" y="34" text-anchor="middle" font-size="28" font-weight="900" fill="#fff" font-family="Arial">+</text>
+      <text x="75" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#fff" font-family="Arial">e</text>
+      <text x="87" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Arial">x</text>
+      <path d="M33 57 L33 67 L20 82 Q18 86 22 88 L46 88 Q50 86 48 82 L35 67 L35 57 Z" fill="#fff" opacity=".9"/>
+      <rect x="31" y="54" width="6" height="4" rx="1" fill="#fff"/>
+      <path d="M72 54 Q80 62 72 70 Q80 78 72 86" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M86 54 Q78 62 86 70 Q78 78 86 86" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <line x1="74" y1="64" x2="84" y2="64" stroke="#fff" stroke-width="1.5"/>
+      <line x1="72" y1="70" x2="86" y2="70" stroke="#fff" stroke-width="1.5"/>
+      <line x1="74" y1="76" x2="84" y2="76" stroke="#fff" stroke-width="1.5"/>
+    </svg>
+    <div style="flex:1;z-index:2;padding:0 10px;">
+      <h1 style="font-size:18px;font-weight:900;color:#fff;">تمارين الدرس 5</h1>
+      <p style="font-size:10px;font-weight:600;color:rgba(255,255,255,.8);margin-top:2px;">الأعداد من 1301 إلى 1500</p>
+    </div>
+    <div style="background:#fff;border-radius:12px;padding:5px 12px;text-align:center;font-size:9px;font-weight:700;color:var(--accent);box-shadow:0 3px 8px rgba(0,0,0,.14);flex-shrink:0;z-index:2;">
+      تمارين<span style="display:block;font-size:20px;font-weight:900;line-height:1.1;">5</span>
+    </div>
+  </div>
+
+  <div class="info-bar">
+    <div class="ifield"><label>الاسم :</label><div class="iline"></div></div>
+    <div class="ifield"><label>الفصل :</label><div class="iline"></div></div>
+    <div style="display:flex;align-items:center;gap:5px;flex-shrink:0;">
+      <span style="font-size:10px;font-weight:700;color:var(--accent);">النقطة :</span>
+      <div style="width:32px;height:22px;border:2px solid var(--accent);border-radius:5px;background:#fff;"></div>
+      <span style="font-size:10px;color:#aaa;font-weight:700;">/ 10</span>
+    </div>
+  </div>
+
+  <div style="flex:1;padding:9px 14px 6px;display:flex;flex-direction:column;gap:7px;overflow:hidden;">
+
+    <div class="ex-card" style="border:2.5px solid #ec4899;">
+      <div class="ex-band" style="background:#ec4899;"><div class="ebl">تمرين</div><div class="ebn" style="color:#ec4899;">1</div></div>
+      <div class="ex-content" style="background:#fdf2f8;">
+        <div class="ex-instr" style="color:#9d174d;">🔤 اقرأ العدد وأكتبه بالحروف :</div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="font-size:38px;font-weight:900;color:#fff;background:#ec4899;border-radius:12px;padding:4px 16px;letter-spacing:3px;text-shadow:0 2px 5px rgba(0,0,0,.18);flex-shrink:0;">1362</div>
+          <div class="write-zone" style="flex:1;border-color:#fbcfe8;">
+            <div class="wline" style="border-color:#fbcfe8;"></div>
+            <div class="wline" style="border-color:#fbcfe8;border-bottom:none;height:28px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-card" style="border:2.5px solid #10b981;">
+      <div class="ex-band" style="background:#10b981;"><div class="ebl">تمرين</div><div class="ebn" style="color:#10b981;">2</div></div>
+      <div class="ex-content" style="background:#f0fef6;">
+        <div class="ex-instr" style="color:#065f46;">🔢 اكتب هذا العدد بالأرقام :</div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="flex:1;font-size:15px;font-weight:800;color:#1f2937;background:#fff;border-radius:9px;padding:8px 10px;border:2px solid #a7f3d0;text-align:center;">ألف وأربعمئة وثلاثة وأربعون</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0;">
+            <span style="font-size:9px;font-weight:700;color:#10b981;">الجواب</span>
+            <div class="ans-box" style="width:96px;border-color:#10b981;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-card" style="border:2.5px solid #f59e0b;">
+      <div class="ex-band" style="background:#f59e0b;"><div class="ebl">تمرين</div><div class="ebn" style="color:#f59e0b;">3</div></div>
+      <div class="ex-content" style="background:#fffbeb;">
+        <div class="ex-instr" style="color:#92400e;">🔗 أكمل السلسلة — اكتب الأعداد الناقصة :</div>
+        <div class="seq-row">
+          <div class="sg" style="background:#ec4899;">1300</div>
+          <span class="sa" style="color:#fcd34d;">→</span>
+          <div class="sb" style="border-color:#ec4899;"></div>
+          <span class="sa" style="color:#fcd34d;">→</span>
+          <div class="sg" style="background:#ec4899;">1350</div>
+          <span class="sa" style="color:#fcd34d;">→</span>
+          <div class="sb" style="border-color:#ec4899;"></div>
+          <span class="sa" style="color:#fcd34d;">→</span>
+          <div class="sg" style="background:#ec4899;">1400</div>
+          <span class="sa" style="color:#fcd34d;">→</span>
+          <div class="sb" style="border-color:#ec4899;"></div>
+          <span class="sa" style="color:#fcd34d;">→</span>
+          <div class="sg" style="background:#ec4899;">1450</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-card" style="border:2.5px solid #8b5cf6;">
+      <div class="ex-band" style="background:#8b5cf6;"><div class="ebl">تمرين</div><div class="ebn" style="color:#8b5cf6;">4</div></div>
+      <div class="ex-content" style="background:#faf5ff;">
+        <div class="ex-instr" style="color:#5b21b6;">⚖️ ضع &lt; أو &gt; أو = في الدائرة :</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div class="cmp-row"><div class="cn">1399</div><div class="cc" style="border-color:#8b5cf6;color:#8b5cf6;" onclick="const o=['<','>','='],i=o.indexOf(this.innerText);this.innerText=o[(i+1)%o.length];">?</div><div class="cn">1400</div></div>
+          <div class="cmp-row"><div class="cn">1500</div><div class="cc" style="border-color:#8b5cf6;color:#8b5cf6;" onclick="const o=['<','>','='],i=o.indexOf(this.innerText);this.innerText=o[(i+1)%o.length];">?</div><div class="cn">1499</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-card" style="border:2.5px solid #ef4444;">
+      <div class="ex-band" style="background:#ef4444;"><div class="ebl">تمرين</div><div class="ebn" style="color:#ef4444;">5</div></div>
+      <div class="ex-content" style="background:#fff5f5;padding:8px 12px 11px;">
+        <div class="ex-instr" style="color:#991b1b;margin-bottom:9px;">📏 أكمل خط الأعداد — اكتب الأعداد الناقصة :</div>
+        <div style="position:relative;height:48px;direction:ltr;">
+          <div style="position:absolute;bottom:20px;left:8px;right:8px;height:3px;background:linear-gradient(90deg,#ef4444,#fca5a5);border-radius:2px;"></div>
+          <div style="position:absolute;bottom:13px;right:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:13px solid #ef4444;"></div>
+          <div style="position:absolute;bottom:0;left:8px;right:8px;display:flex;justify-content:space-between;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:2px;height:11px;background:#ef4444;"></div><div style="font-size:7px;font-weight:800;color:#ef4444;">1300</div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:2px;height:11px;background:#ef4444;"></div><div style="width:34px;height:20px;border:2px dashed #ef4444;border-radius:5px;background:#fff;"></div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:2px;height:11px;background:#ef4444;"></div><div style="font-size:7px;font-weight:800;color:#ef4444;">1340</div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:2px;height:11px;background:#ef4444;"></div><div style="width:34px;height:20px;border:2px dashed #ef4444;border-radius:5px;background:#fff;"></div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:2px;height:11px;background:#ef4444;"></div><div style="font-size:7px;font-weight:800;color:#ef4444;">1380</div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:2px;height:11px;background:#ef4444;"></div><div style="width:34px;height:20px;border:2px dashed #ef4444;border-radius:5px;background:#fff;"></div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:2px;height:11px;background:#ef4444;"></div><div style="font-size:7px;font-weight:800;color:#ef4444;">1420</div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:2px;height:11px;background:#ef4444;"></div><div style="width:34px;height:20px;border:2px dashed #ef4444;border-radius:5px;background:#fff;"></div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:2px;height:11px;background:#ef4444;"></div><div style="font-size:7px;font-weight:800;color:#ef4444;">1460</div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:2px;height:11px;background:#ef4444;"></div><div style="width:34px;height:20px;border:2px dashed #ef4444;border-radius:5px;background:#fff;"></div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:2px;height:11px;background:#ef4444;"></div><div style="font-size:7px;font-weight:800;color:#ef4444;">1500</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="eval-strip">
+      <div style="font-size:11px;font-weight:800;color:#92400e;">كيف وجدتَ التمارين ؟</div>
+      <div style="display:flex;gap:10px;">
+        <label class="eval-face"><span>😊</span><p>سهلة</p><input type="checkbox"></label>
+        <label class="eval-face"><span>🙂</span><p>عادية</p><input type="checkbox"></label>
+        <label class="eval-face"><span>😓</span><p>صعبة</p><input type="checkbox"></label>
+      </div>
+      <div style="font-size:19px;letter-spacing:2px;">⭐⭐⭐⭐⭐</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="qr-box"><div class="qr-grid">
+        <div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div>
+        <div class="b"></div><div class="w"></div><div class="b"></div><div class="w"></div><div class="b"></div>
+        <div class="b"></div><div class="b"></div><div class="w"></div><div class="b"></div><div class="b"></div>
+        <div class="b"></div><div class="w"></div><div class="b"></div><div class="w"></div><div class="b"></div>
+        <div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div>
+      </div><div class="qr-lbl">QR Code</div></div>
+    <div class="pg"><div class="pgc">10</div><div class="pgs">صفحة التمارين</div></div>
+    <div class="finfo"><strong>الدرس 5 / 10</strong><span>كراس المراجعة — الحساب</span><span>السنة الثالثة ابتدائي</span></div>
+  </div>
+</div>
+
+</body>
+</html>

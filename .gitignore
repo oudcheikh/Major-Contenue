@@ -1,5 +1,8 @@
-# apps ont leurs propres dépôts (major-web) ou sont regénérables
-apps/
+# apps ayant leurs propres dépôts GitHub (major-contenue est suivi ici depuis la fusion du 13/08/2026)
+apps/major-web/
+apps/major-mobile/
+apps/major-admin/
+apps/math-api/
 # environnements et caches Python
 generateurs/.venv/
 __pycache__/

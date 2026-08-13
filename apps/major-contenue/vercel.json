@@ -1,0 +1,6 @@
+{
+  "installCommand": "cd major-web && npm install",
+  "buildCommand": "cd major-web && npm run build",
+  "outputDirectory": "major-web/dist",
+  "framework": "vite"
+}

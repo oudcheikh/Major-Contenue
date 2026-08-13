@@ -1,0 +1,898 @@
+{
+  "version": "1.0",
+  "pays": "Mauritanie",
+  "niveau": "6ème Année Fondamentale (6AF)",
+  "concours": "Concours d'entrée au Premier Cycle Secondaire",
+  "subjects": [
+    {
+      "id": "math",
+      "label": "Mathématiques",
+      "labelAr": "الرياضيات",
+      "color": "#fb923c",
+      "gradient": ["#f59e0b", "#f97316"],
+      "icon": "📐",
+      "lessons": [
+        {
+          "id": "math-fractions-base",
+          "title": "Les Fractions — Addition & Soustraction",
+          "qrCode": "major://lesson/math-fractions-base",
+          "emoji": "➕",
+          "difficulty": 1,
+          "duration": "5 min",
+          "summary": "Une fraction a/b représente a parties sur b. Pour additionner ou soustraire deux fractions, elles doivent avoir le MÊME dénominateur. Si ce n'est pas le cas, on cherche le dénominateur commun.",
+          "keyPoints": [
+            "3/4 + 1/4 = 4/4 = 1 → dénominateurs égaux : on additionne les numérateurs",
+            "1/3 + 1/4 → dénominateur commun = 12 → 4/12 + 3/12 = 7/12",
+            "Pour soustraire : même règle — même dénominateur d'abord",
+            "Une fraction égale à 1 entier : a/a = 1 (ex. 6/6 = 1)"
+          ],
+          "rule": "a/b + c/b = (a+c)/b   |   a/b - c/b = (a-c)/b",
+          "tip": "🧠 Astuce du champion : cherche TOUJOURS le dénominateur commun avant de calculer !",
+          "encouragement": "Tu maîtrises les fractions ? Tu es déjà plus fort que 80% des élèves ! 🏆",
+          "quizIds": ["m1", "m3"]
+        },
+        {
+          "id": "math-fractions-mult",
+          "title": "Les Fractions — Multiplication & Division",
+          "qrCode": "major://lesson/math-fractions-mult",
+          "emoji": "✖️",
+          "difficulty": 2,
+          "duration": "5 min",
+          "summary": "Multiplier deux fractions : on multiplie les numérateurs entre eux ET les dénominateurs entre eux. Diviser par une fraction : on multiplie par son inverse (on retourne la fraction).",
+          "keyPoints": [
+            "2/3 × 3/4 = (2×3)/(3×4) = 6/12 = 1/2",
+            "2/3 ÷ 4/5 = 2/3 × 5/4 = 10/12 = 5/6",
+            "Fraction d'une quantité : 3/4 de 120 = (3 × 120) ÷ 4 = 90",
+            "Simplifier avant de multiplier pour gagner du temps"
+          ],
+          "rule": "a/b × c/d = (a×c)/(b×d)   |   a/b ÷ c/d = a/b × d/c",
+          "tip": "🧠 Astuce : simplifie AVANT de multiplier pour avoir de petits nombres !",
+          "encouragement": "La multiplication de fractions, c'est ton arme secrète pour le concours ! 🚀",
+          "quizIds": ["m2", "m6"]
+        },
+        {
+          "id": "math-pourcentages",
+          "title": "Pourcentages & Fractions d'une quantité",
+          "qrCode": "major://lesson/math-pourcentages",
+          "emoji": "%",
+          "difficulty": 2,
+          "duration": "6 min",
+          "summary": "Un pourcentage, c'est une fraction de dénominateur 100. 25% = 25/100 = 1/4. Pour calculer un pourcentage d'une quantité, on multiplie la quantité par le pourcentage.",
+          "keyPoints": [
+            "25% de 200 = (25 × 200) ÷ 100 = 50",
+            "10% d'un nombre : on divise par 10",
+            "50% d'un nombre : on divise par 2",
+            "75% = 3/4 d'un nombre",
+            "Pour trouver le pourcentage : (partie ÷ total) × 100"
+          ],
+          "rule": "x% de N = (x × N) ÷ 100",
+          "tip": "🧠 Mémorise : 10%=÷10, 25%=÷4, 50%=÷2, 75%=×3÷4",
+          "encouragement": "Les pourcentages reviennent chaque année au concours. Tu les connais maintenant ! 💪",
+          "quizIds": ["m2", "m6"]
+        },
+        {
+          "id": "math-pgcd",
+          "title": "PGCD & Fractions Irréductibles",
+          "qrCode": "major://lesson/math-pgcd",
+          "emoji": "🔢",
+          "difficulty": 2,
+          "duration": "7 min",
+          "summary": "Le PGCD (Plus Grand Commun Diviseur) est le plus grand nombre qui divise exactement deux nombres. On l'utilise pour simplifier une fraction à sa forme irréductible.",
+          "keyPoints": [
+            "Diviseurs de 12 : 1, 2, 3, 4, 6, 12",
+            "Diviseurs de 18 : 1, 2, 3, 6, 9, 18",
+            "PGCD(12, 18) = 6",
+            "12/18 ÷ 6/6 = 2/3 (fraction irréductible)",
+            "Une fraction est irréductible quand PGCD(numérateur, dénominateur) = 1"
+          ],
+          "rule": "Fraction irréductible : numérateur et dénominateur divisés par leur PGCD",
+          "tip": "🧠 Liste les diviseurs des deux nombres et cherche le plus grand en commun !",
+          "encouragement": "Le PGCD c'est comme trouver le meilleur ami commun de deux nombres. Tu peux le faire ! 🌟",
+          "quizIds": ["m8"]
+        },
+        {
+          "id": "math-proportionnalite",
+          "title": "Proportionnalité",
+          "qrCode": "major://lesson/math-proportionnalite",
+          "emoji": "⚖️",
+          "difficulty": 2,
+          "duration": "6 min",
+          "summary": "Deux grandeurs sont proportionnelles quand leur rapport est toujours le même. On utilise la règle de trois (produit en croix) pour trouver une valeur manquante.",
+          "keyPoints": [
+            "Si 3 cahiers coûtent 15 Dh, alors 7 cahiers coûtent ?",
+            "Produit en croix : 3 × ? = 7 × 15 → ? = 105 ÷ 3 = 35 Dh",
+            "Tableau de proportionnalité : × par le même coefficient",
+            "Vitesse constante = proportionnalité entre distance et temps"
+          ],
+          "rule": "a/b = c/d ↔ a × d = b × c (produit en croix)",
+          "tip": "🧠 Fais toujours un tableau avec les unités pour ne pas te tromper !",
+          "encouragement": "La proportionnalité est dans CHAQUE concours depuis 2005 ! Tu la maîtrises maintenant ! 🎯",
+          "quizIds": ["m9"]
+        },
+        {
+          "id": "math-vitesse",
+          "title": "Vitesse — Distance — Temps",
+          "qrCode": "major://lesson/math-vitesse",
+          "emoji": "🚀",
+          "difficulty": 2,
+          "duration": "6 min",
+          "summary": "La vitesse, la distance et le temps sont liés par une formule. Si tu connais deux des trois valeurs, tu peux toujours trouver la troisième.",
+          "keyPoints": [
+            "Distance = Vitesse × Temps",
+            "Vitesse = Distance ÷ Temps",
+            "Temps = Distance ÷ Vitesse",
+            "Attention aux unités ! km/h, m/s, minutes…",
+            "1 heure 30 min = 1,5 heure"
+          ],
+          "rule": "D = V × T   |   V = D ÷ T   |   T = D ÷ V",
+          "tip": "🧠 Mémorise le triangle magique : D en haut, V et T en bas !",
+          "encouragement": "Un champion calcule vite ET sans erreurs d'unités. Toi, tu peux ! ⚡",
+          "quizIds": ["m9"]
+        },
+        {
+          "id": "math-perimetre-aire",
+          "title": "Périmètre & Aire des Figures",
+          "qrCode": "major://lesson/math-perimetre-aire",
+          "emoji": "📏",
+          "difficulty": 1,
+          "duration": "8 min",
+          "summary": "Le périmètre est la longueur du contour d'une figure (en cm, m…). L'aire est la surface à l'intérieur d'une figure (en cm², m²…). Ce sont deux choses différentes !",
+          "keyPoints": [
+            "Carré : P = 4×c | A = c²",
+            "Rectangle : P = 2×(L+l) | A = L×l",
+            "Triangle : P = somme des 3 côtés | A = (base×hauteur)÷2",
+            "Disque : P = 2×π×r | A = π×r² (avec π ≈ 3,14)",
+            "ATTENTION : périmètre en cm, aire en cm²"
+          ],
+          "rule": "Aire rectangle = L × l   |   Aire triangle = (b × h) ÷ 2",
+          "tip": "🧠 Périmètre = TOUR de la figure. Aire = INTÉRIEUR de la figure.",
+          "encouragement": "La géométrie c'est de l'art et des maths réunis. Tu es un artiste du calcul ! 🎨",
+          "quizIds": ["m4", "m5"]
+        },
+        {
+          "id": "math-volume",
+          "title": "Volume & Contenance",
+          "qrCode": "major://lesson/math-volume",
+          "emoji": "📦",
+          "difficulty": 3,
+          "duration": "7 min",
+          "summary": "Le volume mesure l'espace occupé par un solide (en cm³ ou m³). La contenance mesure ce qu'un récipient peut contenir (en litres). 1 litre = 1 décimètre cube = 1 dm³.",
+          "keyPoints": [
+            "Volume du pavé droit = L × l × h",
+            "Volume du cube = côté³",
+            "1 L = 1 dm³ = 1 000 cm³",
+            "1 m³ = 1 000 L",
+            "1 cL = 10 mL | 1 dL = 10 cL | 1 L = 10 dL"
+          ],
+          "rule": "V pavé = L × l × h   |   1 dm³ = 1 L",
+          "tip": "🧠 Le litre et le dm³, c'est la même chose ! Utilise ça pour convertir.",
+          "encouragement": "Les problèmes de volume font peur ? Pas à toi ! Tu as la formule. 🦁",
+          "quizIds": ["m7"]
+        },
+        {
+          "id": "math-decimaux",
+          "title": "Nombres Décimaux & Conversions",
+          "qrCode": "major://lesson/math-decimaux",
+          "emoji": "🔟",
+          "difficulty": 1,
+          "duration": "5 min",
+          "summary": "Les nombres décimaux ont une partie entière et une partie décimale séparées par une virgule. Les conversions de mesures utilisent les puissances de 10.",
+          "keyPoints": [
+            "1 km = 10 hm = 100 dam = 1 000 m",
+            "1 m = 10 dm = 100 cm = 1 000 mm",
+            "Multiplier par 10 → déplacer la virgule d'un rang à droite",
+            "Diviser par 10 → déplacer la virgule d'un rang à gauche",
+            "1 000 × 0,01 = 10"
+          ],
+          "rule": "×10 → virgule droite | ÷10 → virgule gauche",
+          "tip": "🧠 Tableau de conversion : km | hm | dam | m | dm | cm | mm",
+          "encouragement": "Les conversions ne te feront plus jamais peur après ça ! Vas-y ! 💥",
+          "quizIds": ["m7", "m10"]
+        },
+        {
+          "id": "math-statistiques",
+          "title": "Statistiques & Moyenne",
+          "qrCode": "major://lesson/math-statistiques",
+          "emoji": "📊",
+          "difficulty": 2,
+          "duration": "5 min",
+          "summary": "La moyenne est une valeur représentative d'un groupe de nombres. On l'obtient en divisant la somme de toutes les valeurs par leur nombre total.",
+          "keyPoints": [
+            "Moyenne = Somme de toutes les valeurs ÷ Nombre de valeurs",
+            "Exemple : notes 12, 15, 18, 13, 17 → somme = 75 → 75÷5 = 15",
+            "Lire un tableau de données et calculer la moyenne",
+            "Fréquence : nombre de fois qu'une valeur apparaît"
+          ],
+          "rule": "Moyenne = (somme des valeurs) ÷ (nombre de valeurs)",
+          "tip": "🧠 Additionne tout d'abord, puis divise ensuite. Dans cet ordre !",
+          "encouragement": "La moyenne au concours, tu la calcules maintenant les yeux fermés ! 😎",
+          "quizIds": ["m9"]
+        }
+      ]
+    },
+    {
+      "id": "french",
+      "label": "Français",
+      "labelAr": "الفرنسية",
+      "color": "#38bdf8",
+      "gradient": ["#0ea5e9", "#2563eb"],
+      "icon": "📖",
+      "lessons": [
+        {
+          "id": "fr-conjugaison-present",
+          "title": "Conjugaison — Présent de l'indicatif",
+          "qrCode": "major://lesson/fr-conjugaison-present",
+          "emoji": "✍️",
+          "difficulty": 1,
+          "duration": "6 min",
+          "summary": "Le présent de l'indicatif exprime une action qui se passe maintenant, une vérité générale ou une habitude. Les terminaisons changent selon le groupe du verbe (1er, 2ème, 3ème groupe).",
+          "keyPoints": [
+            "1er groupe (-er) : je chant-e, tu chant-es, il chant-e, nous chant-ons, vous chant-ez, ils chant-ent",
+            "2ème groupe (-ir) : je fin-is, tu fin-is, il fin-it, nous fin-issons, vous fin-issez, ils fin-issent",
+            "Verbes irréguliers à mémoriser : être, avoir, aller, faire, venir, pouvoir, vouloir",
+            "ÊTRE : je suis, tu es, il est, nous sommes, vous êtes, ils sont",
+            "AVOIR : j'ai, tu as, il a, nous avons, vous avez, ils ont"
+          ],
+          "rule": "Identifier le groupe → appliquer les terminaisons correctes",
+          "tip": "🧠 Le présent de l'indicatif = ce qui se passe MAINTENANT ou TOUJOURS.",
+          "encouragement": "La conjugaison c'est comme une recette de cuisine : suis les étapes et c'est parfait ! 🍕",
+          "quizIds": ["f21", "f22", "f44", "f53"]
+        },
+        {
+          "id": "fr-conjugaison-passe",
+          "title": "Conjugaison — Passé Composé & Imparfait",
+          "qrCode": "major://lesson/fr-conjugaison-passe",
+          "emoji": "⏮️",
+          "difficulty": 2,
+          "duration": "8 min",
+          "summary": "Le passé composé exprime une action terminée et ponctuelle. L'imparfait exprime une action passée qui dure, se répète ou décrit un état. Les deux temps s'utilisent souvent ensemble.",
+          "keyPoints": [
+            "Passé composé : avoir/être (auxiliaire au présent) + participe passé",
+            "j'ai mangé, tu as couru, il est parti, nous sommes arrivés",
+            "Avec ÊTRE : accord du participe passé avec le sujet (elle est partie)",
+            "Imparfait : radical + ais, ais, ait, ions, iez, aient",
+            "je mangeais, tu courais, il finissait, nous chantions"
+          ],
+          "rule": "PC = auxiliaire (présent) + PP   |   Imparfait = radical + terminaisons en -ais",
+          "tip": "🧠 Passé composé = action finie ('j'ai mangé une pomme'). Imparfait = action qui dure ('je mangeais quand…')",
+          "encouragement": "Passé composé ou imparfait ? Tu sais maintenant faire la différence ! 🎓",
+          "quizIds": ["f23", "f24", "f43"]
+        },
+        {
+          "id": "fr-conjugaison-futur",
+          "title": "Conjugaison — Futur Simple & Conditionnel",
+          "qrCode": "major://lesson/fr-conjugaison-futur",
+          "emoji": "⏩",
+          "difficulty": 2,
+          "duration": "6 min",
+          "summary": "Le futur simple exprime une action à venir. Le conditionnel présent exprime une action hypothétique ou un souhait poli. Ils ont les mêmes radicaux mais des terminaisons différentes.",
+          "keyPoints": [
+            "Futur : infinitif + ai, as, a, ons, ez, ont",
+            "je mangerai, tu courras, il finira, nous partirons",
+            "Verbes irréguliers au futur : être→sera, avoir→aura, aller→ira, faire→fera",
+            "Conditionnel : infinitif + ais, ais, ait, ions, iez, aient",
+            "je mangerais, tu courrais, il finirait"
+          ],
+          "rule": "Futur = radical + ai/as/a/ons/ez/ont   |   Conditionnel = radical + ais/ais/ait…",
+          "tip": "🧠 Futur = certitude ('je partirai demain'). Conditionnel = hypothèse ('je partirais si…')",
+          "encouragement": "Le futur et le conditionnel : deux temps en un seul cours ! Tu es efficace ! ⚡",
+          "quizIds": ["f25", "f26"]
+        },
+        {
+          "id": "fr-types-phrases",
+          "title": "Types & Formes de Phrases",
+          "qrCode": "major://lesson/fr-types-phrases",
+          "emoji": "❓",
+          "difficulty": 1,
+          "duration": "5 min",
+          "summary": "Une phrase peut être de 4 types selon son but : déclarative, interrogative, exclamative ou impérative. Elle peut aussi être à la forme affirmative ou négative.",
+          "keyPoints": [
+            "Déclarative : donne une information. Ex : 'Il fait beau.'",
+            "Interrogative : pose une question. Ex : 'Fait-il beau ?'",
+            "Exclamative : exprime un sentiment fort. Ex : 'Comme il fait beau !'",
+            "Impérative : donne un ordre. Ex : 'Viens ici !'",
+            "Forme négative : ne…pas, ne…jamais, ne…plus, ne…rien"
+          ],
+          "rule": "Type = le but de la phrase | Forme = affirmative ou négative",
+          "tip": "🧠 Lis la phrase à voix haute : son ton te dit souvent son type !",
+          "encouragement": "Les types de phrases, c'est facile ! Tu les utilises tous les jours sans le savoir. 😄",
+          "quizIds": ["f27", "f28", "f45", "f51"]
+        },
+        {
+          "id": "fr-grammaire-fonctions",
+          "title": "Grammaire — Fonctions & Analyse",
+          "qrCode": "major://lesson/fr-grammaire-fonctions",
+          "emoji": "🔍",
+          "difficulty": 2,
+          "duration": "8 min",
+          "summary": "Dans une phrase, chaque mot a une fonction. Identifier le sujet, le verbe, les compléments et les attributs est essentiel pour l'analyse grammaticale au concours.",
+          "keyPoints": [
+            "Sujet : répond à la question 'Qui est-ce qui ?' ou 'Qu'est-ce qui ?'",
+            "Verbe : le mot qui se conjugue (noyau de la phrase)",
+            "COD : répond à 'quoi ?' ou 'qui ?' directement après le verbe",
+            "COI : répond à 'à quoi/qui ?' ou 'de quoi/qui ?' avec préposition",
+            "Attribut du sujet : avec verbe d'état (être, paraître, sembler…)"
+          ],
+          "rule": "Sujet + Verbe + (COD) + (COI) + (Circonstanciel)",
+          "tip": "🧠 Pose les questions dans l'ordre : QUI fait l'action → QUOI → À QUI",
+          "encouragement": "L'analyse grammaticale, c'est comme être détective de la langue française ! 🕵️",
+          "quizIds": ["f29", "f30", "f31", "f46", "f54"]
+        },
+        {
+          "id": "fr-accord-gn",
+          "title": "Accord dans le Groupe Nominal",
+          "qrCode": "major://lesson/fr-accord-gn",
+          "emoji": "🤝",
+          "difficulty": 2,
+          "duration": "6 min",
+          "summary": "Dans un groupe nominal, le déterminant et l'adjectif s'accordent en genre (masculin/féminin) et en nombre (singulier/pluriel) avec le nom.",
+          "keyPoints": [
+            "Le chat noir → Les chats noirs (masculin pluriel)",
+            "La petite fille → Les petites filles (féminin pluriel)",
+            "Féminin : on ajoute généralement -e (grand → grande)",
+            "Pluriel : on ajoute généralement -s (petit → petits)",
+            "Exceptions : beau → belle, nouveau → nouvelle, vieux → vieille"
+          ],
+          "rule": "Déterminant + Nom + Adjectif : même genre et même nombre",
+          "tip": "🧠 Remplace par 'il/elle' pour trouver le genre, 'ils/elles' pour le nombre.",
+          "encouragement": "L'accord du GN, tu ne feras plus jamais de fautes ! C'est promis ! ✨",
+          "quizIds": ["f32", "f33", "f50"]
+        },
+        {
+          "id": "fr-homophones",
+          "title": "Homophones Grammaticaux",
+          "qrCode": "major://lesson/fr-homophones",
+          "emoji": "👂",
+          "difficulty": 3,
+          "duration": "7 min",
+          "summary": "Les homophones sont des mots qui se prononcent de la même façon mais s'écrivent différemment. Les confondre est une erreur classique au concours.",
+          "keyPoints": [
+            "a / à : 'a' = verbe avoir (remplace par 'avait') | 'à' = préposition",
+            "est / et : 'est' = verbe être (remplace par 'était') | 'et' = conjonction",
+            "on / ont : 'ont' = verbe avoir (remplace par 'avaient') | 'on' = pronom",
+            "son / sont : 'sont' = verbe être (remplace par 'étaient') | 'son' = déterminant",
+            "se / ce : 'se' devant verbe pronominal | 'ce' = déterminant ou pronom"
+          ],
+          "rule": "Astuce universelle : remplace par la forme au passé. Si ça marche → verbe conjugué.",
+          "tip": "🧠 'Il a faim' → 'Il avait faim' ✓ donc 'a'. 'Il à la maison' → 'Il avait la maison' ✗ donc 'à'.",
+          "encouragement": "Les homophones ne te piégeront plus jamais ! Tu as le truc maintenant ! 🔑",
+          "quizIds": ["f34", "f35", "f36", "f42", "f48", "f49"]
+        },
+        {
+          "id": "fr-vocabulaire",
+          "title": "Vocabulaire — Familles & Champs Lexicaux",
+          "qrCode": "major://lesson/fr-vocabulaire",
+          "emoji": "📚",
+          "difficulty": 1,
+          "duration": "5 min",
+          "summary": "La famille d'un mot regroupe tous les mots qui ont la même racine. Le champ lexical regroupe tous les mots qui parlent du même thème.",
+          "keyPoints": [
+            "Famille de 'terre' : enterrer, terrain, terrestre, atterrir",
+            "Synonymes : mots de sens proche (rapide = vite = prompt)",
+            "Antonymes : mots de sens contraire (grand ≠ petit)",
+            "Préfixes : in- (incapable), re- (refaire), dé- (défaire)",
+            "Suffixes : -eur (chanteur), -tion (conjugaison), -ment (rapidement)"
+          ],
+          "rule": "Famille = même RACINE | Champ lexical = même THÈME",
+          "tip": "🧠 Pour trouver la famille d'un mot, cherche sa racine latin ou grec.",
+          "encouragement": "Plus tu connais de mots, plus tu es puissant en français ! Continue ! 📖",
+          "quizIds": ["f37", "f38", "f39", "f47", "f52"]
+        },
+        {
+          "id": "fr-expression-ecrite",
+          "title": "Expression Écrite — Types de Textes",
+          "qrCode": "major://lesson/fr-expression-ecrite",
+          "emoji": "✏️",
+          "difficulty": 3,
+          "duration": "8 min",
+          "summary": "Au concours, tu peux avoir à produire ou analyser différents types de textes. Chaque type a ses propres caractéristiques et son but particulier.",
+          "keyPoints": [
+            "Texte narratif : raconte une histoire (personnages, lieu, temps, action)",
+            "Texte descriptif : décrit un lieu ou une personne (détails sensoriels)",
+            "Texte informatif : donne des informations (faits, chiffres, explications)",
+            "Texte argumentatif : défend une opinion (arguments + exemples)",
+            "Lettre : formule de politesse au début ET à la fin"
+          ],
+          "rule": "But du texte → type → structure → vocabulaire adapté",
+          "tip": "🧠 Avant d'écrire : PLAN (introduction, développement, conclusion) !",
+          "encouragement": "Écrire c'est ta super-pouvoir. Entraîne-le et tu brilleras au concours ! ⭐",
+          "quizIds": ["f40", "f41", "f55"]
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "label": "Sciences",
+      "labelAr": "العلوم الطبيعية",
+      "color": "#34d399",
+      "gradient": ["#10b981", "#059669"],
+      "icon": "🔬",
+      "lessons": [
+        {
+          "id": "sci-digestion",
+          "title": "La Nutrition & La Digestion",
+          "qrCode": "major://lesson/sci-digestion",
+          "emoji": "🥗",
+          "difficulty": 1,
+          "duration": "6 min",
+          "summary": "La digestion transforme les aliments en nutriments que le corps peut absorber. Elle se fait en plusieurs étapes dans l'appareil digestif.",
+          "keyPoints": [
+            "Chemin des aliments : bouche → œsophage → estomac → intestin grêle → gros intestin",
+            "La bouche : mastication + salive (débute la digestion)",
+            "L'estomac : digestion chimique avec les sucs gastriques",
+            "L'intestin grêle : absorption des nutriments dans le sang",
+            "Les aliments se classent en 7 groupes (glucides, lipides, protéines, vitamines…)"
+          ],
+          "rule": "Digestion = transformation mécanique (mastication) + transformation chimique (sucs digestifs)",
+          "tip": "🧠 Retiens l'ordre : bouche → œsophage → estomac → intestin grêle → gros intestin → anus",
+          "encouragement": "Tu sais maintenant ce qui se passe dans ton corps quand tu manges ! Fascinant ! 🌟",
+          "quizIds": []
+        },
+        {
+          "id": "sci-circulation",
+          "title": "La Circulation Sanguine",
+          "qrCode": "major://lesson/sci-circulation",
+          "emoji": "❤️",
+          "difficulty": 2,
+          "duration": "6 min",
+          "summary": "Le sang circule dans tout le corps grâce au cœur qui est une pompe musculaire. Il transporte l'oxygène et les nutriments vers les organes et ramène le dioxyde de carbone.",
+          "keyPoints": [
+            "Le cœur a 4 cavités : 2 oreillettes + 2 ventricules",
+            "Grande circulation : cœur → corps → cœur (apporte O₂)",
+            "Petite circulation : cœur → poumons → cœur (rejette CO₂)",
+            "Artères : transportent le sang du cœur | Veines : ramènent au cœur",
+            "Sang rouge (artères) = riche en O₂ | Sang bleu/foncé (veines) = pauvre en O₂"
+          ],
+          "rule": "Cœur → Artères → Organes → Veines → Cœur → Poumons → Cœur",
+          "tip": "🧠 Artère = part du cœur (commence par A comme 'aller'). Veine = revient au cœur.",
+          "encouragement": "Le cœur bat pour toi toute ta vie. Comprends-le, c'est fascinant ! 💓",
+          "quizIds": []
+        },
+        {
+          "id": "sci-respiration",
+          "title": "La Respiration",
+          "qrCode": "major://lesson/sci-respiration",
+          "emoji": "💨",
+          "difficulty": 1,
+          "duration": "5 min",
+          "summary": "La respiration permet d'apporter de l'oxygène au corps et d'éliminer le dioxyde de carbone. Elle se fait grâce aux poumons et au mouvement du diaphragme.",
+          "keyPoints": [
+            "Inspiration : air entre par nez → trachée → bronches → poumons",
+            "Expiration : CO₂ sort des poumons → bronches → trachée → nez/bouche",
+            "Les alvéoles pulmonaires : échanges gazeux entre air et sang",
+            "Inspiration : diaphragme descend, cage thoracique s'élargit",
+            "O₂ passe dans le sang, CO₂ passe dans l'air"
+          ],
+          "rule": "Inspiration = entrée O₂ | Expiration = sortie CO₂",
+          "tip": "🧠 Inspire profondément et pense à ce que font tes poumons. Science en direct !",
+          "encouragement": "Tu respires 20 000 fois par jour. Maintenant tu sais pourquoi ! 🫁",
+          "quizIds": []
+        },
+        {
+          "id": "sci-reproduction-humaine",
+          "title": "La Reproduction Humaine",
+          "qrCode": "major://lesson/sci-reproduction-humaine",
+          "emoji": "👶",
+          "difficulty": 2,
+          "duration": "6 min",
+          "summary": "La reproduction humaine est sexuée : elle nécessite une cellule reproductrice mâle (spermatozoïde) et une cellule reproductrice femelle (ovule). Leur union forme un embryon.",
+          "keyPoints": [
+            "Fécondation : union du spermatozoïde et de l'ovule → formation de l'œuf (zygote)",
+            "L'embryon se développe dans l'utérus pendant 9 mois",
+            "Après 8 semaines, l'embryon devient un fœtus",
+            "Le placenta assure les échanges entre la mère et le fœtus",
+            "Puberté : période de transformation du corps (fille : 10-13 ans, garçon : 11-14 ans)"
+          ],
+          "rule": "Fécondation → Œuf → Embryon (0-8 sem) → Fœtus (8 sem - 9 mois) → Naissance",
+          "tip": "🧠 9 mois = 3 trimestres. Chaque trimestre apporte des changements importants.",
+          "encouragement": "La vie commence par une cellule invisible. La science, c'est magique ! ✨",
+          "quizIds": []
+        },
+        {
+          "id": "sci-plantes",
+          "title": "Les Plantes — Nutrition & Reproduction",
+          "qrCode": "major://lesson/sci-plantes",
+          "emoji": "🌿",
+          "difficulty": 2,
+          "duration": "6 min",
+          "summary": "Les plantes fabriquent leur propre nourriture grâce à la photosynthèse. Elles se reproduisent par graines (reproduction sexuée) ou par bouturage, bulbes, stolons (reproduction végétative).",
+          "keyPoints": [
+            "Photosynthèse : lumière + eau + CO₂ → glucose + O₂",
+            "La photosynthèse a lieu dans les feuilles (chlorophylle)",
+            "Fleur → fécondation (pollen + ovule) → graine → germination",
+            "Reproduction végétative : bouture, bulbe, tubercule, stolon",
+            "Les plantes absorbent l'eau et les sels minéraux par les racines"
+          ],
+          "rule": "CO₂ + H₂O + lumière → glucose + O₂ (Photosynthèse)",
+          "tip": "🧠 Sans lumière = pas de photosynthèse = pas de nourriture pour la plante !",
+          "encouragement": "Les plantes fabriquent l'oxygène qu'on respire. Sans elles, pas de vie ! 🌍",
+          "quizIds": []
+        },
+        {
+          "id": "sci-ecosystemes",
+          "title": "Les Êtres Vivants & l'Environnement",
+          "qrCode": "major://lesson/sci-ecosystemes",
+          "emoji": "🌍",
+          "difficulty": 2,
+          "duration": "7 min",
+          "summary": "Un écosystème est l'ensemble des êtres vivants (biocénose) et leur environnement (biotope) en interaction. Les êtres vivants sont liés entre eux par des chaînes alimentaires.",
+          "keyPoints": [
+            "Chaîne alimentaire : producteur → consommateur 1 → consommateur 2 → décomposeur",
+            "Producteurs = plantes vertes (font la photosynthèse)",
+            "Consommateurs : herbivores, carnivores, omnivores",
+            "Décomposeurs : bactéries, champignons (recyclent la matière)",
+            "Réseau alimentaire = plusieurs chaînes alimentaires liées"
+          ],
+          "rule": "Plante → Herbivore → Carnivore → Décomposeur",
+          "tip": "🧠 Dans une chaîne alimentaire, la flèche signifie 'est mangé par'.",
+          "encouragement": "Chaque être vivant a sa place dans la nature. Toi aussi tu en fais partie ! 🦋",
+          "quizIds": []
+        },
+        {
+          "id": "sci-matiere",
+          "title": "La Matière & ses États",
+          "qrCode": "major://lesson/sci-matiere",
+          "emoji": "💧",
+          "difficulty": 1,
+          "duration": "5 min",
+          "summary": "La matière peut exister sous 3 états : solide, liquide et gazeux. Elle peut passer d'un état à l'autre par l'effet de la chaleur ou du froid. Ces changements sont réversibles.",
+          "keyPoints": [
+            "Solide : forme propre et volume propre (glace)",
+            "Liquide : pas de forme propre, volume propre (eau)",
+            "Gazeux : pas de forme propre, pas de volume propre (vapeur d'eau)",
+            "Fusion : solide → liquide (chauffage) | Solidification : liquide → solide (refroidissement)",
+            "Vaporisation : liquide → gaz | Condensation : gaz → liquide"
+          ],
+          "rule": "Chaleur : solide → liquide → gaz | Froid : gaz → liquide → solide",
+          "tip": "🧠 L'eau à 0°C gèle (solidification). L'eau à 100°C bout (vaporisation).",
+          "encouragement": "La physique-chimie, c'est partout autour de toi ! Observe et tu comprendras ! 👀",
+          "quizIds": []
+        },
+        {
+          "id": "sci-terre-eau",
+          "title": "La Terre, l'Eau & l'Air",
+          "qrCode": "major://lesson/sci-terre-eau",
+          "emoji": "🌊",
+          "difficulty": 2,
+          "duration": "6 min",
+          "summary": "L'eau est indispensable à la vie. Elle se trouve partout sur Terre et se transforme en permanence dans le cycle de l'eau. L'air est un mélange de gaz essentiel à la vie.",
+          "keyPoints": [
+            "Cycle de l'eau : évaporation → condensation → précipitations → ruissellement",
+            "Composition de l'air : 78% azote, 21% oxygène, 1% autres gaz",
+            "L'air n'est pas visible mais il a une masse et occupe un volume",
+            "Pollution de l'eau et de l'air : causes et conséquences",
+            "Économiser l'eau : ressource précieuse et limitée"
+          ],
+          "rule": "Cycle de l'eau : Évaporation → Nuages → Pluie → Rivières → Mer → Évaporation…",
+          "tip": "🧠 L'eau fait le tour de la Terre en permanence. Elle ne disparaît jamais !",
+          "encouragement": "Protéger l'eau et l'air, c'est protéger la vie sur Terre. Tu peux agir ! 🌱",
+          "quizIds": []
+        },
+        {
+          "id": "sci-matiere",
+          "title": "La Matière & ses États",
+          "qrCode": "major://lesson/sci-matiere",
+          "emoji": "💧",
+          "difficulty": 1,
+          "duration": "5 min",
+          "summary": "La matière peut exister sous 3 états : solide, liquide et gazeux. Elle peut passer d'un état à l'autre par l'effet de la chaleur ou du froid. Ces changements sont réversibles.",
+          "keyPoints": [
+            "Solide : forme propre et volume propre (glace)",
+            "Liquide : pas de forme propre, volume propre (eau)",
+            "Gazeux : pas de forme propre, pas de volume propre (vapeur d'eau)",
+            "Fusion : solide → liquide (chauffage) | Solidification : liquide → solide (refroidissement)",
+            "Vaporisation : liquide → gaz | Condensation : gaz → liquide"
+          ],
+          "rule": "Chaleur : solide → liquide → gaz | Froid : gaz → liquide → solide",
+          "tip": "🧠 L'eau à 0°C gèle (solidification). L'eau à 100°C bout (vaporisation).",
+          "encouragement": "La physique-chimie, c'est partout autour de toi ! Observe et tu comprendras ! 👀",
+          "quizIds": []
+        }
+      ]
+    },
+
+    {
+      "id": "arabe",
+      "label": "Arabe",
+      "labelAr": "اللغة العربية",
+      "color": "#06803C",
+      "gradient": ["#065f46", "#06803C"],
+      "icon": "🕌",
+      "isArabic": true,
+      "lessons": [
+        {
+          "id": "ar-grammaire-base",
+          "title": "النحو — الفاعل والمفعول به",
+          "titleFr": "Grammaire — Sujet et COD",
+          "qrCode": "major://lesson/ar-grammaire-base",
+          "emoji": "✍️",
+          "difficulty": 1,
+          "duration": "5 دقائق",
+          "summary": "الجملة الفعلية تتكون من فعل وفاعل ومفعول به. الفاعل هو من قام بالفعل، والمفعول به هو من وقع عليه الفعل.",
+          "keyPoints": [
+            "الفاعل: مرفوع دائماً بالضمة — مثال: جاءَ الطالبُ",
+            "المفعول به: منصوب دائماً بالفتحة — مثال: قرأَ الطالبُ الكتابَ",
+            "الفعل يتقدم على الفاعل في الجملة الفعلية",
+            "يمكن أن تكون الجملة فعلية (فعل+فاعل) أو اسمية (مبتدأ+خبر)"
+          ],
+          "rule": "الفعل + الفاعل (مرفوع) + المفعول به (منصوب)",
+          "tip": "🧠 تذكّر: الفاعل يجيب عن سؤال «مَن فعل؟» والمفعول به يجيب عن «ماذا؟»",
+          "encouragement": "إتقان النحو هو مفتاح اللغة العربية. أنت في الطريق الصحيح! 🏆",
+          "quizIds": ["ar1", "ar8"]
+        },
+        {
+          "id": "ar-conjugaison",
+          "title": "الأفعال — الماضي والمضارع والأمر",
+          "titleFr": "Conjugaison arabe — 3 temps",
+          "qrCode": "major://lesson/ar-conjugaison",
+          "emoji": "⏱️",
+          "difficulty": 1,
+          "duration": "5 دقائق",
+          "summary": "الفعل العربي ثلاثة أنواع: الماضي (حدث انتهى)، المضارع (يحدث الآن أو سيحدث)، الأمر (طلب القيام بالفعل).",
+          "keyPoints": [
+            "الفعل الماضي: مبني على الفتح — مثال: كَتَبَ، ذَهَبَ",
+            "الفعل المضارع: يبدأ بأحد حروف (أ ن ي ت) — مثال: يَكتُبُ، تَذهبُ",
+            "فعل الأمر: للطلب المباشر — مثال: اكتُبْ، اذهَبْ",
+            "المضارع المجزوم: يُجزم بالسكون — مثال: لم يكتبْ"
+          ],
+          "rule": "ماضٍ + مضارع + أمر | الماضي مفتوح — المضارع مرفوع — الأمر مجزوم",
+          "tip": "🧠 اختبر الزمن: إذا أمكن وضع «أمس» → ماضٍ | «الآن/غداً» → مضارع",
+          "encouragement": "الأفعال هي قلب اللغة العربية. كلما تدربت، كلما أتقنت! 💪",
+          "quizIds": ["ar3", "ar12"]
+        },
+        {
+          "id": "ar-jamaa",
+          "title": "الجمع — سالم وتكسير",
+          "titleFr": "Les pluriels en arabe",
+          "qrCode": "major://lesson/ar-jamaa",
+          "emoji": "📚",
+          "difficulty": 2,
+          "duration": "6 دقائق",
+          "summary": "الجمع في العربية نوعان: جمع سالم (بإضافة لاحقة) وجمع تكسير (بتغيير بنية الكلمة).",
+          "keyPoints": [
+            "جمع مذكر سالم: يُجمع بـ (ون/ين) — معلم ← معلمون/معلمين",
+            "جمع مؤنث سالم: يُجمع بـ (ات) — مدرسة ← مدرسات",
+            "جمع التكسير: يتغير فيه بناء المفرد — كتاب ← كتب | قلم ← أقلام",
+            "المثنى: يُجمع بـ (ان/ين) — كتاب ← كتابان/كتابين"
+          ],
+          "rule": "مذكر سالم: + ون/ين | مؤنث سالم: + ات | تكسير: تغيير البنية",
+          "tip": "🧠 إذا كانت الكلمة لعاقل مذكر → سالم مذكر | لغير ذلك → راجع التكسير",
+          "encouragement": "جمع الكلمات العربية متنوع ورائع. الممارسة تُتقنه! 🌟",
+          "quizIds": ["ar2", "ar4", "ar10"]
+        },
+        {
+          "id": "ar-iraab",
+          "title": "الإعراب — الحالات الثلاث",
+          "titleFr": "Les déclinaisons arabes",
+          "qrCode": "major://lesson/ar-iraab",
+          "emoji": "🎯",
+          "difficulty": 2,
+          "duration": "6 دقائق",
+          "summary": "الإعراب هو تغيير آخر الكلمة حسب موقعها في الجملة. ثلاث حالات: الرفع، النصب، الجر.",
+          "keyPoints": [
+            "الرفع بالضمة (ُ): الفاعل، المبتدأ، الخبر — الطالبُ مجتهدٌ",
+            "النصب بالفتحة (َ): المفعول به، اسم إن — إن الطالبَ مجتهدٌ",
+            "الجر بالكسرة (ِ): بعد حروف الجر — في البيتِ، إلى المدرسةِ",
+            "حروف الجر: في، على، من، إلى، عن، الباء، اللام، الكاف"
+          ],
+          "rule": "رفع (ُ) = فاعل/مبتدأ | نصب (َ) = مفعول/اسم إن | جر (ِ) = بعد حرف جر",
+          "tip": "🧠 اسأل: «من فعل؟» → رفع | «ماذا؟» → نصب | «بعد أين/من/إلى؟» → جر",
+          "encouragement": "الإعراب هو سر الفصاحة! من أتقنه فتحت له أبواب العربية. 🗝️",
+          "quizIds": ["ar5", "ar7", "ar14"]
+        },
+        {
+          "id": "ar-naat",
+          "title": "النعت والضمائر",
+          "titleFr": "Adjectifs et pronoms arabes",
+          "qrCode": "major://lesson/ar-naat",
+          "emoji": "💡",
+          "difficulty": 2,
+          "duration": "5 دقائق",
+          "summary": "النعت (الصفة) يصف الاسم قبله ويتبعه في كل شيء. الضمائر منفصلة ومتصلة.",
+          "keyPoints": [
+            "النعت يتبع المنعوت في: الإعراب، التعريف/التنكير، الجنس، العدد",
+            "مثال: قرأتُ كتاباً مفيداً (كلاهما نكرة منصوبة)",
+            "الضمير المنفصل: أنا، أنتَ، هو، هي، نحن، أنتم، هم",
+            "الضمير المتصل: الهاء في (كتابه)، الكاف في (معلمك)، الياء في (بيتي)"
+          ],
+          "rule": "النعت يتبع المنعوت | الضمير المتصل يلتصق بالكلمة",
+          "tip": "🧠 الضمير المتصل يختصر الكلام: «كتاب + هو» ← «كتابه»",
+          "encouragement": "أنت تتقدم بشكل رائع في اللغة العربية! استمر! 🐪✨",
+          "quizIds": ["ar9", "ar13"]
+        }
+      ]
+    },
+
+    {
+      "id": "histoire_geo",
+      "label": "Histoire-Géo",
+      "labelAr": "التاريخ والجغرافيا",
+      "color": "#8b5cf6",
+      "gradient": ["#6d28d9", "#8b5cf6"],
+      "icon": "🌍",
+      "isArabic": true,
+      "lessons": [
+        {
+          "id": "hg-mauritanie",
+          "title": "موريتانيا — الجغرافيا والتاريخ",
+          "titleFr": "Mauritanie — Géographie & Histoire",
+          "qrCode": "major://lesson/hg-mauritanie",
+          "emoji": "🇲🇷",
+          "difficulty": 1,
+          "duration": "6 دقائق",
+          "summary": "موريتانيا دولة في شمال غرب أفريقيا، عاصمتها نواكشوط. نالت استقلالها عام 1960. تطل على المحيط الأطلسي غرباً.",
+          "keyPoints": [
+            "العاصمة: نواكشوط | ثاني مدينة: نواذيبو (ميناء رئيسي)",
+            "الاستقلال: 28 نوفمبر 1960 عن فرنسا",
+            "الحدود: المغرب والجزائر شمالاً، مالي شرقاً، السنغال جنوباً",
+            "المناخ: صحراوي في معظم البلاد، شبه جاف في الجنوب",
+            "الموارد: خام الحديد، الثروة السمكية، النفط"
+          ],
+          "rule": "موريتانيا = شمال غرب أفريقيا | الاستقلال 1960 | عاصمة نواكشوط",
+          "tip": "🧠 تذكّر: نواكشوط (العاصمة) + نواذيبو (الميناء) = المدينتان الرئيسيتان",
+          "encouragement": "معرفة وطنك خطوة أولى نحو بناء مستقبله! 🇲🇷",
+          "quizIds": ["hg1", "hg2", "hg5"]
+        },
+        {
+          "id": "hg-afrique",
+          "title": "القارة الأفريقية",
+          "titleFr": "Le continent africain",
+          "qrCode": "major://lesson/hg-afrique",
+          "emoji": "🌍",
+          "difficulty": 1,
+          "duration": "5 دقائق",
+          "summary": "أفريقيا ثاني أكبر قارات العالم. تتميز بتنوع مناخاتها وأنهارها وشعوبها. تقع موريتانيا في شمالها الغربي.",
+          "keyPoints": [
+            "أفريقيا: 54 دولة، أكثر من مليار نسمة",
+            "أطول نهر: النيل (6650 كم) | أكبر صحراء: الصحراء الكبرى",
+            "أعلى جبل: كليمنجارو في تنزانيا (5895 م)",
+            "الأنهار الكبرى: النيل، الكونغو، النيجر، السنغال",
+            "نهر السنغال يفصل موريتانيا عن السنغال"
+          ],
+          "rule": "أفريقيا = 54 دولة | النيل أطول نهر | الصحراء الكبرى أكبر صحراء",
+          "tip": "🧠 تذكّر الأنهار الكبرى: النيل (شرق) — النيجر (غرب) — الكونغو (وسط)",
+          "encouragement": "أفريقيا قارتنا الجميلة. تعرّف عليها وافتخر بها! 🌟",
+          "quizIds": ["hg6", "hg8", "hg10"]
+        },
+        {
+          "id": "hg-monde",
+          "title": "قارات العالم",
+          "titleFr": "Les continents du monde",
+          "qrCode": "major://lesson/hg-monde",
+          "emoji": "🌐",
+          "difficulty": 1,
+          "duration": "5 دقائق",
+          "summary": "يتكون العالم من 7 قارات و5 محيطات. آسيا أكبر القارات. المحيط الهادئ أكبر المحيطات.",
+          "keyPoints": [
+            "القارات السبع: آسيا، أفريقيا، أمريكا الشمالية، أمريكا الجنوبية، أنتاركتيكا، أوروبا، أستراليا",
+            "أكبر قارة: آسيا | أصغر قارة: أستراليا",
+            "المحيطات الخمسة: الهادئ، الأطلسي، الهندي، القطبي الشمالي، القطبي الجنوبي",
+            "أكبر محيط: الهادئ | موريتانيا على المحيط الأطلسي"
+          ],
+          "rule": "7 قارات + 5 محيطات | آسيا أكبر قارة | الهادئ أكبر محيط",
+          "tip": "🧠 قاعدة للحفظ: «أفريقيا وآسيا وأمريكتان وأوروبا وأستراليا وأنتاركتيكا»",
+          "encouragement": "العالم واسع ورائع. الجغرافيا تفتح عينيك عليه! 🌏",
+          "quizIds": ["hg6", "hg10"]
+        },
+        {
+          "id": "hg-histoire-ao",
+          "title": "الإمبراطوريات الأفريقية القديمة",
+          "titleFr": "Les grands empires africains",
+          "qrCode": "major://lesson/hg-histoire-ao",
+          "emoji": "👑",
+          "difficulty": 2,
+          "duration": "6 دقائق",
+          "summary": "قامت في غرب أفريقيا إمبراطوريات عظيمة قبل الاستعمار الأوروبي: غانا، مالي، سنغاي.",
+          "keyPoints": [
+            "إمبراطورية غانا (ق4-ق13): أول الإمبراطوريات الكبرى في غرب أفريقيا",
+            "إمبراطورية مالي (ق13-ق16): شهيرة بملكها مانسا موسى وثروته الأسطورية",
+            "إمبراطورية سنغاي (ق15-ق16): أكبر إمبراطوريات غرب أفريقيا",
+            "مدينة تمبكتو: مركز علمي وتجاري مشهور",
+            "موريتانيا كانت طريقاً للتجارة الصحراوية"
+          ],
+          "rule": "غانا → مالي → سنغاي | إمبراطوريات غرب أفريقيا قبل الاستعمار",
+          "tip": "🧠 ترتيب زمني: غانا أقدم ← مالي ← سنغاي الأحدث",
+          "encouragement": "أجدادنا بنوا حضارات عظيمة. تاريخنا مصدر فخر! 👑",
+          "quizIds": ["hg12"]
+        }
+      ]
+    },
+
+    {
+      "id": "islamique",
+      "label": "Islamique",
+      "labelAr": "التربية الإسلامية",
+      "color": "#059669",
+      "gradient": ["#047857", "#059669"],
+      "icon": "☪️",
+      "isArabic": true,
+      "lessons": [
+        {
+          "id": "is-arkane-islam",
+          "title": "أركان الإسلام الخمسة",
+          "titleFr": "Les 5 piliers de l'Islam",
+          "qrCode": "major://lesson/is-arkane-islam",
+          "emoji": "☪️",
+          "difficulty": 1,
+          "duration": "5 دقائق",
+          "summary": "بُني الإسلام على خمسة أركان. هي الأسس التي يقوم عليها دين المسلم وتُعبّر عن علاقته بربه.",
+          "keyPoints": [
+            "1. شهادة أن لا إله إلا الله وأن محمداً رسول الله",
+            "2. إقامة الصلاة — خمس صلوات في اليوم والليلة",
+            "3. إيتاء الزكاة — جزء من المال للفقراء ومن يستحق",
+            "4. صوم رمضان — شهر كامل من الفجر إلى المغرب",
+            "5. الحج إلى مكة المكرمة — مرة في العمر لمن استطاع"
+          ],
+          "rule": "شهادة ← صلاة ← زكاة ← صوم ← حج",
+          "tip": "🧠 حفظ الترتيب: «شَصَزَصَحَ» — شهادة، صلاة، زكاة، صوم، حج",
+          "encouragement": "أركان الإسلام هي طريقك للجنة. تعلّمها وطبّقها! 🌟",
+          "quizIds": ["is1", "is2", "is3", "is4", "is5"]
+        },
+        {
+          "id": "is-arkane-iman",
+          "title": "أركان الإيمان الستة",
+          "titleFr": "Les 6 piliers de la Foi",
+          "qrCode": "major://lesson/is-arkane-iman",
+          "emoji": "💎",
+          "difficulty": 1,
+          "duration": "5 دقائق",
+          "summary": "الإيمان يشمل ستة أركان: الإيمان بالله وملائكته وكتبه ورسله واليوم الآخر والقدر.",
+          "keyPoints": [
+            "1. الإيمان بالله: الخالق الواحد لا شريك له",
+            "2. الإيمان بالملائكة: خُلقوا من نور، يطيعون الله دائماً",
+            "3. الإيمان بالكتب: التوراة، الإنجيل، الزبور، القرآن الكريم",
+            "4. الإيمان بالرسل: من آدم إلى محمد ﷺ خاتم الأنبياء",
+            "5. الإيمان باليوم الآخر: الحساب والجزاء",
+            "6. الإيمان بالقدر: خيره وشره من الله"
+          ],
+          "rule": "الله ← الملائكة ← الكتب ← الرسل ← اليوم الآخر ← القدر",
+          "tip": "🧠 «أملكرق» — أركان الإيمان الستة بالترتيب",
+          "encouragement": "الإيمان الصحيح يُنير القلب ويُهدي إلى الصراط المستقيم! ✨",
+          "quizIds": ["is7", "is8"]
+        },
+        {
+          "id": "is-salat",
+          "title": "الصلاة — أحكام وأوقات",
+          "titleFr": "La prière — règles et horaires",
+          "qrCode": "major://lesson/is-salat",
+          "emoji": "🕌",
+          "difficulty": 1,
+          "duration": "5 دقائق",
+          "summary": "الصلاة عمود الدين وثاني أركان الإسلام. خمس صلوات في اليوم لها أوقات محددة وعدد ركعات.",
+          "keyPoints": [
+            "الفجر: ركعتان — من طلوع الفجر إلى شروق الشمس",
+            "الظهر: أربع ركعات — بعد زوال الشمس",
+            "العصر: أربع ركعات — بعد الظهر إلى قبيل الغروب",
+            "المغرب: ثلاث ركعات — بعد غروب الشمس مباشرة",
+            "العشاء: أربع ركعات — بعد اختفاء الشفق الأحمر"
+          ],
+          "rule": "فجر(2) + ظهر(4) + عصر(4) + مغرب(3) + عشاء(4) = 17 ركعة",
+          "tip": "🧠 المجموع 17 ركعة يومياً: 2+4+4+3+4 = 17",
+          "encouragement": "الصلاة نور في القلب وراحة للنفس. حافظ عليها! 🤲",
+          "quizIds": ["is2", "is5", "is11"]
+        },
+        {
+          "id": "is-akhlaq",
+          "title": "الأخلاق الإسلامية",
+          "titleFr": "Les valeurs morales islamiques",
+          "qrCode": "major://lesson/is-akhlaq",
+          "emoji": "🌸",
+          "difficulty": 1,
+          "duration": "5 دقائق",
+          "summary": "الإسلام دين الأخلاق الحسنة. قال النبي ﷺ: «إنما بُعثت لأتمم مكارم الأخلاق». الأخلاق الحسنة تُقرّب من الله والناس.",
+          "keyPoints": [
+            "الصدق: قول الحق دائماً، الكذب حرام",
+            "بر الوالدين: طاعتهما والإحسان إليهما",
+            "الأمانة: رد الأمانات، عدم الخيانة",
+            "التعاون: مساعدة المحتاج والجار",
+            "احترام الكبير والرحمة بالصغير"
+          ],
+          "rule": "صدق + أمانة + بر الوالدين + تعاون = أخلاق المسلم",
+          "tip": "🧠 النبي ﷺ قال: «المسلم من سلم المسلمون من لسانه ويده»",
+          "encouragement": "الأخلاق الحسنة تجعلك محبوباً عند الله والناس! كن القدوة! 🌟",
+          "quizIds": ["is10", "is13"]
+        }
+      ]
+    }
+  ]
+}

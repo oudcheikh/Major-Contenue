@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cahier Major A5 - Page vide avec footer QR</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{
+  display:grid;
+  place-items:center;
+  background:#dce3ee;
+  font-family:'Cairo','Segoe UI',Arial,sans-serif;
+  color:#0f172a;
+}
+
+.page{
+  width:148mm;
+  height:210mm;
+  position:relative;
+  overflow:hidden;
+  background:#FAF6EE;
+  box-shadow:0 10px 42px rgba(15,23,42,.28);
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+
+.page::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse at 18% 13%,rgba(37,99,235,.11),transparent 26%),
+    radial-gradient(ellipse at 78% 47%,rgba(56,189,248,.10),transparent 24%),
+    linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,0) 42%);
+  pointer-events:none;
+}
+
+.spiral-strip{
+  position:absolute;
+  top:0;
+  right:0;
+  width:18mm;
+  height:100%;
+  z-index:30;
+  pointer-events:none;
+  background:url('assets/major-page-style/spiral-binding.png') repeat-y right top / 18mm auto;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+
+.page-header{
+  position:absolute;
+  top:6mm;
+  left:8mm;
+  right:16mm;
+  height:21mm;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  padding:0 8mm;
+  direction:rtl;
+  color:#fff;
+  background:linear-gradient(135deg,#064e3b 0%,#059669 62%,#34d399 100%);
+  border-bottom:3px solid #111;
+  border-radius:14px 14px 0 0;
+  box-shadow:0 4px 0 rgba(0,0,0,.25);
+  z-index:2;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+.brand-name{font-size:14px;font-weight:900;line-height:1}
+.brand-sub{font-size:8px;font-weight:800;opacity:.9;margin-top:3px}
+.brand-mark{
+  width:15mm;
+  height:15mm;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.16);
+  color:#fde68a;
+  font-size:20px;
+}
+
+.blank-area{
+  position:absolute;
+  top:33mm;
+  left:8mm;
+  right:17mm;
+  bottom:23mm;
+  border:1.5px dashed rgba(5,150,105,.22);
+  border-radius:12px;
+  background:rgba(255,255,255,.18);
+}
+
+.qr-footer{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:18mm;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:0 6mm;
+  direction:rtl;
+  overflow:hidden;
+  z-index:20;
+  color:#fff;
+  border-radius:10px 10px 0 0;
+  background:linear-gradient(135deg,#064e3b 0%,#059669 62%,#34d399 100%);
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+.qr-footer::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url('assets/major-page-style/resources-footer.png') no-repeat center / cover;
+  opacity:.18;
+  pointer-events:none;
+}
+.qr-footer>*{position:relative;z-index:1}
+.qr-footer-img{
+  width:42px;
+  height:42px;
+  border-radius:5px;
+  flex-shrink:0;
+  background:#fff;
+  padding:2px;
+  display:block;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+.qr-footer-text{
+  flex:1;
+  text-align:right;
+  line-height:1.35;
+}
+.qr-footer-text strong{
+  display:block;
+  font-size:9.5px;
+  font-weight:900;
+}
+.qr-footer-text span{
+  display:block;
+  font-size:8px;
+  opacity:.88;
+  margin-top:2px;
+}
+.qr-footer-pgnum{
+  flex-shrink:0;
+  direction:ltr;
+  white-space:nowrap;
+  font-size:11px;
+  font-weight:900;
+  color:rgba(255,255,255,.86);
+  border:1.5px solid rgba(255,255,255,.35);
+  border-radius:6px;
+  padding:2px 8px;
+  background:rgba(255,255,255,.12);
+}
+
+@media print{
+  @page{size:A5 portrait;margin:0}
+  html,body{
+    width:148mm!important;
+    height:210mm!important;
+    background:#fff!important;
+    overflow:hidden!important;
+  }
+  body{display:block!important}
+  .page{
+    width:148mm!important;
+    height:210mm!important;
+    margin:0!important;
+    box-shadow:none!important;
+    page-break-after:always;
+    break-after:page;
+  }
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="spiral-strip" aria-hidden="true"></div>
+
+  <header class="page-header">
+    <div>
+      <div class="brand-name">Major 6AF</div>
+      <div class="brand-sub">اللغة العربية — التربية الإسلامية</div>
+    </div>
+    <div class="brand-mark" aria-hidden="true">📘</div>
+  </header>
+
+  <section class="blank-area" aria-label="Zone vide pour contenu futur"></section>
+
+  <footer class="qr-footer">
+    <img class="qr-footer-img" src="qr_p05.png" alt="QR">
+    <div class="qr-footer-text">
+      <strong>📷 صوّر إجابتك للتصحيح الفوري</strong>
+      <span>امسح الرمز بهاتفك — Major يصحح ويشخص أخطاءك فوراً</span>
+    </div>
+    <div class="qr-footer-pgnum">AR-05</div>
+  </footer>
+</main>
+</body>
+</html>
