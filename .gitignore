@@ -19,3 +19,11 @@ generateurs/video-a5/VideoU1-final.mp4
 # builds mobiles (régénérables via EAS)
 *.apk
 *.aab
+
+# Profils navigateur / caches de rendu PDF (ne pas committer)
+.chrome-*/
+.edge-*/
+**/.chrome-*/
+**/.edge-*/
+**/.npm-cache/
+**/_previews/
