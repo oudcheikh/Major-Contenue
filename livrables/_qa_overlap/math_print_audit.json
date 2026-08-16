@@ -1,0 +1,39 @@
+{
+  "pages": 160,
+  "qrCount": 144,
+  "qrMin_mm": 15,
+  "qrSample": [
+    {
+      "page": 5,
+      "w_mm": 15.5,
+      "h_mm": 15.5
+    },
+    {
+      "page": 7,
+      "w_mm": 15,
+      "h_mm": 15
+    },
+    {
+      "page": 8,
+      "w_mm": 15,
+      "h_mm": 15
+    },
+    {
+      "page": 159,
+      "w_mm": 15,
+      "h_mm": 15
+    },
+    {
+      "page": 160,
+      "w_mm": 15,
+      "h_mm": 15
+    }
+  ],
+  "underQR": [],
+  "underQR_n": 0,
+  "edgeFlush_n": 0,
+  "edgeFlush": [],
+  "tiny_n": 0,
+  "tiny": [],
+  "emojiVisible": 112
+}

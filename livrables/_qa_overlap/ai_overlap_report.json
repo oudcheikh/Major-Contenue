@@ -1,0 +1,17 @@
+{
+  "n": 96,
+  "overlaps": [
+    {
+      "pn": "cover",
+      "a": "div",
+      "b": "div «موريتانيا · 6AF · 2025-2026»",
+      "area": 6799,
+      "abs": true
+    }
+  ],
+  "underQR": [],
+  "underPN": [],
+  "clipped": [],
+  "qrSelfEval": [],
+  "dense": []
+}
