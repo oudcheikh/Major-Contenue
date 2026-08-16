@@ -37,7 +37,8 @@ def u6_p1():
   {methode('كيف أحوّل بجدول الوحدات', [
       'أضع رقم الآحاد في عمود الوحدة المعروفة.',
       'أكمل بصفر في كل عمود حتى الوحدة المطلوبة.',
-      'أقرأ العدد كاملًا.'])}
+      'أقرأ العدد كاملًا.',
+      'للتحويل إلى وحدة أكبر: أقسم (أو أحذف أصفارًا).'])}
   <div class="exemple"><b class="tag">📏 مثال:</b> شريط طوله 2 m و35 cm. بالسنتيمتر: {MX('2 × 100 + 35 = 235')} cm.
   {bar_model('الكل = 235 cm', [('2 m', 200, '#8fd4e8'), ('35 cm', 35, '#ffd98c')], w=56, stagger=False, scale=.75)}</div>
 </div>'''
@@ -245,8 +246,8 @@ def u8_p1():
 {badge_row('أتدرّب', 'مثال محلول خطوة بخطوة', 'garcon')}
 <div class="frame">
   {bar_compare('3 482', 3482, '2 975', 2975, w=50, diff_label='الفرق')}
-  <div class="exemple"><b class="tag">🧩 تمرين محلول:</b> قرأ محمد الأمين {MX('7 832')} صفحة منذ بداية السنة، وقرأت مريم {MX('7 823')} صفحة. من قرأ أكثر؟</div>
-  <div class="scallop">العددان يتكونان من 4 أرقام ← نقارن رقمًا رقمًا: 7 = 7، 8 = 8، لكن <b>3 &gt; 2</b> ← {MX('7 832 &gt; 7 823')} ← <b>محمد الأمين قرأ صفحات أكثر</b>. ✔</div>
+  <div class="exemple"><b class="tag">🧩 تمرين محلول:</b> قرأ محمد الأمين {MX('3 482')} صفحة منذ بداية السنة، وقرأت مريم {MX('2 975')} صفحة. من قرأ أكثر؟</div>
+  <div class="scallop">العددان يتكونان من 4 أرقام ← نقارن رقمًا رقمًا: 3 &gt; 2 ← {MX('3 482 &gt; 2 975')} ← <b>محمد الأمين قرأ صفحات أكثر</b>. ✔</div>
 </div>'''
     return ('مقارنة الأعداد الصحيحة وترتيبها', body, False)
 
@@ -306,7 +307,7 @@ def u9_p1():
 {badge_row('أتعلّم', 'القاعدة والأمثلة', 'fille')}
 <div class="frame has-video">
   <ul>
-    <li>الكتلة تسمح بمعرفة <span class="hl">وزن الجسم</span>.</li>
+    <li>الكتلة تقيس <span class="hl">كمية المادة</span> في الجسم (نستعملها بالميزان).</li>
     <li><b>kg</b> ← الوحدة الرئيسية · <b>g</b> ← الأصغر · <b>t</b> ← الأكبر.</li>
     <li>لقياس كتلة، نستعمل <span class="hl">الميزان</span> ⚖️.</li>
   </ul>
@@ -374,9 +375,11 @@ def u9_p4():
     <li>مضاعفات الغرام: <b>الكيلوغرام (kg)</b>، <b>الهكتوغرام (hg)</b>، <b>الديكاغرام (dag)</b>.</li>
     <li>أجزاء الغرام: <b>الديسيغرام (dg)</b>، <b>السنتيغرام (cg)</b>، <b>الميليغرام (mg)</b>.</li>
     <li>أكبر من الكيلوغرام: <b>الطن</b> = {MX('1000 kg')} و<b>القنطار</b> = {MX('100 kg')}.</li>
+    <li>بين <b>q</b> و <b>kg</b> عمود <b>10 kg</b>: لأن {MX('1 q = 10 × 10 kg = 100 kg')} (وليس 10 kg!).</li>
   </ul>
-  {conv_table(['t', 'q', 'kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'], rows=3, filled=filled, title='جدول تحويل وحدات الكتلة')}
-  <div class="exemple" style="text-align:center">3 t 76 kg = 3,076 t = 30,76 q = 3 076 kg</div>
+  {conv_table(['t', 'q', '10 kg', 'kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'], rows=3, filled=filled, title='جدول تحويل وحدات الكتلة')}
+  <div class="exemple" style="text-align:center">3 t 76 kg = 3,076 t = 30,76 q = 3 076 kg<br>
+  <span style="font-size:9.5px;font-weight:700;color:#6b7280">الأرقام في الجدول: 3 تحت t · 0 تحت q · 7 تحت 10 kg · 6 تحت kg ← أي 70 kg + 6 kg</span></div>
 </div>
 {consigne(12, 'أكمل التحويلات مستعينًا بالجدول:')}
 {g}'''
@@ -402,7 +405,7 @@ def u10_p1():
     types_row = f'''<div style="display:flex;gap:2mm;justify-content:center;align-items:flex-end;margin-top:1mm">
       <div style="text-align:center">{angle_svg(90, '', 20, 16)}<div class="pie-lab">قائمة = 90°</div></div>
       <div style="text-align:center">{angle_svg(45, '', 20, 16)}<div class="pie-lab">حادة &lt; 90°</div></div>
-      <div style="text-align:center">{angle_svg(135, '', 22, 16)}<div class="pie-lab">منفرجة &gt; 90°</div></div>
+      <div style="text-align:center">{angle_svg(135, '', 22, 16)}<div class="pie-lab">منفرجة بين 90° و180°</div></div>
       <div style="text-align:center">{angle_svg(180, '', 24, 16)}<div class="pie-lab">مستقيمة = 180°</div></div>
     </div>'''
     body = f'''
