@@ -3,7 +3,8 @@
 + partie علوم (6 chapitres du pptx كراسة العلوم الطبيعية)."""
 import re
 from base_a5 import (CSS, CSS_ASSETS, WAVE_SVG, page, unit_banner, edge_band,
-                     bar_model, bar_compare, number_bond, obj_groups, sg_box, bulle, MX)
+                     bar_model, bar_compare, number_bond, obj_groups, sg_box, bulle, MX,
+                     logo_img, print_sanitize)
 from qr_major import lesson_qr_img, correction_qr_card
 
 _FAKE_QR = '<span class="im im-qr qr" role="img" aria-label="QR فيديو الدرس"></span>'
@@ -64,18 +65,31 @@ SCI_UNITS = UNITS_S1 + UNITS_S2
 
 def part_page(num, emoji, kicker, title, sub, chips, color, part=''):
     """Page séparatrice de partie (numérotée, pagination continue)."""
-    chips_html = ''.join(f'<span style="background:#fff;border:1.2px solid rgba(0,0,0,.12);border-radius:999px;padding:1.4mm 3.6mm;font-size:8.6px;font-weight:900;color:#4a3a1c">{c}</span>' for c in chips)
+    is_math = part == 'math'
+    grad = ('linear-gradient(170deg,#fff6dd 0%,#ffe4a6 55%,#ffd082 100%)' if is_math
+            else 'linear-gradient(170deg,#eff9e5 0%,#d6efbf 55%,#c0e7a3 100%)')
+    accent = '#e07b00' if is_math else '#3e8e41'
+    deep = '#7c4a00' if is_math else '#2c5f2f'
+    mascot = 'im-fille' if is_math else 'im-garcon'
+    chips = [print_sanitize(c) for c in chips]
+    chips_html = ''.join(
+        f'<span style="background:#fff;border-radius:999px;padding:1.7mm 4mm;'
+        f'font-size:8.8px;font-weight:900;color:{deep}">{c}</span>' for c in chips)
+    emoji_html = f'<div class="part-emoji" style="font-size:28px;font-weight:900;opacity:.9">{emoji}</div>' if emoji else ''
     body = f'''<div class="sheet">
-  <div class="sheet-inner" style="justify-content:center;align-items:center;text-align:center">
-    <div style="font-size:34px">{emoji}</div>
-    <div style="font-size:10px;font-weight:900;color:#8a7a5c;letter-spacing:.5px;margin:2mm 0 1mm">{kicker}</div>
-    <h1 style="font-size:27px;color:var(--orange);font-weight:900;margin:0 0 2mm">{title}</h1>
-    <p style="font-size:9.6px;font-weight:800;color:#6b5d3f;margin:0 0 5mm;max-width:110mm;line-height:1.7">{sub}</p>
-    <div style="display:flex;gap:2.4mm;flex-wrap:wrap;justify-content:center;max-width:118mm">{chips_html}</div>
-    <div style="width:60mm;height:2.2mm;border-radius:999px;background:{color};margin-top:7mm"></div>
+  <div class="sheet-inner" style="padding:5mm 6mm 12mm">
+    <div class="part-hero" style="background:{grad}">
+      <div class="part-orb o1"></div><div class="part-orb o2"></div><div class="part-orb o3"></div>
+      {emoji_html}
+      <div class="part-kicker" style="background:{accent}">{kicker}</div>
+      <h1 class="part-title" style="color:{deep}">{title}</h1>
+      <p class="part-sub" style="color:{deep}">{sub}</p>
+      <div class="part-chips">{chips_html}</div>
+      <div class="part-mascots"><span class="im {mascot}" role="img" aria-label=""></span></div>
+    </div>
   </div>
   {edge_band(part)}
-  <div class="page-footer"><span>دفتر ماجور · الرياضيات والعلوم</span><span>🇲🇷 السنة السادسة الأساسية 6AF</span></div>
+  <div class="page-footer"><span>دفتر ماجور · الرياضيات والعلوم</span><span>السنة السادسة الأساسية 6AF</span></div>
   <div class="pageno {part}">{num}</div>
 </div>'''
     return body
@@ -88,35 +102,34 @@ num = 2  # 1 = sommaire
 
 # séparateur partie 1
 sep_math_num = num
-pages_html.append(part_page(num, '🔢', 'الجزء الأول', 'الرياضيات',
+pages_html.append(part_page(num, '1', 'الجزء الأول', 'الرياضيات',
     'الأعداد والعمليات · الكسور والأعداد العشرية · المسائل العملية · القياس والهندسة',
-    [f'{len(MATH_UNITS)} وحدة', 'أُشاهد · أرسم · أحسب 🧩', 'تمارين متدرّجة ⭐⭐⭐', 'فيديو لكل درس 📱'], 'var(--p-yell)', part='math'))
+    [f'{len(MATH_UNITS)} وحدة', 'أُشاهد · أرسم · أحسب', 'تمارين: سهل / متوسط / صعب', 'فيديو لكل درس'], 'var(--p-yell)', part='math'))
 num += 1
 
 # ─── page méthode : أُشاهد ← أرسم ← أحسب, dans la voix du maître (sans nommer de méthode) ───
 def sg_method_page():
-    def step_card(n, emoji, word, sub, color):
+    def step_card(n, word, sub, color):
         return f'''<div style="background:{color};border-radius:4mm;padding:2.2mm 1.6mm 1.8mm;text-align:center">
           <div style="width:7mm;height:7mm;border-radius:50%;background:#fff;margin:0 auto .8mm;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;color:#c9711a;box-shadow:inset 0 -1.5px 0 rgba(0,0,0,.1)">{n}</div>
-          <div style="font-size:16px;line-height:1">{emoji}</div>
           <div style="font-weight:900;font-size:13.5px;color:#3a2f18;margin-top:.6mm">{word}</div>
           <div style="font-size:8.4px;font-weight:800;color:#6b5d3f;line-height:1.5">{sub}</div>
         </div>'''
-    arrow = '<div style="display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#f28a15">⬅</div>'
+    arrow = '<div style="display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#f28a15">←</div>'
     GRID3 = 'display:grid;grid-template-columns:1fr 6.5mm 1fr 6.5mm 1fr;gap:1mm;align-items:center'
     steps = f'''<div style="{GRID3};align-items:stretch;margin:1.4mm 0">
-      {step_card(1, '👀', 'أُشاهد', 'أقرأ المسألة جيدًا وأتخيّلها', 'var(--p-yell)')}{arrow}
-      {step_card(2, '✏️', 'أرسم', 'أحوّلها إلى نموذج الشريط', 'var(--p-blue)')}{arrow}
-      {step_card(3, '🔢', 'أحسب', 'النموذج يدلّني على العملية', 'var(--p-green)')}
+      {step_card(1, 'أُشاهد', 'أقرأ المسألة جيدًا وأتخيّلها', 'var(--p-yell)')}{arrow}
+      {step_card(2, 'أرسم', 'أحوّلها إلى نموذج الشريط', 'var(--p-blue)')}{arrow}
+      {step_card(3, 'أحسب', 'النموذج يدلّني على العملية', 'var(--p-green)')}
     </div>'''
     demo = f'''<div style="background:#fff;border:1.4px solid #eadfc4;border-radius:4mm;padding:2mm 2.4mm;margin:1.4mm 0">
-      <div style="text-align:center;font-weight:900;font-size:10.5px;color:#8a4a12">🌰 نجرّب معًا: عندنا 3 أطباق، في كل طبق 4 تمرات. كم تمرة عندنا؟</div>
+      <div style="text-align:center;font-weight:900;font-size:10.5px;color:#8a4a12">نجرّب معًا: عندنا 3 أطباق، في كل طبق 4 تمرات. كم تمرة عندنا؟</div>
       <div style="{GRID3}">
-        <div>{obj_groups(3, 4, '🌰')}</div><div></div>
+        <div>{obj_groups(3, 4, '•')}</div><div></div>
         <div>{bar_model('المجموع ؟', [('طبق', 4, '#aae4f0'), ('طبق', 4, '#c6e9a4'), ('طبق', 4, '#ffd98c')], w=40)}</div><div></div>
         <div style="text-align:center;font-weight:900">
           <div style="font-size:16px">{MX('3 × 4 = 12')}</div>
-          <div style="font-size:9.4px;color:#2f8f5b;margin-top:1mm">✅ عندنا 12 تمرة</div>
+          <div style="font-size:9.4px;color:#2f8f5b;margin-top:1mm">صح — عندنا 12 تمرة</div>
         </div>
       </div>
     </div>'''
@@ -126,17 +139,17 @@ def sg_method_page():
           {content}
         </div>'''
     models = f'''<div style="display:flex;align-items:center;gap:2.4mm;margin:2mm 0 1.2mm">
-      <span class="sg-pill" style="font-size:8.6px">🧩 نموذج الشريط — صديقك في كل مسألة</span>
+      <span class="sg-pill" style="font-size:8.6px">نموذج الشريط — صديقك في كل مسألة</span>
       <span style="flex:1;border-bottom:1.4px dotted #d8c9a4"></span>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2mm">
-      {model_card('➕ أبحث عن الكل', 'var(--p-blue)',
+      {model_card('أبحث عن الكل', 'var(--p-blue)',
                   bar_model('الكل = ؟', [('عندي', 320, '#8fd4e8'), ('اشتريت', 150, '#f5b34c')], w=52, stagger=False))}
-      {model_card('➖ أبحث عن الفرق', 'var(--p-rose)', bar_compare('أحمد', 470, 'مريم', 320, w=52))}
-      {model_card('✖️ حصص متساوية', 'var(--p-green)',
+      {model_card('أبحث عن الفرق', 'var(--p-rose)', bar_compare('أحمد', 470, 'مريم', 320, w=52))}
+      {model_card('حصص متساوية', 'var(--p-green)',
                   bar_model('؟', [('حصة', 8, '#c6e9a4'), ('حصة', 8, '#c6e9a4'), ('حصة', 8, '#c6e9a4'), ('حصة', 8, '#c6e9a4')], w=52, stagger=False))}
-      {model_card('➗ أوزّع الكل بالتساوي', 'var(--p-lila)',
-                  bar_model('الكل = 24', [('؟', 6, '#e6c7f2', '؟'), ('؟', 6, '#e6c7f2', '؟'), ('؟', 6, '#e6c7f2', '؟'), ('؟', 6, '#e6c7f2', '؟')], w=52, stagger=False))}
+      {model_card('أوزّع الكل بالتساوي', 'var(--p-lila)',
+                  bar_model('الكل = 24', [('', 6, '#e6c7f2', '؟'), ('', 6, '#e6c7f2', '؟'), ('', 6, '#e6c7f2', '؟'), ('', 6, '#e6c7f2', '؟')], w=52, stagger=False))}
     </div>'''
     body = f'''
 {bulle('garcon', 'يقول أستاذ ماجور: يا أبطالي، المسألة ليست كلمات صعبة — إنها <b>صورة</b>! قاعدتنا الذهبية في ثلاث خطوات:')}
@@ -144,7 +157,7 @@ def sg_method_page():
 {demo}
 {models}
 {bulle('fille', 'أضع ما أعرفه في الشريط، وأضع <b style="color:#c0392b">؟</b> مكان ما أبحث عنه — ثم يظهر الحل أمامي!')}'''
-    return page(num, 'كيف أحلّ أي مسألة؟ 🧩', body, unit_label='طريقتنا في التعلّم', part='math')
+    return page(num, 'كيف أحلّ أي مسألة؟', body, unit_label='طريقتنا في التعلّم', part='math')
 
 pages_html.append(sg_method_page())
 num += 1
@@ -163,9 +176,9 @@ for u in MATH_UNITS:
 
 # séparateur partie 2
 sep_sci_num = num
-pages_html.append(part_page(num, '🌿', 'الجزء الثاني', 'العلوم الطبيعية',
+pages_html.append(part_page(num, '2', 'الجزء الثاني', 'العلوم الطبيعية',
     'التوازن الغذائي والطاقوي · التصحر والتلوث · الماء والصحة · التطعيم',
-    [f'{len(SCI_UNITS)} فصول', 'تمارين متدرّجة ⭐⭐⭐', 'أمثلة محلولة ✏️', 'فيديو لكل درس 📱'], 'var(--p-green)', part='sci'))
+    [f'{len(SCI_UNITS)} فصول', 'تمارين: سهل / متوسط / صعب', 'أمثلة محلولة', 'فيديو لكل درس'], 'var(--p-green)', part='sci'))
 num += 1
 
 for u in SCI_UNITS:
@@ -182,40 +195,38 @@ for u in SCI_UNITS:
 
 COVER = f'''<div class="sheet cover">
   <div class="sheet-inner">
-    <span class="im im-logo cover-logo" role="img" aria-label="Major"></span>
-    <h1 style="font-size:29px">الرياضيات والعلوم</h1>
-    <p class="sub">دفتر ماجور · السنة السادسة الأساسية 6AF</p>
-    <div class="cover-band">
-      <span>🇲🇷 موريتانيا · البرنامج الرسمي كاملًا</span>
-      <span>🧩 أُشاهد · أرسم · أحسب</span>
-      <span>31 وحدة رياضيات</span>
-      <span>6 فصول علوم</span>
-      <span>تمارين متدرّجة ⭐⭐⭐</span>
+    <div class="cover-head">
+      <div class="cover-brand-row">
+        {logo_img('cover-logo')}
+        <div class="cover-brand-name">MAJOR</div>
+      </div>
+      <div class="cover-titles">
+        <p class="eyebrow">دفتر النجاح المدرسي · موريتانيا</p>
+        <h1><span class="t1">الرياضيات</span><span class="t2">والعلوم</span></h1>
+      </div>
+      <div class="ribbon-concours">جوازُك للنجاح في الكونكور</div>
     </div>
-    <div class="cover-cards">
-      <div class="cover-card" style="background:var(--p-yell)">
-        <b>🔢 الأعداد والعمليات</b>
-        <span>الأعداد الكبيرة · الجمع والطرح · الضرب والقسمة · قابلية القسمة · ×10 و100 و1000</span>
+    <div class="cover-stage">
+      <div class="cover-rosette"><b>مطابق 100٪</b><span>للبرنامج الرسمي<br>الموريتاني</span></div>
+      <div class="cover-app">
+        <span class="app-ic">▶</span>
+        <div class="app-txt">
+          <b>دفتر ذكيّ</b>
+          <span>فيديوهات شرح ومحتوى إضافي على تطبيق MAJOR عبر رموز QR</span>
+        </div>
       </div>
-      <div class="cover-card" style="background:var(--p-rose)">
-        <b>🍰 الكسور والأعداد العشرية</b>
-        <span>الكسور ومقارنتها · المتكافئة · ضربها وقسمتها · الأعداد العشرية والنسب المئوية</span>
+      <div class="cover-chips" aria-hidden="true">
+        <span class="cover-chip math">+ − × ÷</span>
+        <span class="cover-chip win">يفهم · يتمرّن · ينجح</span>
       </div>
-      <div class="cover-card" style="background:var(--p-blue)">
-        <b>💰📐 المسائل · القياس والهندسة</b>
-        <span>الشراء والبيع بالأوقية · التناسبية · السرعة · الأطوال والكتل والزمن · المساحات والحجوم</span>
+      <div class="cover-mascots">
+        <span class="im im-fille" role="img" aria-label=""></span>
+        <span class="im im-garcon" role="img" aria-label=""></span>
       </div>
-      <div class="cover-card" style="background:var(--p-green)">
-        <b>🌿 العلوم الطبيعية</b>
-        <span>التوازن الغذائي والطاقوي · التصحر · التلوث · الماء والصحة · التطعيم</span>
-      </div>
-    </div>
-    <div class="owner-line">✏️ هذا الدفتر ملك للتلميذ(ة): <i></i> القسم: <i style="max-width:22mm"></i></div>
-    <div class="cover-mascots">
-      <span class="im im-fille" role="img"></span>
-      <span class="im im-garcon" role="img"></span>
+      <div class="owner-line">اسم التلميذ(ة): <i></i> &nbsp; القسم: <i style="max-width:18mm;min-width:14mm"></i></div>
     </div>
   </div>
+  <div class="corner-ribbon" aria-hidden="true"><span>6AF · السنة السادسة</span></div>
   <div class="wave">{WAVE_SVG}</div>
 </div>'''
 
@@ -237,21 +248,24 @@ half_s = (len(toc_sci) + 1) // 2
 SOMMAIRE = f'''<div class="sheet">
   <div class="sheet-inner">
     <div class="head">
-      <div class="doc-id">دفتر ماجور · الرياضيات والعلوم<br>السنة السادسة الأساسية 6AF</div>
-      <span class="im im-logo logo" role="img" aria-label="Major"></span>
+      {logo_img('logo')}
+      <div class="brand-text">
+        <div class="brand-title">دفتر ماجور</div>
+        <div class="brand-sub">الرياضيات والعلوم · السنة السادسة الأساسية 6AF</div>
+      </div>
     </div>
-    <h2 class="lesson-title">📖 الفهرس</h2>
-    {toc_section('🔢 الجزء الأول — الرياضيات', 'var(--p-yell)', sep_math_num)}
+    <h2 class="lesson-title">الفهرس</h2>
+    {toc_section('الجزء الأول — الرياضيات', 'var(--p-yell)', sep_math_num)}
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 4mm;align-items:start">
       {toc_col(toc_math[:half])}
       {toc_col(toc_math[half:])}
     </div>
-    {toc_section('🌿 الجزء الثاني — العلوم الطبيعية', 'var(--p-green)', sep_sci_num)}
+    {toc_section('الجزء الثاني — العلوم الطبيعية', 'var(--p-green)', sep_sci_num)}
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 4mm;align-items:start">
       {toc_col(toc_sci[:half_s])}
       {toc_col(toc_sci[half_s:])}
     </div>
-    <div class="scallop" style="margin-top:auto">كل وحدة تبدأ بدرس <b>أتعلّم</b> مع رمز QR لفيديو الشرح 📱، ثم <b>مثال محلول</b> ✏️، ثم <b>تمارين</b> متدرّجة من ⭐ إلى ⭐⭐⭐، وتنتهي بتقييم ذاتي 🌟 — وتذكّر قاعدتنا الذهبية 🧩: أُشاهد ← أرسم نموذج الشريط ← أحسب.</div>
+    <div class="scallop" style="margin-top:auto">كل وحدة تبدأ بدرس <b>أتعلّم</b> مع رمز QR لفيديو الشرح، ثم <b>مثال محلول</b>، ثم <b>تمارين</b> متدرّجة (سهل / متوسط / صعب)، وتنتهي بتقييم ذاتي — وتذكّر قاعدتنا الذهبية: أُشاهد ← أرسم نموذج الشريط ← أحسب.</div>
   </div>
   <div class="pageno">1</div>
 </div>'''
@@ -266,10 +280,164 @@ HTML = f'''<!DOCTYPE html>
 <style>{CSS}{CSS_ASSETS}</style>
 </head>
 <body>
-<div class="toolbar"><button class="action-btn" onclick="window.print()">🖨️ طباعة / PDF</button></div>
+<div class="toolbar"><button class="action-btn" onclick="window.print()">طباعة / PDF</button></div>
 {COVER}
 {SOMMAIRE}
 {''.join(pages_html)}
+<script>
+/* Composition verticale : remplit les pages creuses, resserre les pages trop pleines,
+   avant l'export PDF. */
+(function(){{
+  function composer(){{
+    document.querySelectorAll('.sheet').forEach(function(sheet){{
+      if (sheet.classList.contains('cover')) return;
+      var inner = sheet.querySelector('.sheet-inner');
+      if (!inner) return;
+      var st = getComputedStyle(inner);
+      if (st.justifyContent === 'center') return;
+      var reserve = inner.querySelector('.qr-reserve');
+      var kids = [].filter.call(inner.children, function(c){{
+        var cs = getComputedStyle(c);
+        if (cs.position === 'absolute' || cs.display === 'none') return false;
+        if (c.classList.contains('qr-reserve')) return false;
+        return c.getBoundingClientRect().height > 2;
+      }});
+      if (kids.length < 2) return;
+      var ir = inner.getBoundingClientRect();
+      var padB = parseFloat(st.paddingBottom) || 0;
+      var hasQR = !!sheet.querySelector('.qr-corr');
+      function contentFloor(){{
+        var floor = ir.bottom - padB;
+        if (reserve) floor = Math.min(floor, reserve.getBoundingClientRect().top);
+        var qrEl = sheet.querySelector('.qr-corr');
+        if (qrEl) floor = Math.min(floor, qrEl.getBoundingClientRect().top - 8);
+        var pnEl = sheet.querySelector('.pageno');
+        if (pnEl) floor = Math.min(floor, pnEl.getBoundingClientRect().top - 6);
+        return floor;
+      }}
+      function spareNow(){{
+        var maxB = 0;
+        kids.forEach(function(c){{ var b = c.getBoundingClientRect().bottom; if (b > maxB) maxB = b; }});
+        return contentFloor() - maxB;
+      }}
+      function refreshKids(){{
+        kids = [].filter.call(inner.children, function(c){{
+          var cs = getComputedStyle(c);
+          if (cs.position === 'absolute' || cs.display === 'none') return false;
+          if (c.classList.contains('qr-reserve')) return false;
+          return c.getBoundingClientRect().height > 2;
+        }});
+      }}
+      function isHeader(el){{
+        return el.classList.contains('head') || el.classList.contains('lesson-title') ||
+               el.classList.contains('unit-banner') || el.classList.contains('objectifs') ||
+               !!el.querySelector(':scope > .unit-chip');
+      }}
+      function isStretchable(el){{
+        return el.matches('.frame, .exemple, .methode, .exo, .cols, .vgrid, .figv')
+          || (el.tagName === 'DIV' && !isHeader(el)
+              && !el.classList.contains('self-eval')
+              && !el.classList.contains('badge-row')
+              && !el.classList.contains('bulle-row')
+              && !el.classList.contains('attention')
+              && !el.classList.contains('astuce')
+              && !el.classList.contains('defi'));
+      }}
+      var spare = spareNow();
+
+      /* ── pages trop pleines : resserrer ── */
+      if (spare < -2) {{
+        for (var pass = 0; pass < 6 && spare < -2; pass++) {{
+          var deficit = -spare;
+          var share = deficit / Math.max(1, kids.length - 1);
+          kids.forEach(function(c, i){{
+            if (i === 0) return;
+            var m = parseFloat(getComputedStyle(c).marginTop) || 0;
+            var cut = Math.min(m, Math.max(share * 1.15, 2));
+            if (cut > 0.3) c.style.marginTop = Math.max(0, m - cut) + 'px';
+          }});
+          kids.forEach(function(c){{
+            if (!c.matches('.frame, .exemple, .methode, .defi, .exo, .badge-row')) return;
+            var pb = parseFloat(getComputedStyle(c).paddingBottom) || 0;
+            var pt = parseFloat(getComputedStyle(c).paddingTop) || 0;
+            var mb = parseFloat(getComputedStyle(c).marginBottom) || 0;
+            if (pb > 3) c.style.paddingBottom = (pb - 1.8) + 'px';
+            if (pt > 3) c.style.paddingTop = (pt - 1.2) + 'px';
+            if (mb > 2) c.style.marginBottom = (mb - 1) + 'px';
+          }});
+          inner.querySelectorAll('.dashcard').forEach(function(d){{
+            var h = d.getBoundingClientRect().height;
+            if (h > 32) d.style.minHeight = Math.max(24, h - 10) + 'px';
+          }});
+          inner.querySelectorAll('.dotl, .line').forEach(function(ln){{
+            var h = ln.getBoundingClientRect().height || 8;
+            if (h > 6) ln.style.height = Math.max(5.5, h - 1.2) + 'px';
+          }});
+          spare = spareNow();
+        }}
+      }}
+
+      /* ── pages creuses : redistribuer (sans QR stretch agressif) ── */
+      if (spare > 28 && !hasQR) {{
+        var cushion = Math.min(14, Math.max(6, spare * 0.08));
+        inner.style.paddingBottom = (padB + cushion) + 'px';
+        padB += cushion;
+        spare -= cushion;
+      }}
+      if (spare > 28) {{
+        var targets = [];
+        kids.forEach(function(c, i){{
+          if (i === 0) return;
+          if (isHeader(kids[i-1]) && isHeader(c)) return;
+          if (c.classList.contains('self-eval')) return;
+          if (c.classList.contains('attention') || c.classList.contains('astuce')) return;
+          targets.push(c);
+        }});
+        if (targets.length) {{
+          var cap = hasQR ? 18 : (spare > 280 ? 72 : spare > 180 ? 48 : spare > 100 ? 32 : 22);
+          var extra = Math.min(spare / targets.length, cap);
+          targets.forEach(function(c){{
+            var m = parseFloat(getComputedStyle(c).marginTop) || 0;
+            c.style.marginTop = (m + extra) + 'px';
+          }});
+          spare = spareNow();
+        }}
+      }}
+      if (spare > 40 && !hasQR) {{
+        var stretch = null;
+        for (var i = kids.length - 1; i >= 0; i--) {{
+          if (isStretchable(kids[i])) {{ stretch = kids[i]; break; }}
+        }}
+        if (stretch) stretch.style.flexGrow = '1';
+      }}
+      /* garantir dégagement QR / n° page */
+      for (var g = 0; g < 12 && spareNow() < 2; g++) {{
+        var cut = false;
+        for (var j = kids.length - 1; j >= 0 && !cut; j--) {{
+          var lines = kids[j].querySelectorAll('.dotl, .line, .dashcard');
+          if (lines.length > 1) {{ lines[lines.length - 1].remove(); cut = true; }}
+        }}
+        if (!cut) {{
+          inner.querySelectorAll('.dotl, .line').forEach(function(ln){{
+            var h = ln.getBoundingClientRect().height || 8;
+            if (h > 5.5) ln.style.height = Math.max(5.2, h - 1.2) + 'px';
+          }});
+        }}
+        refreshKids();
+      }}
+    }});
+  }}
+  function run(){{
+    function go(){{ composer(); }}
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(go);
+    else go();
+  }}
+  window.__majorComposer = composer;
+  window.addEventListener('beforeprint', function(){{ composer(); }});
+  if (document.readyState === 'complete') run();
+  else window.addEventListener('load', run);
+}})();
+</script>
 </body>
 </html>'''
 

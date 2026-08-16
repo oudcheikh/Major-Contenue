@@ -12,7 +12,7 @@ import base64
 import io
 
 import qrcode
-from qrcode.constants import ERROR_CORRECT_M
+from qrcode.constants import ERROR_CORRECT_Q
 
 BASE_URL = 'https://major-eval.vercel.app'
 COLORS = {'math': '#ea580c', 'sci': '#059669', 'ar': '#7c3aed', 'isl': '#0d9488',
@@ -28,9 +28,9 @@ def unit_id(part, num):
 
 
 def _qr_b64(url, color):
-    key = (url, color)
+    key = (url, color, 'Q')
     if key not in _cache:
-        qr = qrcode.QRCode(error_correction=ERROR_CORRECT_M, box_size=8, border=2)
+        qr = qrcode.QRCode(error_correction=ERROR_CORRECT_Q, box_size=10, border=2)
         qr.add_data(url)
         qr.make(fit=True)
         img = qr.make_image(fill_color=color, back_color='white')
@@ -41,11 +41,11 @@ def _qr_b64(url, color):
 
 
 def lesson_qr_img(part, num):
-    """<img> du QR leçon, même gabarit que le QR décoratif du video_box (.qr 12.5mm)."""
+    """<img> du QR leçon (gabarit video_box ~15.5mm)."""
     url = f'{BASE_URL}/#/lesson/{unit_id(part, num)}'
     b64 = _qr_b64(url, COLORS[part])
     return (f'<img class="qr" src="data:image/png;base64,{b64}" '
-            f'style="width:12.5mm;height:12.5mm;margin-top:.8mm;border-radius:1mm" '
+            f'style="width:15.5mm;height:15.5mm;margin-top:.4mm" '
             f'alt="QR درس {unit_id(part, num)}"/>')
 
 
@@ -57,7 +57,7 @@ def correction_qr_card(part, num):
     color = COLORS[part]
     return (f'<div class="qr-corr" style="border-color:{color}66">'
             f'<img src="data:image/png;base64,{b64}" alt="QR تصحيح {unit_id(part, num)}"/>'
-            f'<span style="color:{color}">📱 امسح للتصحيح والتدريب</span>'
+            f'<span style="color:{color}">امسح للتصحيح والتدريب</span>'
             f'</div>')
 
 
@@ -70,5 +70,5 @@ def lesson_qr_card(part, num):
     color = COLORS[part]
     return (f'<div class="qr-corr" style="border-color:{color}66">'
             f'<img src="data:image/png;base64,{b64}" alt="QR درس {unit_id(part, num)}"/>'
-            f'<span style="color:{color}">📱 امسح لفيديو الشرح</span>'
+            f'<span style="color:{color}">امسح لفيديو الشرح</span>'
             f'</div>')

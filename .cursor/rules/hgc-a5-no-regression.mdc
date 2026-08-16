@@ -1,0 +1,31 @@
+---
+description: Cahier Hist-Géo-Civique A5 — anti-régression typo, cartes, CSS
+globs: generateurs/histoire-geo-civique-a5/**
+alwaysApply: false
+---
+
+# HGC A5 — ne pas dégrader
+
+## Interdit sauf demande explicite de l'utilisateur
+- Changer `font-family`, `font-size`, Google Fonts, ou tailles typo dans `base_ai.py` / `base_hgc.py` / `build_hgc.py`
+- Toucher `base_ai.py` pour une tâche contenu HGC (contenu = `unites_*.py` seulement)
+- Remettre `svg.style.maxHeight` ou compresser les `.fig` dans le composer
+- Modifier les cartes SVG (`assets_hgc.py`) pendant une tâche lignes/texte/contenu
+
+## Typo verrouillée (référence)
+- Famille : **Cairo** (lien Google Fonts dans `build_hgc.py`)
+- Corps exercices / cadres : **8.2px**
+- Titres leçon : **12.5px**
+- Le `body` navigateur est à 16px : **ne jamais** laisser du texte de cadre hériter de ça — `.page-body` / `.frame` sont déjà fixés dans `CSS_HGC`
+
+## Composer (`build_hgc.py`)
+- Ne jamais écrire `style.fontSize` / `fontFamily`
+- Ne jamais injecter le bloc « ألخّص الفكرة » (composer-fill) — retiré partout
+- Ne jamais supprimer les `.dotl` / `.wline` / lignes d'exo
+- Ne jamais shrink les SVG `.fig`
+
+## Workflow tâches ciblées
+- Lignes de réponse → uniquement `dots()` / `wlines()` dans `unites_{hist,geo,civ}.py`
+- Contenu pédagogique → uniquement les `unites_*.py`
+- Rebuild : `build_hgc.py` puis PDF Playwright **après** `document.fonts.ready` (Cairo chargé)
+---

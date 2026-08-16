@@ -22,12 +22,17 @@ def vf(phrase):
 
 def relie(words, defs):
     """Relie chaque mot (colonne droite) à sa définition (colonne gauche, brouillée)."""
-    w = ''.join(f'<div class="pink-strip" style="margin-bottom:1.8mm;padding:0 2mm">{x}</div>' for x in words)
-    d = ''.join(f'<div style="background:#fff;border:1.2px solid #d78d33;border-radius:1.6mm;'
-                f'padding:1mm 2mm;font-size:8px;font-weight:700;margin-bottom:1.8mm;min-height:6mm;'
-                f'display:flex;align-items:center;line-height:1.4">{x}</div>' for x in defs)
-    return (f'<div class="cols nosep" style="align-items:start;gap:2mm 4mm;margin-top:1mm">'
-            f'<div>{w}</div><div>{d}</div></div>')
+    w = ''.join(
+        f'<div class="pink-strip" style="margin-bottom:1.4mm;padding:1.2mm 2mm;height:auto;min-height:6mm;'
+        f'text-align:center;line-height:1.35">{x}</div>' for x in words)
+    d = ''.join(
+        f'<div style="background:#fff;border:1.2px solid #d78d33;border-radius:1.6mm;'
+        f'padding:1.2mm 2.2mm;font-size:8.2px;font-weight:700;margin-bottom:1.4mm;min-height:6mm;'
+        f'display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.4">{x}</div>'
+        for x in defs)
+    # RTL : 1ʳᵉ colonne à droite (mots) · 2ᵉ à gauche (définitions, plus large)
+    return (f'<div style="display:grid;grid-template-columns:.95fr 1.35fr;gap:1.6mm 7mm;'
+            f'align-items:start;margin-top:1mm"><div>{w}</div><div>{d}</div></div>')
 
 
 # ═══════════════════ الوحدة 4 : التلوث (D17-D20) ═══════════════════
@@ -79,7 +84,7 @@ def u4_p2():
                    ['أ) زيادة التنوع البيولوجي', 'ب) اختفاء الأسماك والحيوانات المائية', 'ج) التنقية الطبيعية للأنهار']))}
 {exo(4, '⭐⭐', qcm('ماذا يمكن فعله لتقليل التلوث؟',
                    ['أ) استخدام وسائل النقل العام أو الدراجة', 'ب) رمي النفايات في أي مكان', 'ج) زيادة استخدام البلاستيك']))}
-{exo(5, '⭐⭐', 'أعطِ وسيلتين لمكافحة التلوث في مدرستك:')}'''
+{exo(5, '⭐⭐', 'أعطِ وسيلتين لمكافحة التلوث في مدرستك:' + dots(2))}'''
     return ('تمارين — أنواع التلوث وأسبابه', body, False)
 
 
@@ -97,16 +102,16 @@ def u4_p3():
 يمكن أن يُسبَّب تلوث الماء بالنفايات {OVAL} والمواد الكيميائية.<br>
 لتقليل التلوث، من المهم {OVAL} النفايات واستخدام طاقات {OVAL}.''')}
 {consigne('✦', 'اربط كل نوع تلوث بأحد عواقبه:')}
-{exo(8, '⭐⭐⭐', relie(['تلوث الهواء', 'تلوث الماء', 'التلوث الصوتي'],
-                      ['اختفاء الأسماك', 'التوتر واضطرابات النوم', 'أمراض تنفسية']))}'''
+{exo(8, '⭐⭐⭐', relie(['تلوث الهواء', 'تلوث الماء', 'تلوث التربة'],
+                      ['اختفاء الأسماك', 'تسمم التربة والمحاصيل', 'أمراض تنفسية']))}'''
     return ('تمارين — أكمل واربط', body, False)
 
 
 def u4_p4():
     body = f'''
 {badge_row('مسائل', 'وضعيات من محيطنا', 'garcon')}
-<div class="exemple"><b class="tag">✏️ مثال محلول:</b> مدرسة تستعمل {MX('100')} كيس بلاستيكي يوميًا وقلّصت الاستعمال بنسبة {MX('50 %')} ← الموفَّر = {MX('100 × 50 ÷ 100 = 50')} كيسًا.</div>
-{exo(1, '⭐⭐⭐', f'''في مدرسة بنواكشوط، تُستخدم {MX('500')} زجاجة بلاستيكية كل يوم. قرّرت المدرسة تركيب نوافير ماء، فانخفض استخدام الزجاجات بنسبة {MX('60 %')}.<br>
+<div class="exemple"><b class="tag">✏️ مثال محلول:</b> مدرسة تستعمل {MX('100')} كيس بلاستيكي يوميًا وقلّصت الاستعمال بنسبة {MX('50 %')} ← الموفَّر = {MX('100 × 50 ÷ 100 = 50')} كيسًا يوميًا.</div>
+{exo(1, '⭐⭐⭐', f'''في مدرسة في نواكشوط، تُستخدم {MX('500')} زجاجة بلاستيكية كل يوم. قرّرت المدرسة تركيب نوافير ماء، فانخفض استخدام الزجاجات بنسبة {MX('60 %')}.<br>
 كم زجاجة لا تزال تُستخدم يوميًا؟ ({MX('500')} − نسبة {MX('60 %')})<div class="dashcard tall"></div>
 كم زجاجة سيتم توفيرها في أسبوع؟<div class="dashcard tall"></div>
 لماذا من المهم تقليل استخدام البلاستيك؟''' + dots(2))}
@@ -198,7 +203,7 @@ def u6_p1():
             'اللقاح تدريبٌ لجيش الدفاع في جسمك — قبل المعركة الحقيقية')}
 <div style="display:flex;gap:5mm;justify-content:center;margin:.6mm 0">
   {figure_img(FIGS_SCI['vaccination'], 20, 'التطعيم في المركز الصحي')}
-  {figure_img(FIGS_SCI['rougeole'], 15, 'الحصبة: مرض يقيني منه اللقاح')}
+  {figure_img(FIGS_SCI['rougeole'], 15, 'الحصبة: مرض يقي منه اللقاح')}
 </div>
 {bulle('fille', 'في المركز الصحي، يسجّل الممرض مواعيد لقاحاتك في <b>دفتر التطعيم</b>. احتفظ به دائمًا فهو يحمي صحتك!')}'''
     return ('التطعيم', body, False)
@@ -240,8 +245,8 @@ def u6_p3():
 def u6_p4():
     body = f'''
 {badge_row('مسائل', 'وضعيات حول التطعيم', 'garcon')}
-<div class="exemple"><b class="tag">✏️ مثال محلول:</b> مدرسة فيها {MX('200')} تلميذ، طُعّم منهم {MX('50 %')} ← عدد المطعَّمين = {MX('200 × 50 ÷ 100 = 100')} تلميذًا.</div>
-{exo(1, '⭐⭐⭐', f'''في مدرسة بنواكشوط فيها {MX('500')} تلميذ، تم تطعيم {MX('90 %')} من الأطفال ضد الإنفلونزا.<br>
+<div class="exemple"><b class="tag">✏️ مثال محلول:</b> مدرسة فيها {MX('200')} تلميذ، طُعّم منهم {MX('50 %')} ← عدد المطعَّمين = {MX('200 × 50 ÷ 100 = 100')} تلميذ.</div>
+{exo(1, '⭐⭐⭐', f'''مدرسة في نواكشوط فيها {MX('500')} تلميذ، تم تطعيم {MX('90 %')} من الأطفال ضد الإنفلونزا.<br>
 كم تلميذًا تم تطعيمه؟ ({MX('500 × 90 ÷ 100')})<div class="dashcard tall"></div>
 كم تلميذًا لم يتم تطعيمه؟<div class="dashcard tall"></div>
 لماذا من المهم أن يكون غالبية التلاميذ مطعَّمين؟''' + dots(2))}

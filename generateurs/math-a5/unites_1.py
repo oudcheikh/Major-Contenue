@@ -72,7 +72,7 @@ def u1_p2():
     body = f'''
 {badge_row('تمارين', 'قراءة الأعداد وكتابتها', 'garcon')}
 <div class="exemple"><b class="tag">✏️ مثال محلول:</b> خمسة وعشرون ألفًا وثلاثمائة وسبعة ← أكتبه بالأرقام: {MX('25 307')} (لا أنسى صفر العشرات!).
-{place_discs([('100', 3), ('10', 0), ('1', 7)], 'منزلة العشرات فارغة ← أكتب 0 تحتها، ولا أحذفها أبدًا!')}</div>
+{place_discs([('10000', 2), ('1000', 5), ('100', 3), ('10', 0), ('1', 7)], 'منزلة العشرات فارغة ← أكتب 0 تحتها، ولا أحذفها أبدًا!')}</div>
 {exo(1, '⭐', f'''اكتب الأعداد بالأرقام:<br>
 اثنان وأربعون ألفًا ومئة وثمانية عشر <span class="oval l"></span><br>
 مئتا ألف وثمانية عشر <span class="oval l"></span><br>
@@ -178,6 +178,9 @@ def u2_p2():
 {methode('أقارن كسرين لهما نفس المقام', [
     'أتأكد أولًا أن المقامين متساويان.',
     'أقارن البسطين: صاحب <b>البسط الأكبر</b> هو الكسر الأكبر.'])}
+{methode('أقارن كسرين لهما نفس البسط', [
+    'أتأكد أن البسطين متساويان.',
+    'صاحب <b>المقام الأصغر</b> هو الكسر الأكبر (لأن الحصص أكبر).'])}
 <div class="exemple"><b class="tag">✏️ مثال محلول:</b> {FR(5,7)} &gt; {FR(2,7)} لأن المقامين متساويان والبسط 5 أكبر من البسط 2.</div>
 {consigne(1, 'اكتب كسر الجزء الملوّن في كل دائرة، ثم قارن باستعمال > أو < أو = :')}
 <div class="cols nosep">
@@ -243,19 +246,24 @@ def u2_p4():
           <th style="background:var(--p-green);color:#33591f">بالنسبة المئوية</th></tr>
       {row('بطاقة خضراء', '', '', '75 %')}
       {row('بطاقة صفراء', '', '', '12,5 %')}
+      {row('بطاقة وردية', '', '', '')}
       {row('بطاقة لعدد أصغر أو يساوي 12', FR(12,16), '0,75', '')}
       {row('بطاقة لعدد زوجي', '', '0,5', '')}
     </table>'''
     body = f'''
-{badge_row('تمارين', 'تحدٍّ 🌟 الكسر والعدد العشري والنسبة', 'garcon')}
+{badge_row('تمارين', 'تحدّي 🌟 الكسر والعدد العشري والنسبة', 'garcon')}
 {consigne(1, 'توقّع نتيجة سحب بطاقة عشوائية من مجموعة البطاقات أدناه:')}
 {grid}
 {consigne(2, 'أكمل مخطط الاحتمالات بملء القيم الناقصة:')}
 {table}
 {astuce(f'الكسر = {FR("عدد البطاقات الموافقة","عدد البطاقات كلها")} ← أحوّله إلى عدد عشري ثم إلى نسبة مئوية (× 100).')}
-{defi(f'''في مقهى بنواكشوط، شرب الزبائن {FR(1,2)} إبريق الشاي صباحًا و{FR(1,4)} الإبريق مساءً. أي كسر من الإبريق بقي؟ {OVS}
+{defi(f'''في مقهى في نواكشوط، شرب الزبائن {FR(1,2)} إبريق الشاي صباحًا و{FR(1,4)} الإبريق مساءً. أي كسر من الإبريق بقي؟ {OVS}
 <div class="fstrip" style="width:38mm;margin:1mm auto 0"><div class="fcell fill-b"></div><div class="fcell fill-b"></div><div class="fcell fill-o"></div><div class="fcell"></div></div>
-<div style="text-align:center;font-size:7.6px;font-weight:800;color:#5c5238">🟦 صباحًا · 🟧 مساءً · ⬜ ؟</div>''')}'''
+<div style="display:flex;justify-content:center;align-items:center;gap:3.5mm;font-size:7.6px;font-weight:800;color:#5c5238;margin-top:.8mm">
+<span style="display:inline-flex;align-items:center;gap:1.2mm"><span style="width:3mm;height:3mm;border-radius:.6mm;background:#8fd4e8;border:1px solid #7aa8b8"></span>صباحًا</span>
+<span style="display:inline-flex;align-items:center;gap:1.2mm"><span style="width:3mm;height:3mm;border-radius:.6mm;background:#f5b34c;border:1px solid #c98f35"></span>مساءً</span>
+<span style="display:inline-flex;align-items:center;gap:1.2mm"><span style="width:3mm;height:3mm;border-radius:.6mm;background:#fff;border:1px solid #9a9078"></span>بقي = ؟</span>
+</div>''')}'''
     return ('تحدّي — من الكسر إلى النسبة المئوية', body, True)
 
 
