@@ -1,0 +1,66 @@
+{
+  "clipped": [],
+  "underQR": [],
+  "underPN": [],
+  "underFoot": [],
+  "overlaps": [],
+  "sparse": [
+    {
+      "pn": "5",
+      "spare": 238,
+      "fill": 67,
+      "kids": 6
+    },
+    {
+      "pn": "131",
+      "spare": 151,
+      "fill": 79,
+      "kids": 6
+    },
+    {
+      "pn": "117",
+      "spare": 141,
+      "fill": 81,
+      "kids": 6
+    },
+    {
+      "pn": "15",
+      "spare": 109,
+      "fill": 84,
+      "kids": 7
+    },
+    {
+      "pn": "32",
+      "spare": 101,
+      "fill": 86,
+      "kids": 7
+    },
+    {
+      "pn": "21",
+      "spare": 94,
+      "fill": 87,
+      "kids": 6
+    }
+  ],
+  "dense": [
+    {
+      "pn": "56",
+      "spare": -8,
+      "fill": 101
+    },
+    {
+      "pn": "18",
+      "spare": -5,
+      "fill": 101
+    }
+  ],
+  "counts": {
+    "clipped": 0,
+    "underQR": 0,
+    "underPN": 0,
+    "underFoot": 0,
+    "overlaps": 0,
+    "sparse": 6,
+    "dense": 2
+  }
+}
