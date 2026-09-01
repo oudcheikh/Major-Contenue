@@ -45,12 +45,24 @@ archives/       → anciennes versions remplacées
 - `pptx/` — les pptx d'origine : `math_principal.pptx` (FR), `_ar` (arabe), `_ar_A5`, `_ar_A5_scan`.
 - `references/` — manuels officiels arabes (كتاب الرياضيات السنة السادسة, دروس مدارس المعارف).
 
-## Apps (`apps/`)
+## Apps (`apps/`) et carte des dépôts
 
-- `major-web/` — front Vite/React (repo git : github.com/oudcheikh/major-web).
-- `math-api/` — API FastAPI maths. ⚠️ le `.venv` a été déplacé → le recréer :
+Ce dépôt (**Major-Contenue**) contient les cahiers, générateurs et vidéos.
+Les applications vivent dans `apps/` mais ont chacune **leur propre dépôt GitHub**
+(exclues d'ici via `.gitignore`) — d'où l'activité qui n'apparaît pas sur ce repo :
+
+| Dossier local | Dépôt GitHub (oudcheikh/…) | Visibilité | Rôle |
+|---|---|---|---|
+| *(racine)* | `Major-Contenue` | public | cahiers, générateurs, vidéos, sources |
+| `apps/major-web/` | `major-web` | privé | webapp fiches + QCM (Vercel : major-eval.vercel.app) |
+| `apps/major-mobile/` | `major-mobile` | privé | app Expo Android/iPhone |
+| `apps/major-admin/` | `major-admin` | privé | admin React/Firestore (élèves, écoles) |
+| `apps/math-api/` | `major-math-api` | privé | API FastAPI + Claude |
+| — | `major-videos` | public | releases : vidéos 1080p + APK téléchargeable |
+
+- `math-api/` — ⚠️ le `.venv` a été déplacé → le recréer :
   `cd apps/math-api && python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`
-- `major-contenue/` — workspace contenu Major (cahiers 4AF/6AF, QR codes, tutor-api, outils). Possède son propre `CLAUDE.md`.
+- `major-contenue/` — workspace contenu Major (cahiers 4AF/6AF, QR codes, tutor-api, outils). Possède son propre `CLAUDE.md`. Fusionné dans ce dépôt le 13/08/2026.
 
 ## Positionnement produit
 
