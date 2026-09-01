@@ -1,8 +1,10 @@
-# apps ayant leurs propres dépôts GitHub (major-contenue est suivi ici depuis la fusion du 13/08/2026)
+# apps ayant leurs propres dépôts GitHub
+# (major-contenue fusionné ici le 13/08/2026, major-mobile le 01/09/2026)
 apps/major-web/
-apps/major-mobile/
 apps/major-admin/
 apps/math-api/
+# sauvegarde du .git de l'ancien dépôt autonome major-mobile
+archives/major-mobile-dotgit-sauvegarde-*.tar.gz
 # environnements et caches Python
 generateurs/.venv/
 __pycache__/
