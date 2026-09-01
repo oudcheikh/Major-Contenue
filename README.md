@@ -55,7 +55,7 @@ Les applications vivent dans `apps/` mais ont chacune **leur propre dépôt GitH
 |---|---|---|---|
 | *(racine)* | `Major-Contenue` | public | cahiers, générateurs, vidéos, sources |
 | `apps/major-web/` | `major-web` | privé | webapp fiches + QCM (Vercel : major-eval.vercel.app) |
-| `apps/major-mobile/` | `major-mobile` | privé | app Expo Android/iPhone |
+| `apps/major-mobile/` | *(suivi ici depuis le 01/09/2026)* | — | app Expo Android/iPhone ; ancien dépôt `major-mobile` = archive |
 | `apps/major-admin/` | `major-admin` | privé | admin React/Firestore (élèves, écoles) |
 | `apps/math-api/` | `major-math-api` | privé | API FastAPI + Claude |
 | — | `major-videos` | public | releases : vidéos 1080p + APK téléchargeable |

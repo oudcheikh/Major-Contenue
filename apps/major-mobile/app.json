@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "name": "Major",
+    "slug": "major-mobile",
+    "scheme": "major",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Major utilise la caméra pour lire le QR des pages du cahier."
+        }
+      ],
+      "expo-video",
+      "expo-audio"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "mr.major.mobile",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "49014b47-8279-4285-b6ca-14ee93ddb277"
+      }
+    },
+    "owner": "mmcheikh",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/49014b47-8279-4285-b6ca-14ee93ddb277"
+    }
+  }
+}
