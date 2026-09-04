@@ -6,6 +6,7 @@
 export const SCI6_LESSONS = [
   {
     id: 'sci6-u1',
+    videoId: 'KKJL-hEMUkI',
     title: 'التوازن الغذائي',
     qrCode: 'major://lesson/sci6-u1',
     emoji: '🍽️',
@@ -27,6 +28,7 @@ export const SCI6_LESSONS = [
   },
   {
     id: 'sci6-u2',
+    videoId: 'wNUSASZ1WXg',
     title: 'التوازن الطاقوي',
     qrCode: 'major://lesson/sci6-u2',
     emoji: '⚡',
@@ -48,6 +50,7 @@ export const SCI6_LESSONS = [
   },
   {
     id: 'sci6-u3',
+    videoId: 'GnhMC-p8M0I',
     title: 'التصحر',
     qrCode: 'major://lesson/sci6-u3',
     emoji: '🏜️',
@@ -69,6 +72,7 @@ export const SCI6_LESSONS = [
   },
   {
     id: 'sci6-u4',
+    videoId: 'J8KJijKRjwo',
     title: 'التلوث',
     qrCode: 'major://lesson/sci6-u4',
     emoji: '🏭',

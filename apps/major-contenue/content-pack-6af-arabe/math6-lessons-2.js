@@ -230,6 +230,7 @@ export const MATH6_LESSONS_2 = [
   },
   {
     id: 'math6-u28',
+    videoId: '8Agb5COpGx8',
     title: 'الوحدة 28 — الأشكال الرباعية',
     qrCode: 'major://lesson/math6-u28',
     emoji: '🔷',
@@ -251,6 +252,7 @@ export const MATH6_LESSONS_2 = [
   },
   {
     id: 'math6-u29',
+    videoId: 'NcIP-6rQe94',
     title: 'الوحدة 29 — المساحات والقياسات الزراعية',
     qrCode: 'major://lesson/math6-u29',
     emoji: '🌾',
@@ -272,6 +274,7 @@ export const MATH6_LESSONS_2 = [
   },
   {
     id: 'math6-u30',
+    videoId: 'M_NGkapp_b4',
     title: 'الوحدة 30 — الدائرة والقرص: المحيط والمساحة',
     qrCode: 'major://lesson/math6-u30',
     emoji: '⭕',
@@ -293,6 +296,7 @@ export const MATH6_LESSONS_2 = [
   },
   {
     id: 'math6-u31',
+    videoId: 'QnQN_DHNGdY',
     title: 'الوحدة 31 — المجسمات والحجوم والسعات',
     qrCode: 'major://lesson/math6-u31',
     emoji: '📦',
