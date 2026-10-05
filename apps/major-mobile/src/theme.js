@@ -37,6 +37,7 @@ export const SUBJECT_META = {
   isl6:         { color: '#0d9488', bg: '#e7f8f4', icon: '☪️', label: 'Islamique 6AF',     labelAr: 'التربية الإسلامية',  isArabic: true },
   hg6:          { color: '#b45309', bg: '#fdf3e3', icon: '🏰', label: 'Histoire-Géo 6AF',  labelAr: 'التاريخ والجغرافيا', isArabic: true },
   civ6:         { color: '#0f7b3a', bg: '#e8f7ee', icon: '🤝', label: 'Civique 6AF',       labelAr: 'التربية المدنية',    isArabic: true },
+  fr6:          { color: '#38bdf8', bg: '#eff6ff', icon: '📖', label: 'Français 6AF',      labelAr: 'اللغة الفرنسية',     isArabic: false },
 }
 
 export const LEVELS = [

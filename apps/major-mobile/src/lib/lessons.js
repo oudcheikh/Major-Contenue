@@ -14,7 +14,7 @@ for (const subject of COURSES.subjects) {
 // Seuls les 6 packs 6AF des cahiers imprimés sont visibles dans l'app ;
 // les anciennes matières de démo (contenu français) restent dans l'index
 // pour les vieux QR mais n'apparaissent pas à l'accueil.
-const PACK_IDS = ['math6-ar', 'sci6-ar', 'ar6', 'isl6', 'hg6', 'civ6']
+const PACK_IDS = ['math6-ar', 'sci6-ar', 'ar6', 'isl6', 'hg6', 'civ6', 'fr6']
 
 export function getAllSubjects() {
   return COURSES.subjects

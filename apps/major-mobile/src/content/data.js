@@ -11,6 +11,8 @@ import { ISL6_LESSONS, ISL6_EXERCISES } from './content-6af/isl6-lessons.js'
 import { HG6_LESSONS_1, HG6_EXERCISES_1 } from './content-6af/hg6-lessons-1.js'
 import { HG6_LESSONS_2, HG6_EXERCISES_2 } from './content-6af/hg6-lessons-2.js'
 import { CIV6_LESSONS, CIV6_EXERCISES } from './content-6af/civ6-lessons.js'
+import { FR6_LESSONS_1, FR6_EXERCISES_1 } from './content-6af/fr6-lessons-1.js'
+import { FR6_LESSONS_2, FR6_EXERCISES_2 } from './content-6af/fr6-lessons-2.js'
 
 export const COURSES = {
   "version": "1.0",
@@ -974,6 +976,17 @@ export const COURSES = {
       "icon": "🤝",
       "isArabic": true,
       "lessons": CIV6_LESSONS
+    },
+    // ── Cahier Major français 6AF (QR fr6-u01…u29) ──
+    {
+      "id": "fr6",
+      "label": "Français 6AF",
+      "labelAr": "اللغة الفرنسية",
+      "color": "#38bdf8",
+      "gradient": ["#0284c7", "#38bdf8"],
+      "icon": "📖",
+      "isArabic": false,
+      "lessons": [...FR6_LESSONS_1, ...FR6_LESSONS_2]
     }
   ]
 }
@@ -2201,6 +2214,7 @@ export const EXERCISES = {
   isl6: ISL6_EXERCISES,
   hg6: [...HG6_EXERCISES_1, ...HG6_EXERCISES_2],
   civ6: CIV6_EXERCISES,
+  fr6: [...FR6_EXERCISES_1, ...FR6_EXERCISES_2],
 };
 
 export const SUBJECTS = [
