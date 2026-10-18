@@ -416,6 +416,71 @@ _COMPOSER_JS = r'''
 </script>
 '''
 
+# ─── page ملاحظاتي (garde le total de pages pair) + 4e de couverture ───
+NOTES_PAGE = '''<div class="sheet">
+  <div class="page-main">
+    <div class="page-body" style="display:flex;flex-direction:column;justify-content:center;padding:8mm 9mm">
+      <span style="align-self:flex-start;background:#7c2d12;color:#fff;border-radius:999px;padding:1.6mm 4.5mm;font-size:9.5px;font-weight:900;margin-bottom:4mm">📝 ملاحظاتي</span>
+      <div style="flex:1;background:repeating-linear-gradient(to bottom,transparent 0,transparent 7.1mm,#cbd5e1 7.1mm,#cbd5e1 7.4mm)"></div>
+    </div>
+  </div>
+</div>'''
+
+_PACK_CARDS_AR = [
+    ('📐', 'الرياضيات والعلوم', '31 وحدة + 6 فصول', False),
+    ('📘', 'اللغة العربية والتربية الإسلامية', '18 وحدة + 8 فصول', False),
+    ('🏰', 'التاريخ والجغرافيا والتربية المدنية', '25 وحدة', True),
+    ('📖', 'الفرنسية Français', '29 درسًا', False),
+]
+_pack_cards_ar = ''.join(
+    f'''<div style="background:rgba(255,255,255,.12);border:.35mm solid rgba(255,255,255,{'.55' if cur else '.18'});border-radius:4mm;
+        padding:2.4mm 3mm;display:flex;align-items:center;gap:2.2mm">
+      <span style="font-size:13px">{e}</span>
+      <span style="display:flex;flex-direction:column;gap:.4mm;flex:1">
+        <strong style="font-size:8.4px;font-weight:900">{t}</strong>
+        <span style="font-size:6.6px;color:rgba(255,255,255,.85)">{s}</span>
+      </span>
+      {'<span style="background:#fde68a;color:#78350f;border-radius:999px;padding:.8mm 2.4mm;font-size:6.2px;font-weight:900">هذا الدفتر</span>' if cur else ''}
+    </div>''' for e, t, s, cur in _PACK_CARDS_AR)
+
+_PITCH_AR = ''.join(
+    f'''<div style="display:flex;align-items:flex-start;gap:2.4mm;background:rgba(255,255,255,.12);
+        border:.35mm solid rgba(255,255,255,.18);border-radius:4mm;padding:2.4mm 3mm">
+      <span style="font-size:11px">{e}</span>
+      <span style="font-size:8.2px;line-height:1.75;font-weight:700">{t}</span>
+    </div>''' for e, t in [
+        ('📖', 'أراجعُ القاعدة بشرح بسيط وأمثلة من بلادي موريتانيا.'),
+        ('✏️', 'أتدرّبُ بتمارين متدرّجة: ⭐ سهل، ⭐⭐ متوسط، ⭐⭐⭐ تحدٍّ.'),
+        ('📱', 'أمسحُ رمز QR في كل درس: فيديو الشرح، ألعاب تفاعلية وتصحيح فوري.'),
+    ])
+
+_back_qr = _qr_b64(BASE_URL, '#7c2d12')
+BACK_COVER = f'''<div class="sheet">
+  <div class="page-main" style="background:linear-gradient(135deg,#7c2d12 0%,#b45309 46%,#f59e0b 100%);color:#fff">
+    <div class="page-body" style="display:flex;flex-direction:column;justify-content:center;padding:7mm 8mm">
+      <div style="position:absolute;width:52mm;height:52mm;border-radius:50%;background:rgba(255,255,255,.1);left:-16mm;top:8mm"></div>
+      <div style="position:absolute;width:44mm;height:44mm;border-radius:50%;background:rgba(255,255,255,.1);right:-14mm;bottom:-14mm"></div>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span style="display:inline-flex;background:rgba(255,255,255,.14);border:.35mm solid rgba(255,255,255,.2);padding:1.6mm 3.6mm;border-radius:999px;font-size:7.6px;font-weight:900">المجموعة الكاملة · السنة السادسة</span>
+        <span class="im im-logo" role="img" aria-label="Major" style="width:13mm;height:13mm;background-color:rgba(255,255,255,.96);padding:1.4mm;border-radius:3.5mm"></span>
+      </div>
+      <h2 style="margin:4.5mm 0 1.2mm;font-size:19px;line-height:1.3;font-weight:900">مع دفاتر <span style="color:#fde68a">ماجور</span> أراجعُ وأفهمُ وأنجح</h2>
+      <p style="font-size:9px;color:rgba(255,255,255,.9);margin:0 0 3.6mm;font-weight:700">أربعة دفاتر تغطي البرنامج الرسمي كاملًا للسنة السادسة الأساسية.</p>
+      <div style="display:flex;flex-direction:column;gap:2mm;margin-bottom:3.6mm">{_PITCH_AR}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.2mm;margin-bottom:4mm">{_pack_cards_ar}</div>
+      <div style="background:rgba(255,255,255,.96);color:#182230;border-radius:3.6mm;padding:2.8mm 3.6mm;display:flex;align-items:center;gap:3.4mm">
+        <img src="data:image/png;base64,{_back_qr}" alt="QR Major" style="width:16.5mm;height:16.5mm"/>
+        <div style="display:flex;flex-direction:column;gap:.9mm;flex:1">
+          <strong style="font-size:9px;font-weight:900;color:#7c2d12">امسح وادخل عالم ماجور</strong>
+          <span style="font-size:7.4px;line-height:1.7;color:#334155">فيديوهات الشرح، ألعاب تفاعلية، اختبارات وتصحيح فوري — مجانًا مع دفترك.</span>
+          <span style="font-size:7.4px;font-weight:900;color:#b45309;direction:ltr;text-align:right">major-eval.vercel.app</span>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:7.4px;font-weight:800;color:rgba(255,255,255,.92);margin:4mm 0 0">صُنع بحبّ في موريتانيا 🇲🇷 · دفاتر ماجور · 2025-2026</p>
+    </div>
+  </div>
+</div>'''
+
 HTML = f'''<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -430,6 +495,8 @@ HTML = f'''<!DOCTYPE html>
 {COVER}
 {SOMMAIRE}
 {''.join(pages_html)}
+{NOTES_PAGE}
+{BACK_COVER}
 {_COMPOSER_JS}
 </body>
 </html>'''

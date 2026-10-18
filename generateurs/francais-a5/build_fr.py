@@ -158,6 +158,63 @@ COVER = f'''<div class="sheet">
 </div>'''
 
 
+# ─── 4e de couverture : la collection, le pitch parents, le QR du site ───
+_PACK_CARDS_FR = [
+    ('📐', 'Mathématiques & Sciences', 'en arabe · 31 + 6 leçons', False),
+    ('📘', 'Arabe & Éducation islamique', '18 + 8 leçons', False),
+    ('🏰', 'Histoire-Géo & Civique', 'en arabe · 25 leçons', False),
+    ('📖', 'Français', '29 leçons', True),
+]
+_pack_cards_fr = ''.join(
+    f'''<div style="background:rgba(255,255,255,.12);border:.35mm solid rgba(255,255,255,{'.55' if cur else '.18'});border-radius:4mm;
+        padding:2.4mm 3mm;display:flex;align-items:center;gap:2.2mm">
+      <span style="font-size:13px">{e}</span>
+      <span style="display:flex;flex-direction:column;gap:.4mm;flex:1">
+        <strong style="font-size:8.6px;font-weight:900">{t}</strong>
+        <span style="font-size:6.6px;color:rgba(255,255,255,.85)">{s}</span>
+      </span>
+      {'<span style="background:#fde68a;color:#78350f;border-radius:999px;padding:.8mm 2.4mm;font-size:6.2px;font-weight:900">ce cahier</span>' if cur else ''}
+    </div>''' for e, t, s, cur in _PACK_CARDS_FR)
+
+_PITCH_FR = ''.join(
+    f'''<div style="display:flex;align-items:flex-start;gap:2.4mm;background:rgba(255,255,255,.12);
+        border:.35mm solid rgba(255,255,255,.18);border-radius:4mm;padding:2.4mm 3mm">
+      <span style="font-size:11px">{e}</span>
+      <span style="font-size:8px;line-height:1.6;font-weight:700">{t}</span>
+    </div>''' for e, t in [
+        ('📖', 'Je revois la règle, expliquée simplement, avec des exemples de Mauritanie.'),
+        ('✏️', 'Je m’entraîne avec des exercices progressifs : ⭐ facile, ⭐⭐ moyen, ⭐⭐⭐ difficile.'),
+        ('📱', 'Je scanne le QR de chaque leçon : vidéo, jeux interactifs et correction instantanée.'),
+    ])
+
+_back_qr = _qr_b64(BASE_URL, '#0c4a6e')
+BACK_COVER = f'''<div class="sheet">
+  <div class="page-main" style="background:linear-gradient(135deg,#0c4a6e 0%,#0284c7 48%,#38bdf8 100%);color:#fff">
+    <div class="page-body" style="display:flex;flex-direction:column;justify-content:center;padding:7mm 8mm">
+      <div style="position:absolute;width:52mm;height:52mm;border-radius:50%;background:rgba(255,255,255,.1);left:-16mm;top:8mm"></div>
+      <div style="position:absolute;width:44mm;height:44mm;border-radius:50%;background:rgba(255,255,255,.1);right:-14mm;bottom:-14mm"></div>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span style="display:inline-flex;background:rgba(255,255,255,.14);border:.35mm solid rgba(255,255,255,.2);padding:1.6mm 3.6mm;border-radius:999px;font-size:7.6px;font-weight:900;letter-spacing:.5px">La collection complète · 6AF</span>
+        <span class="im im-logo" role="img" aria-label="Major" style="width:13mm;height:13mm;background-color:rgba(255,255,255,.96);padding:1.4mm;border-radius:3.5mm"></span>
+      </div>
+      <h2 style="margin:4.5mm 0 1.2mm;font-size:19px;line-height:1.15;font-weight:900">Avec les cahiers <span style="color:#fde68a">Major</span>,<br>je révise, je comprends, je réussis.</h2>
+      <p style="font-size:9px;color:rgba(255,255,255,.9);margin:0 0 3.6mm;font-weight:700">Quatre cahiers couvrent tout le programme officiel de la 6ème année fondamentale.</p>
+      <div style="display:flex;flex-direction:column;gap:2mm;margin-bottom:3.6mm">{_PITCH_FR}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.2mm;margin-bottom:4mm">{_pack_cards_fr}</div>
+      <div style="background:rgba(255,255,255,.96);color:#182230;border-radius:3.6mm;padding:2.8mm 3.6mm;display:flex;align-items:center;gap:3.4mm">
+        <img src="data:image/png;base64,{_back_qr}" alt="QR Major" style="width:16.5mm;height:16.5mm"/>
+        <div style="display:flex;flex-direction:column;gap:.9mm;flex:1">
+          <strong style="font-size:9px;font-weight:900;color:#0c4a6e">Scanne et entre dans le monde Major</strong>
+          <span style="font-size:7.4px;line-height:1.55;color:#334155">Vidéos de cours, jeux interactifs, quiz et correction instantanée — gratuits avec ton cahier.</span>
+          <span style="font-size:7.4px;font-weight:900;color:#0284c7">major-eval.vercel.app</span>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:7.4px;font-weight:800;color:rgba(255,255,255,.92);margin:4mm 0 0">Fait avec ❤ en Mauritanie 🇲🇷 · Cahiers Major · 2025-2026</p>
+    </div>
+  </div>
+</div>'''
+
+
 def toc_col(rows, color):
     return '<table style="width:100%;border-collapse:collapse">' + ''.join(
         f'<tr>'
@@ -421,6 +478,7 @@ HTML = f'''<!DOCTYPE html>
 {COVER}
 {SOMMAIRE}
 {''.join(pages_html)}
+{BACK_COVER}
 {_COMPOSER_JS}
 </body>
 </html>'''
