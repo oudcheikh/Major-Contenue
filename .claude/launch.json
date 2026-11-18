@@ -2,34 +2,16 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "major-mobile-web",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "start", "--prefix", "apps/major-mobile", "--", "--lan"],
-      "port": 8081
-    },
-    {
       "name": "major-admin",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--prefix", "apps/major-admin"],
-      "port": 5199
+      "runtimeArgs": ["run", "dev", "--prefix", "apps/major-admin", "--", "--port", "5187", "--strictPort"],
+      "port": 5187
     },
     {
       "name": "major-web",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--prefix", "apps/major-web"],
-      "port": 5173
-    },
-    {
-      "name": "scratchpad-static",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "/tmp/claude-1000/-home-pcmahmoud-Documents-Perso-Cahier-Math/51eb6031-e00d-4a29-ab77-ca0d483df5dd/scratchpad"],
-      "port": 8765
-    },
-    {
-      "name": "livrables",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["-y", "http-server", "livrables", "-p", "8741", "--cors"],
-      "port": 8741
+      "runtimeArgs": ["run", "dev", "--prefix", "apps/major-web", "--", "--port", "5188", "--strictPort"],
+      "port": 5188
     }
   ]
 }

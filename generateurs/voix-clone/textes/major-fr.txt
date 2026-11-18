@@ -1,0 +1,2 @@
+# « Major » prononcé à la française, avec la voix clonée (LANGUE=fr).
+Major.

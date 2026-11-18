@@ -27,3 +27,12 @@ generateurs/video-a5/VideoU1-final.mp4
 **/.edge-*/
 **/.npm-cache/
 **/_previews/
+
+# CLI vercel installée à la racine (package.json versionné, dépendances non)
+node_modules/
+# fichiers d'échange de l'éditeur Kate
+*.kate-swp
+# voix clonée : enregistrement de référence personnel + rendus intermédiaires
+# (régénérables ; les vidéos finales sont dans livrables/videos/)
+generateurs/voix-clone/ref/
+generateurs/voix-clone/sortie/
