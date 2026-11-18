@@ -38,6 +38,15 @@ export const SUBJECT_META = {
   hg6:          { color: '#b45309', bg: '#fdf3e3', icon: '🏰', label: 'Histoire-Géo 6AF',  labelAr: 'التاريخ والجغرافيا', isArabic: true },
   civ6:         { color: '#0f7b3a', bg: '#e8f7ee', icon: '🤝', label: 'Civique 6AF',       labelAr: 'التربية المدنية',    isArabic: true },
   fr6:          { color: '#38bdf8', bg: '#eff6ff', icon: '📖', label: 'Français 6AF',      labelAr: 'اللغة الفرنسية',     isArabic: false },
+  mathbr:       { color: '#8b5cf6', bg: '#f3f0ff', icon: '🎓', label: 'Maths — BEPC (4AS)', labelAr: 'الرياضيات — ابريفه',  isArabic: false },
+  phybr:        { color: '#f43f5e', bg: '#fff1f2', icon: '⚡', label: 'Physique — BEPC (4AS)', labelAr: 'الفيزياء — ابريفه', isArabic: false },
+  snbr:         { color: '#10b981', bg: '#ecfdf5', icon: '🧬', label: 'Sciences nat — BEPC (4AS)', labelAr: 'العلوم الطبيعية — ابريفه', isArabic: false },
+  frbr:         { color: '#2563eb', bg: '#eff6ff', icon: '📖', label: 'Français — BEPC (4AS)', labelAr: 'الفرنسية — ابريفه', isArabic: false },
+  angbr:        { color: '#0ea5e9', bg: '#e0f2fe', icon: '🇬🇧', label: 'Anglais — BEPC (4AS)', labelAr: 'الإنجليزية — ابريفه', isArabic: false },
+  arbr:         { color: '#7c3aed', bg: '#f3f0ff', icon: '📘', label: 'Arabe — BEPC (4AS)', labelAr: 'اللغة العربية — ابريفه', isArabic: true },
+  islbr:        { color: '#0d9488', bg: '#e7f8f4', icon: '☪️', label: 'Islamique — BEPC (4AS)', labelAr: 'التربية الإسلامية — ابريفه', isArabic: true },
+  hgbr:         { color: '#b45309', bg: '#fdf3e3', icon: '🌍', label: 'Hist-Géo — BEPC (4AS)', labelAr: 'التاريخ والجغرافيا — ابريفه', isArabic: true },
+  civbr:        { color: '#0f7b3a', bg: '#e8f7ee', icon: '🤝', label: 'Civique — BEPC (4AS)', labelAr: 'التربية المدنية — ابريفه', isArabic: true },
 }
 
 export const LEVELS = [

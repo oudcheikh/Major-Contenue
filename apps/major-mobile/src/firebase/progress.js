@@ -57,10 +57,14 @@ async function writeLocal(map) {
 
 // Enregistre le résultat d'un quiz de leçon. Garde le MEILLEUR score par leçon
 // mais incrémente le nombre de tentatives.
-export async function recordQuiz({ lessonId, subjectId, score, total }) {
+export async function recordQuiz({ lessonId, subjectId, score, total, wrongIds = [] }) {
   const pct = total > 0 ? Math.round((score / total) * 100) : 0
   const map = await readLocal()
   const prev = map[lessonId]
+  // Cumul des questions ratées (id → nb d'échecs) : exploité par la page
+  // Analyse du site admin pour repérer les erreurs fréquentes.
+  const wrongCounts = { ...(prev?.wrongCounts || {}) }
+  for (const id of wrongIds) wrongCounts[id] = (wrongCounts[id] || 0) + 1
   const entry = {
     lessonId,
     subjectId,
@@ -69,6 +73,8 @@ export async function recordQuiz({ lessonId, subjectId, score, total }) {
     total,
     bestPct: prev ? Math.max(prev.bestPct, pct) : pct,
     attempts: (prev?.attempts || 0) + 1,
+    lastWrongIds: wrongIds,
+    wrongCounts,
     updatedAt: new Date().toISOString(),
   }
   map[lessonId] = entry

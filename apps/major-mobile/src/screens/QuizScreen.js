@@ -16,6 +16,7 @@ export default function QuizScreen({ route, navigation }) {
   const [selected, setSelected] = useState(null)
   const [score, setScore] = useState(0)
   const [finished, setFinished] = useState(false)
+  const [wrongIds, setWrongIds] = useState([])
 
   useLayoutEffect(() => {
     navigation.setOptions({ title: 'الاختبار' })
@@ -38,6 +39,7 @@ export default function QuizScreen({ route, navigation }) {
     buzz(ok)
     setSelected(i)
     if (ok) setScore((s) => s + 1)
+    else if (q.id) setWrongIds((w) => [...w, q.id])
   }
 
   function next() {
@@ -46,7 +48,7 @@ export default function QuizScreen({ route, navigation }) {
       setIdx((n) => n + 1)
       setSelected(null)
     } else {
-      recordQuiz({ lessonId, subjectId: lesson.subjectId, score, total: questions.length })
+      recordQuiz({ lessonId, subjectId: lesson.subjectId, score, total: questions.length, wrongIds })
       setFinished(true)
     }
   }

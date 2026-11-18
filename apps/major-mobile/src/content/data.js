@@ -14,6 +14,18 @@ import { CIV6_LESSONS, CIV6_EXERCISES } from './content-6af/civ6-lessons.js'
 import { FR6_LESSONS_1, FR6_EXERCISES_1 } from './content-6af/fr6-lessons-1.js'
 import { FR6_LESSONS_2, FR6_EXERCISES_2 } from './content-6af/fr6-lessons-2.js'
 
+// Packs Brevet (BEPC 4ème AS) — maths/PC/SN/français/anglais en français, le reste en arabe
+import { MATHBR_LESSONS_1, MATHBR_EXERCISES_1 } from './content-brevet/mathbr-lessons-1.js'
+import { MATHBR_LESSONS_2, MATHBR_EXERCISES_2 } from './content-brevet/mathbr-lessons-2.js'
+import { PHYBR_LESSONS, PHYBR_EXERCISES } from './content-brevet/phybr-lessons.js'
+import { SNBR_LESSONS, SNBR_EXERCISES } from './content-brevet/snbr-lessons.js'
+import { FRBR_LESSONS, FRBR_EXERCISES } from './content-brevet/frbr-lessons.js'
+import { ANGBR_LESSONS, ANGBR_EXERCISES } from './content-brevet/angbr-lessons.js'
+import { ARBR_LESSONS, ARBR_EXERCISES } from './content-brevet/arbr-lessons.js'
+import { ISLBR_LESSONS, ISLBR_EXERCISES } from './content-brevet/islbr-lessons.js'
+import { HGBR_LESSONS, HGBR_EXERCISES } from './content-brevet/hgbr-lessons.js'
+import { CIVBR_LESSONS, CIVBR_EXERCISES } from './content-brevet/civbr-lessons.js'
+
 export const COURSES = {
   "version": "1.0",
   "pays": "Mauritanie",
@@ -987,6 +999,97 @@ export const COURSES = {
       "icon": "📖",
       "isArabic": false,
       "lessons": [...FR6_LESSONS_1, ...FR6_LESSONS_2]
+    },
+    // ── Pack Brevet : Mathématiques BEPC 4AS (QR mathbr-u01…u18) ──
+    {
+      "id": "mathbr",
+      "label": "Maths — BEPC (4AS)",
+      "labelAr": "الرياضيات — ابريفه",
+      "color": "#8b5cf6",
+      "gradient": ["#6d28d9", "#8b5cf6"],
+      "icon": "🎓",
+      "isArabic": false,
+      "lessons": [...MATHBR_LESSONS_1, ...MATHBR_LESSONS_2]
+    },
+    {
+      "id": "phybr",
+      "label": "Physique — BEPC (4AS)",
+      "labelAr": "الفيزياء — ابريفه",
+      "color": "#f43f5e",
+      "gradient": ["#be123c", "#f43f5e"],
+      "icon": "⚡",
+      "isArabic": false,
+      "lessons": PHYBR_LESSONS
+    },
+    {
+      "id": "snbr",
+      "label": "Sciences nat — BEPC (4AS)",
+      "labelAr": "العلوم الطبيعية — ابريفه",
+      "color": "#10b981",
+      "gradient": ["#047857", "#10b981"],
+      "icon": "🧬",
+      "isArabic": false,
+      "lessons": SNBR_LESSONS
+    },
+    {
+      "id": "frbr",
+      "label": "Français — BEPC (4AS)",
+      "labelAr": "الفرنسية — ابريفه",
+      "color": "#2563eb",
+      "gradient": ["#1d4ed8", "#38bdf8"],
+      "icon": "📖",
+      "isArabic": false,
+      "lessons": FRBR_LESSONS
+    },
+    {
+      "id": "angbr",
+      "label": "Anglais — BEPC (4AS)",
+      "labelAr": "الإنجليزية — ابريفه",
+      "color": "#0ea5e9",
+      "gradient": ["#0369a1", "#0ea5e9"],
+      "icon": "🇬🇧",
+      "isArabic": false,
+      "lessons": ANGBR_LESSONS
+    },
+    {
+      "id": "arbr",
+      "label": "Arabe — BEPC (4AS)",
+      "labelAr": "اللغة العربية — ابريفه",
+      "color": "#7c3aed",
+      "gradient": ["#5b21b6", "#7c3aed"],
+      "icon": "📘",
+      "isArabic": true,
+      "lessons": ARBR_LESSONS
+    },
+    {
+      "id": "islbr",
+      "label": "Islamique — BEPC (4AS)",
+      "labelAr": "التربية الإسلامية — ابريفه",
+      "color": "#0d9488",
+      "gradient": ["#0f766e", "#0d9488"],
+      "icon": "☪️",
+      "isArabic": true,
+      "lessons": ISLBR_LESSONS
+    },
+    {
+      "id": "hgbr",
+      "label": "Hist-Géo — BEPC (4AS)",
+      "labelAr": "التاريخ والجغرافيا — ابريفه",
+      "color": "#b45309",
+      "gradient": ["#92400e", "#b45309"],
+      "icon": "🌍",
+      "isArabic": true,
+      "lessons": HGBR_LESSONS
+    },
+    {
+      "id": "civbr",
+      "label": "Civique — BEPC (4AS)",
+      "labelAr": "التربية المدنية — ابريفه",
+      "color": "#0f7b3a",
+      "gradient": ["#064e2b", "#0f7b3a"],
+      "icon": "🤝",
+      "isArabic": true,
+      "lessons": CIVBR_LESSONS
     }
   ]
 }
@@ -2215,6 +2318,17 @@ export const EXERCISES = {
   hg6: [...HG6_EXERCISES_1, ...HG6_EXERCISES_2],
   civ6: CIV6_EXERCISES,
   fr6: [...FR6_EXERCISES_1, ...FR6_EXERCISES_2],
+
+  // ── Packs Brevet : QCM BEPC 4AS ──
+  mathbr: [...MATHBR_EXERCISES_1, ...MATHBR_EXERCISES_2],
+  phybr: PHYBR_EXERCISES,
+  snbr: SNBR_EXERCISES,
+  frbr: FRBR_EXERCISES,
+  angbr: ANGBR_EXERCISES,
+  arbr: ARBR_EXERCISES,
+  islbr: ISLBR_EXERCISES,
+  hgbr: HGBR_EXERCISES,
+  civbr: CIVBR_EXERCISES,
 };
 
 export const SUBJECTS = [
